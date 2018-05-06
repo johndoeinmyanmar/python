@@ -1,0 +1,21 @@
+document.writeln("<script type=\"text\/javascript\"><!--\ngoogle_ad_client = \"ca-pub-5973519624968530\";\n\/* blo_pc_com_1_3328_3_no *\/\ngoogle_ad_slot = \"8370243462\";\ngoogle_ad_width = 336;\ngoogle_ad_height = 280;\n\/\/-->\n<\/script>\n<script type=\"text\/javascript\"\nsrc=\"\/\/pagead2.googlesyndication.com\/pagead\/show_ads.js\">\n<\/script>");    (function(){
+    var rubiconSyncFrame = document.createElement('iframe');
+    rubiconSyncFrame.id = 'multisync-iframe';
+    rubiconSyncFrame.height = 0;
+    rubiconSyncFrame.width = 0;
+    rubiconSyncFrame.marginHeight = 0;
+    rubiconSyncFrame.scrolling = 'no';
+    rubiconSyncFrame.frameBorder = 0;
+    rubiconSyncFrame.style.border = '0px';
+    rubiconSyncFrame.style.display = 'none';
+    rubiconSyncFrame.src = 'https://secure-assets.rubiconproject.com/utils/xapi/multi-sync.html?p=platformone&endpoint=apac';
+    if (window.addEventListener) {
+    window.addEventListener("load", function(){
+    window.document.body.appendChild(rubiconSyncFrame);
+    }, false);
+    } else if(window.attachEvent) {
+    window.attachEvent("onload", function(){
+    window.document.body.appendChild(rubiconSyncFrame);
+    });
+    }
+    })();

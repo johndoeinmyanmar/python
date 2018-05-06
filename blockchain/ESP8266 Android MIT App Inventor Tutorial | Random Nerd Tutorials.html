@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html class="" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Random Nerd Tutorials">
+<meta property="og:title" content="ESP8266 Android MIT App Inventor Tutorial">
+<meta name="twitter:title" content="ESP8266 Android MIT App Inventor Tutorial">
+<meta property="og:image" content="https://randomnerdtutorials.com/wp-content/uploads/2016/04/featured-image.png">
+<meta name="twitter:image:src" content="https://randomnerdtutorials.com/wp-content/uploads/2016/04/featured-image.png">
+<meta property="og:description" content="In this project, you’re going to build an Android app with the MIT App Inventor software that allows you to control the ESP8266 GPIOs.">
+<meta name="twitter:description" content="In this project, you’re going to build an Android app with the MIT App Inventor software that allows you to control the ESP8266 GPIOs.">
+<meta name="twitter:creator" content="@RuiSantosdotme">
+<meta name="twitter:site" content="@RuiSantosdotme">
+
+	<!--[if lt IE 9]>
+	<script src="http://randomnerdtutorials.com/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
+	<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="http://randomnerdtutorials.com/wp-content/themes/rise/css/ie8.css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="http://randomnerdtutorials.com/wp-content/themes/rise/css/ie7.css"/>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	
+	
+		<title>ESP8266 Android MIT App Inventor Tutorial | Random Nerd Tutorials</title>
+
+<link rel="shortcut icon" href="http://randomnerdtutorials.com/wp-content/uploads/2013/11/favicon.png">
+
+<!-- All in One SEO Pack 2.4.4.1 by Michael Torbert of Semper Fi Web Design[1841,1932] -->
+<link rel="author" href="https://plus.google.com/+RuiSantosdotme/posts">
+<meta name="description" content="In this project, you're going to build an Android app with the MIT App Inventor software that allows you to control the ESP8266 GPIOs.">
+
+<meta name="keywords" content="esp8266 controlled with android app,esp8266 android app controller,esp8266 mit app inventor,esp8266 android app mit app inventor,esp app inventor android">
+
+<link rel="canonical" href="http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Random Nerd Tutorials » Feed" href="http://randomnerdtutorials.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Random Nerd Tutorials » Comments Feed" href="http://randomnerdtutorials.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Random Nerd Tutorials » ESP8266 Controlled with Android App (MIT App Inventor) Comments Feed" href="http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/feed/">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v6.2.8 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/analytics.js" async=""></script><script type="text/javascript" data-cfasync="false">
+		var disableStr = 'ga-disable-UA-41273278-2';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-41273278-2', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/randomnerdtutorials.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.4"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script defer="defer" type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/wp-emoji-release.js"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="edd-styles-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/edd.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve_style_family_tve_flt-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/thrive_flat.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve_leads_forms-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve-leads-font-265c7da367b36033e563c9dac1dee64d-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css_004.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve-leads-font-f6c81527deafa02fd41da0884889f47e-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css_005.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve-leads-one_set-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/one_set.css" type="text/css" media="all">
+<link rel="stylesheet" id="rise-style-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-reset-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/reset.css" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-main-style-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/main_blue.css" type="text/css" media="all">
+<link rel="stylesheet" id="optimizepress-default-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/jquery.js"></script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var OptimizePress = {"ajaxurl":"http:\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","SN":"optimizepress","version":"2.5.7","script_debug":".min","localStorageEnabled":"","wp_admin_page":"","op_live_editor":"","op_page_builder":"","op_create_new_page":"","imgurl":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","OP_URL":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/","OP_JS":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","OP_PAGE_BUILDER_URL":"","include_url":"http:\/\/randomnerdtutorials.com\/wp-includes\/","op_autosave_interval":"300","op_autosave_enabled":"N","paths":{"url":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/","img":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","js":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","css":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/css\/"},"social":{"twitter":"optimizepress","facebook":"optimizepress","googleplus":"111273444733787349971"},"flowplayerHTML5":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/flowplayer\/flowplayer.swf","flowplayerKey":"","flowplayerLogo":"","mediaelementplayer":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/mediaelement\/","pb_unload_alert":"This page is asking you to confirm that you want to leave - data you have entered may not be saved.","pb_save_alert":"Please make sure you are happy with all of your options as some options will not be able to be changed for this page later.","search_default":"Search...","optimizemember":{"enabled":false,"version":"0"},"OP_LEADS_URL":"https:\/\/www.optimizeleads.com\/","OP_LEADS_THEMES_URL":"https:\/\/www.optimizeleads.com\/build\/themes\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/op-jquery-base-all.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"doc,exe,js,pdf,ppt,tgz,zip,xls","inbound_paths":"","home_url":"http:\/\/randomnerdtutorials.com","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/frontend_003.js"></script>
+<link rel="https://api.w.org/" href="http://randomnerdtutorials.com/wp-json/">
+<link rel="prev" title="New platform to learn electronics and programming is LIVE!" href="http://randomnerdtutorials.com/new-platform-to-learn-electronics-and-programming-is-live/">
+<link rel="next" title="19 Awesome Robots You Can Build With an Arduino" href="http://randomnerdtutorials.com/19-awesome-robots-you-can-build-with-an-arduino/">
+<meta name="generator" content="WordPress 4.9.4">
+<link rel="shortlink" href="http://randomnerdtutorials.com/?p=19973">
+<link rel="alternate" type="application/json+oembed" href="http://randomnerdtutorials.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Frandomnerdtutorials.com%2Fesp8266-controlled-with-android-app-mit-app-inventor%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://randomnerdtutorials.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Frandomnerdtutorials.com%2Fesp8266-controlled-with-android-app-mit-app-inventor%2F&amp;format=xml">
+<meta name="generator" content="Easy Digital Downloads v2.8.18">
+<meta name="generator" content="EDD CFM v2.1.1">
+
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+<link href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css_002.css" rel="stylesheet" type="text/css"><link href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css_003.css" rel="stylesheet" type="text/css">		<style type="text/css">.wp-video-shortcode {
+				max-width: 100% !important;
+			}
+			.bSe a {clear: right;}
+			.bSe blockquote {clear: both;}
+			body { background:#FFF; }.cnt article h1.entry-title a { color:#0f0f0f; }.cnt article h2.entry-title a { color:#0f0f0f; }.bSe h1, h1.entry-title, h1.entry-title a { color:#0f0f0f; }.bSe h2 { color:#0f0f0f; }.bSe h3 { color:#0f0f0f; }.bSe h4 { color:#0f0f0f; }.bSe h5 { color:#0f0f0f; }.bSe h6 { color:#0f0f0f; }.bSe p, .mry .awr-e p { color:#303030; }.cnt .bSe { color:#303030; }.cnt h1 a, .tve-woocommerce .bSe .awr .entry-title, .tve-woocommerce .bSe .awr .page-title{font-family:Roboto,sans-serif;}.bSe h1{font-family:Roboto,sans-serif;}.bSe h2,.tve-woocommerce .bSe h2{font-family:Roboto,sans-serif;}.bSe h3,.tve-woocommerce .bSe h3{font-family:Roboto,sans-serif;}.bSe h4{font-family:Roboto,sans-serif;}.bSe h5{font-family:Roboto,sans-serif;}.bSe h6{font-family:Roboto,sans-serif;}#text_logo{font-family:Roboto,sans-serif;}.cnt h1 a { font-weight:500; }.bSe h1 { font-weight:500; }.bSe h2 { font-weight:500; }.bSe h3 { font-weight:500; }.bSe h4 { font-weight:500; }.bSe h5 { font-weight:500; }.bSe h6 { font-weight:500; }.cnt{font-family:Open Sans,sans-serif;font-weight:400;}article strong {font-weight: bold;}.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p, .brd ul li, header nav ul li a, header nav ul li > ul li a, .has-extended.has-heading .colch, footer, footer .fmm p, .aut-f{font-family:Open Sans,sans-serif;font-weight:400;}article strong {font-weight: bold;}.bSe h1, .bSe .entry-title { font-size:38px; }.cnt { font-size:18px; }.thrivecb { font-size:18px; }.out { font-size:18px; }.aut p { font-size:18px; }.cnt p { line-height:1.5em; }.thrivecb { line-height:1.5em; }.bSe a, .cnt a { color:#1a0dab; }.bSe .faq h4{font-family:Open Sans,sans-serif;font-weight:400;}article strong {font-weight: bold;}header nav > ul.menu > li > a { color:#fff; }header nav > ul.menu > li >  a:hover { color:#fff; }header nav > ul > li.current_page_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li > a:active { color:#fff; }header #logo > a > img { max-width:210px; }header ul.menu > li.h-cta > a { color:#FFFFFF!important; }header ul.menu > li.h-cta > a { background:#4b7cc7; }header ul.menu > li.h-cta > a { border-color:#4b7cc7; }header ul.menu > li.h-cta > a:hover { color:#ffffff!important; }header ul.menu > li.h-cta > a:hover { background:#transparent; }</style>
+		
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="http://randomnerdtutorials.com/wp-content/plugins/optimizePressPlugin/lib/js/selectivizr-1.0.2-min.js?ver=1.0.2"></script>
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="http://randomnerdtutorials.com/wp-content/plugins/optimizePressPlugin/lib/js//html5shiv.min.js"></script>
+        <![endif]-->
+    
+            <style type="text/css" id="op_header_css">
+            
+            </style>
+            			<style type="text/css" id="wp-custom-css">
+				
+
+/*
+	CSS Migrated from Jetpack:
+*/
+
+a:hover { 
+text-decoration: underline; 
+/*font-weight: bold;*/
+}
+
+.gist-it-gist .gist-file .gist-data pre, .gister-gist .gist-file .gist-data pre {
+	max-height: 600px;
+}
+
+h2
+{
+font-size: 2.0em;
+color: #002060;
+}
+
+h3
+{
+font-size: 1.8em;
+color: #00359E;
+}
+p {margin-bottom: 24px;}
+ol, ul {
+ color: #000 !important;
+}
+#menu-newtop > li > a:hover { 
+text-decoration: none; 
+}
+
+body > div.theme-wrapper > div.fln.adm.fff { display:none;}
+body > div > div.fln.fff { display:none;}
+
+.fourth-effect { opacity: .90; }
+.fourth-effect:hover { opacity:1; }			</style>
+				
+<style type="text/css">.fancybox-margin{margin-right:13px;}</style></head>
+<body style="" class="post-template-default single single-post postid-19973 single-format-standard op-plugin">
+<div class="theme-wrapper">
+	
+	
+	
+	
+	<div class="fln">
+		<div class="wrp clearfix">
+												<a class="fl-l" href="http://randomnerdtutorials.com/">
+						<img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/logornt.png" alt="Random Nerd Tutorials">
+					</a>
+										<div class="fl-s clearfix">
+													<div class="cou thive-share-count thive-share-cnt-19973" data-id="19973">352 Shares</div>
+												<ul>
+											<li class="fb"><a href="http://www.facebook.com/sharer/sharer.php?u=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"><span>Share</span></a>
+						</li>
+																<li class="tw"><a href="https://twitter.com/share?text=ESP8266%20Controlled%20with%20Android%20App%20%28MIT%20App%20Inventor%29:&amp;url=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"><span>Tweet</span></a>
+						</li>
+																					<li class="gg"><a href="https://plus.google.com/share?url=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"><span>Share</span></a>
+						</li>
+														</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="h-bi">
+		<div id="floating_menu" data-float="default" data-social="1">
+			<header class="side" style="">
+								<div class="h-i">
+					<div class="wrp">
+														<div id="logo">
+									<a href="http://randomnerdtutorials.com/">
+										<img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/logornt.png" alt="Random Nerd Tutorials"></a>
+								</div>
+																					<div class="m-s">
+								<div class="hsm"></div>
+								<div class="m-si">
+																												<nav class="menu-newtop-container"><ul id="menu-newtop" class="menu"><li id="menu-item-20482" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home toplvl"><a href="https://randomnerdtutorials.com/">HOME</a></li>
+<li id="menu-item-20483" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children toplvl dropdown"><a href="https://randomnerdtutorials.com/courses/">Products</a><ul class="sub-menu">	<li id="menu-item-40154" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/courses/" class=" colch ">All eBooks &amp; Courses</a></li>
+	<li id="menu-item-40149" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/home-automation-using-esp8266/" class=" colch ">Home Automation Using ESP8266</a></li>
+	<li id="menu-item-40150" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/build-a-home-automation-system-for-100/" class=" colch ">Build a Home Automation System for $100</a></li>
+	<li id="menu-item-40151" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/arduino-step-by-step-projects/" class=" colch ">Arduino Step-by-step Projects</a></li>
+	<li id="menu-item-40153" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/android-apps-for-arduino-with-mit-app-inventor-2/" class=" colch ">Android Apps For Arduino</a></li>
+	<li id="menu-item-40152" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/electronics-for-beginners/" class=" colch ">Electronics For Beginners</a></li>
+</ul></li>
+<li id="menu-item-20487" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://randomnerdtutorials.com/download">Free eBook</a></li>
+<li id="menu-item-20484" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://randomnerdtutorials.com/about">About</a></li>
+<li id="menu-item-20485" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://randomnerdtutorials.com/contact">Contact</a></li>
+<li id="menu-item-20498" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://randomnerdtutorials.com/projects/">Projects</a></li>
+<li id="menu-item-20486" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children toplvl dropdown"><a href="#More">More</a><ul class="sub-menu">	<li id="menu-item-43624" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://makeradvisor.com/" class=" colch ">MakerAdvisor.com</a></li>
+	<li id="menu-item-20488" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="http://homeautomationserver.com/" class=" colch ">Home Automation Server</a></li>
+	<li id="menu-item-20490" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://randomnerdtutorials.com/resources" class=" colch ">Resources</a></li>
+	<li id="menu-item-20489" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="https://randomnerdtutorials.com/2048" class=" colch ">2048 Game</a></li>
+</ul></li>
+<li id="menu-item-20491" class="menu-item menu-item-type-custom menu-item-object-custom toplvl h-cta "><a href="https://randomnerdtutorials.com/courses/">Get Courses</a></li>
+</ul></nav>										<!-- Cart Dropdown -->
+									
+																	</div>
+							</div>
+						
+					</div>
+				</div>
+
+			</header>
+		</div>
+	</div>
+
+	
+	
+	
+	
+			
+		
+		<div class="wrp cnt">
+
+								<div class="sAsCont">
+<aside style="height: 2767px;" class="sAs right q2w3-fixed-widget-container">
+	<section id="text-48"><div class="scn">			<div class="textwidget"><p><a href="https://randomnerdtutorials.com/arduino-step-by-step-projects/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/arduino-sb-img.jpg" height="196" width="349"></a></p>
+<h5><a href="https://randomnerdtutorials.com/arduino-step-by-step-projects/">Arduino Step-by-Step Projects »</a></h5>
+<p>Build 25 cool Arduino projects with our couse even with no prior experience!<span id="more-22009"></span></p>
+</div>
+		</div></section>		<section class="widget tabs_widget widget-rise-tabs" id="widget_thrive_tabs-2">
+			<div class="scn">
+				<div class="scT">
+					<ul class="tabs clearfix">
+																			<li class="tS">
+								<a href="">LATEST POSTS</a>
+							</li>
+											</ul>
+											<div class="scTC scTC0" style="display: block;">
+															<div class="pps clearfix">
+																			                                            <div class="tim left">
+                                                <div class="wti" style="background-image: url('https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esp8266-web-server-thumbnail.jpg?resize=80%2C80')"></div>
+                                            </div>
+																												<div class="txt left ">
+										<a href="http://randomnerdtutorials.com/esp8266-web-server/">Build an ESP8266 Web Server – Code and Schematics</a>
+										<i>
+																							February 19, 2018																					</i>
+									</div>
+								</div>
+															<div class="pps clearfix">
+																			                                            <div class="tim left">
+                                                <div class="wti" style="background-image: url('https://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/02/news-update-thumbnail.jpg?resize=80%2C80')"></div>
+                                            </div>
+																												<div class="txt left ">
+										<a href="http://randomnerdtutorials.com/our-most-popular-project-ever-updates/">Our Most Popular Project Ever &amp; Updates</a>
+										<i>
+																							February 17, 2018																					</i>
+									</div>
+								</div>
+															<div class="pps clearfix">
+																			                                            <div class="tim left">
+                                                <div class="wti" style="background-image: url('https://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/02/ESP8266-daily-task-thumbnail.jpg?resize=80%2C80')"></div>
+                                            </div>
+																												<div class="txt left ">
+										<a href="http://randomnerdtutorials.com/esp8266-daily-task-publish-temperature-readings-to-thingspeak/">ESP8266 Daily Task – Publish Temperature Readings to ThingSpeak</a>
+										<i>
+																							February 13, 2018																					</i>
+									</div>
+								</div>
+															<div class="pps clearfix">
+																			                                            <div class="tim left">
+                                                <div class="wti" style="background-image: url('https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2018/02/esp32-weather-station-shield-thumbnail-f.jpg?resize=80%2C80')"></div>
+                                            </div>
+																												<div class="txt left ">
+										<a href="http://randomnerdtutorials.com/build-an-all-in-one-esp32-weather-station-shield/">Build an All-in-One ESP32 Weather Station Shield</a>
+										<i>
+																							February 7, 2018																					</i>
+									</div>
+								</div>
+													</div>
+										</div>
+		</div></section>
+
+		<section id="rss-2"><div class="scn"><p class="ttl"><a target="_blank" class="rsswidget" href="https://makeradvisor.com/feed/"><img class="rss-widget-icon" style="border:0" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/rss.png" alt="RSS" height="14" width="14"></a> <a target="_blank" class="rsswidget" href="https://makeradvisor.com/">Find Awesome Deals For Makers @ MakerAdvisor.com</a></p><ul><li><a target="_blank" class="rsswidget" href="https://makeradvisor.com/best-adjustable-circuit-board-holder-pcb-clamp/">Best Adjustable Circuit Board Holder – PCB Clamp</a> <span class="rss-date">February 17, 2018</span></li><li><a target="_blank" class="rsswidget" href="https://makeradvisor.com/best-helping-hands-for-soldering/">Best Helping Hands For Soldering</a> <span class="rss-date">February 17, 2018</span></li><li><a target="_blank" class="rsswidget" href="https://makeradvisor.com/best-soldering-irons-beginners-hobbyists/">Best Soldering Irons for Beginners and Hobbyists 2018</a> <span class="rss-date">February 9, 2018</span></li></ul></div></section><section id="text-49"><div class="scn">			<div class="textwidget"><p><a href="https://makeradvisor.com/?utm_source=rnt&amp;utm_medium=sb&amp;utm_campaign=sb" target="_blank" rel="noopener"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/lab-sb-img.jpg" height="196" width="349"></a></p>
+<h5><a href="https://makeradvisor.com/?utm_source=rnt&amp;utm_medium=sb&amp;utm_campaign=sb" target="_blank" rel="noopener">Visit Maker Advisor – Tools and Gear for makers, hobbyists and DIYers »</a></h5>
+</div>
+		</div></section><section class="q2w3-widget-clone-sidebar-1" style="top: 10px; width: 381px; height: 375px; visibility: hidden;" id="text-47_clone"></section><section style="top: 10px; width: 381px; position: fixed;" id="text-47"><div class="scn">			<div class="textwidget"><p><a href="https://randomnerdtutorials.com/home-automation-using-esp8266/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/esp8266-sb-img.jpg" height="196" width="349"></a></p>
+<h5><a href="https://randomnerdtutorials.com/home-automation-using-esp8266/">Home Automation using ESP8266 »</a></h5>
+<p>Build IoT projects and home automation gadgets with the ESP8266 Wi-Fi module.<span id="more-22009"></span></p>
+</div>
+		</div></section><section class="q2w3-widget-clone-sidebar-1" style="top: 408px; width: 381px; height: 402px; visibility: hidden;" id="text-46_clone"></section><section style="top: 408px; width: 381px; position: fixed;" id="text-46"><div class="scn">			<div class="textwidget"><p><a href="https://randomnerdtutorials.com/build-a-home-automation-system-for-100/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/home-automation-sb-img.jpg" height="196" width="349"></a></p>
+<h5><a href="https://randomnerdtutorials.com/build-a-home-automation-system-for-100/">Build a Home Automation System »</a></h5>
+<p>Learn how to build a&nbsp;home automation system using open-source hardware and software from scratch.<span id="more-22009"></span></p>
+</div>
+		</div></section>
+	</aside>
+	</div>
+			
+						<div class="bSeCont">
+
+				<section class="bSe left">
+
+					
+<div class="awr">
+
+	
+	
+	
+				<h1 class="entry-title">ESP8266 Controlled with Android App (MIT App Inventor)</h1>
+			<div class="met">
+		<ul class="meta">
+																	</ul>
+
+								<div class="mets">
+									<span class="cou thive-share-cnt-19973" data-id="19973">352 Shares</span>
+								<div class="ss">
+											<a class="fb" href="http://www.facebook.com/sharer/sharer.php?u=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"></a>
+																<a class="tw" href="https://twitter.com/share?text=ESP8266%20Controlled%20with%20Android%20App%20%28MIT%20App%20Inventor%29:&amp;url=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"></a>
+																					<a class="gg" href="https://plus.google.com/share?url=http://randomnerdtutorials.com/esp8266-controlled-with-android-app-mit-app-inventor/" onclick="return ThriveApp.open_share_popup(this.href, 545, 433, 19973);"></a>
+														</div>
+			</div>
+			</div>
+
+	
+	
+		<div class="awr-i">
+		<p class="ifp">In this project, you’re going to build an Android app 
+using&nbsp;the MIT App Inventor software that allows you to control 
+the&nbsp;ESP8266 GPIOs.</p>
+<p><span id="more-19973"></span></p>
+<h2>First, watch the video demonstration</h2>
+<div style="text-align:center"><iframe src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/Yo6nFHaTUGI.html" allowfullscreen="" frameborder="0" height="366" width="650"></iframe></div><br>
+<p><strong>To&nbsp;learn more about the ESP8266 use the&nbsp;following tutorials as a reference:</strong></p>
+<ul>
+<li style="list-style-type: none">
+<ul>
+<li><a href="http://randomnerdtutorials.com/getting-started-with-esp8266-wifi-transceiver-review/" target="_blank" rel="noopener">Getting started with the ESP8266</a></li>
+<li><a href="http://randomnerdtutorials.com/esp8266-web-server/">ESP8266 web server with NodeMCU</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="http://randomnerdtutorials.com/flashing-nodemcu-firmware-on-the-esp8266-using-windows/">Flashing NodeMCU firmware</a></li>
+<li><a href="http://randomnerdtutorials.com/esp8266-troubleshooting-guide/">ESP8266 troubleshooting guide</a></li>
+</ul>
+<p>If you like the ESP and you want to do more projects&nbsp;you can download&nbsp;my eBook <a href="http://randomnerdtutorials.com/home-automation-using-esp8266/" target="_blank" rel="noopener">Home Automation using ESP8266 here</a>.</p>
+<div class="code-block code-block-5" style="margin: 8px auto; text-align: center; clear: both;">
+<div class="clear"></div><div class="thrivecb teal"><div class="shnd"><strong>RECOMMENDED:</strong> <a href="http://randomnerdtutorials.com/home-automation-using-esp8266-r/">Read our Home Automation using ESP8266 Course</a></div></div></div>
+<p><strong>Let’s get started!</strong></p>
+<h2>Parts List</h2>
+<p>Here’s the hardware that you need to complete&nbsp;this project:</p>
+<ul>
+<li><a href="https://makeradvisor.com/tools/esp-01-wi-fi-board/" target="_blank" rel="noopener">1x&nbsp;ESP8266</a> -read <a href="https://makeradvisor.com/best-esp8266-wi-fi-development-board/" target="_blank" rel="noopener">Best ESP8266 Wi-Fi Developmento Boards</a></li>
+<li><a href="https://makeradvisor.com/tools/ftdi-programmer-board/" target="_blank" rel="noopener">1x&nbsp;FTDI programmer&nbsp;</a></li>
+<li><a href="https://makeradvisor.com/tools/3mm-5mm-leds-kit-storage-box/" target="_blank" rel="noopener">2x LEDs</a></li>
+<li><a href="https://makeradvisor.com/tools/resistors-kits/" target="_blank" rel="noopener">2x 220Ω Resistors</a></li>
+<li><a href="https://makeradvisor.com/tools/mb-102-solderless-breadboard-830-points/" target="_blank" rel="noopener">1x Breadboard</a></li>
+<li>1x Android Phone</li>
+</ul>
+<p>You can use the preceding links or go directly to <a href="https://makeradvisor.com/tools/?utm_source=rnt&amp;utm_medium=post&amp;utm_campaign=post" target="_blank">MakerAdvisor.com/tools</a> to find all the parts for your projects at the best price!</p><div style="text-align:center;"><a href="https://makeradvisor.com/tools/?utm_source=rnt&amp;utm_medium=post&amp;utm_campaign=post" target="_blank"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/header-200.png" height="56" width="200"></a></div>
+<figure id="attachment_4815"></figure>
+<h2>Flashing Your ESP with NodeMCU</h2>
+<p>In this tutorial we are going to use the NodeMCU firmware.&nbsp;You have to&nbsp;<a href="http://randomnerdtutorials.com/flashing-nodemcu-firmware-on-the-esp8266-using-windows/" target="_blank" rel="noopener">flash your ESP with NodeMCU firmare</a>.</p>
+<h2>Downloading ESPlorer IDE</h2>
+<p>I recommend using the ESPlorer IDE which is a program&nbsp;created by 4refr0nt&nbsp;to send commands to your&nbsp;ESP8266.</p>
+<p>Follow these instructions to download and install ESPlorer IDE:</p><div class="code-block code-block-10" style="margin: 8px auto; text-align: center; clear: both;">
+<div class="clear"></div><div class="thrivecb blue"><div class="shnd"><strong>DOWNLOAD FREE PDF:</strong> <span class="tve-leads-two-step-trigger tl-2step-trigger-15598"><a>ESP8266 Web Server with Arduino IDE</a></span></div></div></div>
+
+<ol>
+<li><a href="http://esp8266.ru/esplorer/#tutorials" target="_blank" rel="noopener">Click here</a> to download&nbsp;ESPlorer</li>
+<li>Unzip that folder</li>
+<li>Go to the main&nbsp;folder</li>
+<li>Run “<strong>ESPlorer.jar”</strong> file</li>
+<li>Open the ESPlorer IDE</li>
+</ol>
+<p><img class="aligncenter wp-image-5125" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/esplorer-start.png" sizes="(max-width: 424px) 100vw, 424px" srcset="http://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esplorer-start.png?resize=300%2C224 300w, http://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esplorer-start.png?w=802 802w" alt="esplorer start" height="316" width="424"></p>
+<h2>Schematics (3.3V FTDI&nbsp;Programmer)</h2>
+<p>The schematics for this project are very straight forward. You only 
+need to establish a serial communication between your FTDI programmer 
+and your ESP8266. You can buy one <a href="http://ebay.to/1EQQWjA" target="_blank" rel="noopener">FTDI programmer on eBay</a>.</p>
+<p><img class="aligncenter wp-image-4814" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/esp8266_pinout_h-569x236.png" sizes="(max-width: 547px) 100vw, 547px" srcset="http://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/01/esp8266_pinout_h-569x236.png?resize=300%2C124 300w, http://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/01/esp8266_pinout_h-569x236.png?resize=569%2C236 569w" alt="esp8266_pinout_h-569x236" height="227" width="547">Wiring:</p>
+<ul>
+<li>RX -&gt; TX</li>
+<li>TX -&gt; RX</li>
+<li>CH_PD -&gt; 3.3V</li>
+<li>VCC -&gt; 3.3V</li>
+<li>GND -&gt; GND</li>
+</ul>
+<p><img class="aligncenter wp-image-5193" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/ESP-Bitcoin-price_bb.png" sizes="(max-width: 588px) 100vw, 588px" srcset="http://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/03/ESP-Bitcoin-price_bb.png?resize=300%2C110 300w, http://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/03/ESP-Bitcoin-price_bb.png?w=759 759w" alt="ESP-Bitcoin-price_bb" height="216" width="588"></p>
+<h2>Uploading Code</h2>
+<p>You should see a window similar to the preceding Figure, follow these instructions to upload a Lua file:</p>
+<ol>
+<li>Connect your FTDI programmer to your computer</li>
+<li>Select your FTDI programmer <strong>port</strong></li>
+<li>Press&nbsp;<strong>Open/Close</strong></li>
+<li>Select <strong>NodeMCU+MicroPtyhon tab</strong></li>
+<li>Create a new file called <strong>init.lua</strong></li>
+<li>Press <strong>Save to ESP</strong></li>
+</ol>
+<p>Everything that you need to worry about or change is highlighted in red box.</p>
+<p><a href="http://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esplorer_tab.png"><img class="aligncenter wp-image-5126" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/esplorer_tab.png" sizes="(max-width: 640px) 100vw, 640px" srcset="http://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esplorer_tab.png?resize=300%2C217 300w, http://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/esplorer_tab.png?w=899 899w" alt="esplorer_tab" height="463" width="640"></a></p>
+<h2>Code</h2>
+<p>Upload the following code into your ESP8266 using the preceding software. Your file should be named “<strong>init.lua</strong>“.</p>
+<p><strong>Don’t forget to add your network name (SSID) and password to the script&nbsp;below.</strong><br>
+<script src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/ESP8266_Controller.lua"></script><script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/prettify.js"></script><link rel="stylesheet" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/embed.css"><link rel="stylesheet" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/prettify.css"></p><div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint"><span class="pun">--</span><span class="pln"> </span><span class="typ">Rui</span><span class="pln"> </span><span class="typ">Santos</span><span class="pln"><br></span><span class="pun">--</span><span class="pln"> </span><span class="typ">Complete</span><span class="pln"> project details at http</span><span class="pun">:</span><span class="com">//randomnerdtutorials.com</span><span class="pln"><br><br>wifi</span><span class="pun">.</span><span class="pln">setmode</span><span class="pun">(</span><span class="pln">wifi</span><span class="pun">.</span><span class="pln">STATION</span><span class="pun">)</span><span class="pln"><br>wifi</span><span class="pun">.</span><span class="pln">sta</span><span class="pun">.</span><span class="pln">config</span><span class="pun">(</span><span class="str">"YOUR_NETWORK_NAME"</span><span class="pun">,</span><span class="str">"YOUR_NETWORK_PASSWORD"</span><span class="pun">)</span><span class="pln"><br></span><span class="kwd">print</span><span class="pun">(</span><span class="pln">wifi</span><span class="pun">.</span><span class="pln">sta</span><span class="pun">.</span><span class="pln">getip</span><span class="pun">())</span><span class="pln"><br>led1 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pln"><br>led2 </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pln"><br>gpio</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">(</span><span class="pln">led1</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">OUTPUT</span><span class="pun">)</span><span class="pln"><br>gpio</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">(</span><span class="pln">led2</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">OUTPUT</span><span class="pun">)</span><span class="pln"><br>srv</span><span class="pun">=</span><span class="pln">net</span><span class="pun">.</span><span class="pln">createServer</span><span class="pun">(</span><span class="pln">net</span><span class="pun">.</span><span class="pln">TCP</span><span class="pun">)</span><span class="pln"><br>srv</span><span class="pun">:</span><span class="pln">listen</span><span class="pun">(</span><span class="lit">80</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">conn</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; conn</span><span class="pun">:</span><span class="pln">on</span><span class="pun">(</span><span class="str">"receive"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">client</span><span class="pun">,</span><span class="pln">request</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">local</span><span class="pln"> buf </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; buf </span><span class="pun">=</span><span class="pln"> buf</span><span class="pun">..</span><span class="str">"HTTP/1.1 200 OK\n\n"</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">local</span><span class="pln"> _</span><span class="pun">,</span><span class="pln"> _</span><span class="pun">,</span><span class="pln"> method</span><span class="pun">,</span><span class="pln"> path</span><span class="pun">,</span><span class="pln"> vars </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">string</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="pln">request</span><span class="pun">,</span><span class="pln"> </span><span class="str">"([A-Z]+) (.+)?(.+) HTTP"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">method </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">nil</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _</span><span class="pun">,</span><span class="pln"> _</span><span class="pun">,</span><span class="pln"> method</span><span class="pun">,</span><span class="pln"> path </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">string</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="pln">request</span><span class="pun">,</span><span class="pln"> </span><span class="str">"([A-Z]+) (.+) HTTP"</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">end</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">local</span><span class="pln"> _GET </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">vars </span><span class="pun">~=</span><span class="pln"> </span><span class="kwd">nil</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">for</span><span class="pln"> k</span><span class="pun">,</span><span class="pln"> v </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">string</span><span class="pun">.</span><span class="pln">gmatch</span><span class="pun">(</span><span class="pln">vars</span><span class="pun">,</span><span class="pln"> </span><span class="str">"(%w+)=(%w+)&amp;*"</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">do</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _GET</span><span class="pun">[</span><span class="pln">k</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> v<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">end</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">end</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">_GET</span><span class="pun">.</span><span class="pln">pin </span><span class="pun">==</span><span class="pln"> </span><span class="str">"ON1"</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gpio</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">led1</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">HIGH</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; elseif</span><span class="pun">(</span><span class="pln">_GET</span><span class="pun">.</span><span class="pln">pin </span><span class="pun">==</span><span class="pln"> </span><span class="str">"OFF1"</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gpio</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">led1</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">LOW</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; elseif</span><span class="pun">(</span><span class="pln">_GET</span><span class="pun">.</span><span class="pln">pin </span><span class="pun">==</span><span class="pln"> </span><span class="str">"ON2"</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gpio</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">led2</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">HIGH</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; elseif</span><span class="pun">(</span><span class="pln">_GET</span><span class="pun">.</span><span class="pln">pin </span><span class="pun">==</span><span class="pln"> </span><span class="str">"OFF2"</span><span class="pun">)</span><span class="kwd">then</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gpio</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">led2</span><span class="pun">,</span><span class="pln"> gpio</span><span class="pun">.</span><span class="pln">LOW</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">end</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; client</span><span class="pun">:</span><span class="pln">send</span><span class="pun">(</span><span class="pln">buf</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; client</span><span class="pun">:</span><span class="pln">close</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; collectgarbage</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">end</span><span class="pun">)</span><span class="pln"><br></span><span class="kwd">end</span><span class="pun">)</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/RuiSantosdotme/Random-Nerd-Tutorials/raw/master/Projects/ESP8266_Controller.lua">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/RuiSantosdotme/Random-Nerd-Tutorials/blob/master/Projects/ESP8266_Controller.lua">Projects/ESP8266_Controller.lua</a></span>
+            <!-- Generated by: https://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div><script type="text/javascript">prettyPrint();</script>
+<h2>Schematics</h2>
+<p>Now follow these schematics to create the&nbsp;circuit that&nbsp;controls two LEDs.</p>
+<p><a href="http://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/ESP-web-server_bb.png"><img class="aligncenter wp-image-5132" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/ESP-web-server_bb.png" sizes="(max-width: 520px) 100vw, 520px" srcset="http://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/ESP-web-server_bb.png?resize=275%2C300 275w, http://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/02/ESP-web-server_bb.png?w=691 691w" alt="ESP-web-server_bb" height="567" width="520"></a></p>
+<h2>Your ESP IP Address</h2>
+<p>When your ESP8266 restarts, it prints in your serial monitor&nbsp;the ESP IP address. Save that IP address, because you’ll need it later.</p>
+<p>In my case, the&nbsp;ESP IP address is <strong>192.168.1.95</strong>. If you experience problems seeing your IP <a href="http://randomnerdtutorials.com/esp8266-troubleshooting-guide/" target="_blank" rel="noopener">read this troubleshooting guide</a>.</p>
+<h2>Creating the Android App with MIT App Inventor</h2>
+<p>MIT App Inventor is a&nbsp;drag-and-drop software that allows you to create&nbsp;a basic, but fully functional Android app within an hour or less.</p>
+<p>Here’s how to edit the ESP8266 Controller app:</p>
+<ol>
+<li><a href="https://github.com/RuiSantosdotme/arduino-mit-app-inventor/blob/master/Code/Project_9_Control_ESP8266_Outputs.aia?raw=true" target="_blank" rel="noopener">Click here to download the .aia file</a></li>
+<li>Unzip the folder</li>
+<li>Go to <a href="http://appinventor.mit.edu/explore/" target="_blank" rel="noopener">MIT App Inventor</a></li>
+<li>Click the “Create Apps” button on the top right corner</li>
+<li>Go to the “Projects” tab and select “Import project (.aia)”</li>
+</ol>
+<p><img class="aligncenter size-full wp-image-19993" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/aia-file-import.png" alt="aia file import" srcset="https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/aia-file-import.png?w=526 526w, https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/aia-file-import.png?resize=300%2C145 300w" sizes="(max-width: 526px) 100vw, 526px" height="254" width="526"></p>
+<p>After importing the .aia file, you’ll be able to edit the app and&nbsp;see how the app was built.</p>
+<h3>Designer</h3>
+<p>The designer tab is where you can edit how the app looks. Feel free to change the text, change the colors, add buttons or add more features.</p>
+<p><img class="aligncenter wp-image-19974 size-full" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/app-designed.jpg" alt="app designed" srcset="https://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-designed.jpg?w=345 345w, https://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-designed.jpg?resize=201%2C300 201w" sizes="(max-width: 345px) 100vw, 345px" height="514" width="345"></p>
+<h3>Blocks</h3>
+<p>The blocks section is where you can add what each button does and add logic&nbsp;to your app.</p>
+<div id="attachment_19975" style="max-width: 565px" class="wp-caption aligncenter"><a href="https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-inventor-blocks.jpg" target="_blank" rel="noopener"><img class="wp-image-19975" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/app-inventor-blocks.jpg" alt="app inventor blocks" srcset="https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-inventor-blocks.jpg?w=1055 1055w, https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-inventor-blocks.jpg?resize=300%2C220 300w, https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-inventor-blocks.jpg?resize=768%2C563 768w, https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/app-inventor-blocks.jpg?resize=1024%2C750 1024w" sizes="(max-width: 555px) 100vw, 555px" height="407" width="555"></a><p class="wp-caption-text">Click the image above to enlarge the figure</p></div>
+<p>After finishing editing the app&nbsp;you can click the “Build” app tab and install the .apk file&nbsp;in your Android. &nbsp;I personally recommend that you first upload the app provided below to ensure that everything works as expected (later you can edit the app).</p>
+<h2>Installing the Android App</h2>
+<p>Follow these instructions to install the default app that I’ve created:</p>
+<ol>
+<li><a href="https://github.com/RuiSantosdotme/arduino-mit-app-inventor/blob/master/Code/Project_9_Control_ESP8266_Outputs.apk?raw=true" target="_blank" rel="noopener">Click here to download the .apk file</a></li>
+<li>Unzip the folder</li>
+<li>Move the .apk file to your Android phone</li>
+<li>Run the .apk file to install the app</li>
+</ol>
+<p>Here’s how the <strong>ESP8266 Controller</strong> app looks when you to open it.</p>
+<div id="attachment_19982" style="max-width: 347px" class="wp-caption aligncenter"><a href="https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/App.png" rel="attachment wp-att-19982"><img class="wp-image-19982 size-full" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/App.png" alt="App" srcset="https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/App.png?w=337 337w, https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/04/App.png?resize=169%2C300 169w" sizes="(max-width: 337px) 100vw, 337px" height="600" width="337"></a><p class="wp-caption-text">ESP8266 Controller</p></div>
+<p>It’s very easy to configure. Click the button “Set IP Address” on the bottom of the screen and type your IP address (in my case 192.168.1.95).</p>
+<p><strong>You’re all set!</strong></p>
+<p>Now you can turn&nbsp;the GPIOs high and low with your smartphone.&nbsp;Go to the top of this page to see a <a href="https://www.youtube.com/watch?v=Yo6nFHaTUGI" target="_blank" rel="noopener">video demonstration</a>&nbsp;of this project.</p>
+<h2>Taking It Further</h2>
+<p>This is a basic example that shows you how easy it is to integrate an Android app with the ESP8266. You can take this example and modify it.</p>
+<p>You could add multiple screens to the app, so you can other ESPs or add buttons to control more GPIOs.</p>
+<p><strong>Do you have any questions?&nbsp;</strong><strong>Leave a comment down below!</strong></p>
+<p>Thanks for reading. If you like this post probably you might like my next ones, so please support me by <a href="http://randomnerdtutorials.com/download">subscribing my blog</a>.</p>
+<span id="tve_leads_end_content" style="display: block; visibility: hidden; border: 1px solid transparent;"></span><div class="code-block code-block-1" style="margin: 8px auto 8px 0; text-align: left; clear: both;">
+<div class="rltpi"><h4>Recommended Resources</h4></div>
+<div class="csc"><div class="colm thc"><p><a href="https://randomnerdtutorials.com/home-automation-using-esp8266/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/esp8266-sb-img.jpg" height="135" width="240"></a>
+</p><h5><a href="https://randomnerdtutorials.com/home-automation-using-esp8266/">Home Automation using ESP8266 »</a></h5>Build IoT projects and home automation gadgets with the ESP8266 Wi-Fi module.<p></p></div><div class="colm thc"><p><a href="https://randomnerdtutorials.com/build-a-home-automation-system-for-100/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/home-automation-sb-img.jpg" height="135" width="240"></a>
+</p><h5><a href="https://randomnerdtutorials.com/build-a-home-automation-system-for-100/">Build a Home Automation System »</a></h5>
+Learn how to build a automation system using open-source hardware and software from scratch.<p></p></div><div class="colm thc lst"><p><a href="https://randomnerdtutorials.com/arduino-step-by-step-projects/"><img src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/arduino-sb-img.jpg" height="135" width="240"></a>
+</p><h5><a href="https://randomnerdtutorials.com/arduino-step-by-step-projects/">Arduino Step-by-Step Projects »</a></h5>
+Build 25 cool Arduino projects with our couse even with no prior experience!<p></p></div><div class="clear"></div></div></div>
+	</div>
+	<div class="clear"></div>
+	
+	
+	
+	<div class="rltpi clearfix">
+	<div class="awr">
+		<h4>What to Read Next...</h4>
+					<a href="http://randomnerdtutorials.com/android-app-rgb-led-with-arduino-and-bluetooth/" class="rlt left">
+
+				<div class="rlti" style="background-image: url('https://i1.wp.com/randomnerdtutorials.com/wp-content/uploads/2017/05/Featured-Image.jpg?resize=267%2C150')">
+				</div>
+				<span>04 May, 2017</span>
+				<p>Android App – RGB LED with Arduino and Bluetooth</p>
+			</a>
+					<a href="http://randomnerdtutorials.com/sonoff-5-wifi-wireless-smart-switch-introduction/" class="rlt left">
+
+				<div class="rlti" style="background-image: url('https://i2.wp.com/randomnerdtutorials.com/wp-content/uploads/2016/11/thumbnail.jpg?resize=267%2C150')">
+				</div>
+				<span>10 Nov, 2016</span>
+				<p>Sonoff – $5 WiFi Wireless Smart Switch Introduction</p>
+			</a>
+					</div>
+</div>			<div class="pnav">
+			<a class="pav left" href="http://randomnerdtutorials.com/new-platform-to-learn-electronics-and-programming-is-live/">
+				<span>Previous Post</span>
+				<span>New platform to learn electronics and programming is LIVE!</span>
+			</a>
+			<a class="pav right" href="http://randomnerdtutorials.com/19-awesome-robots-you-can-build-with-an-arduino/">
+				<span>Next Post</span>
+				<span>19 Awesome Robots You Can Build With an Arduino</span>
+			</a>
+		</div>
+	</div>
+
+	
+	<script type="text/javascript">
+		_thriveCurrentPost = 19973;
+	</script>
+
+	<article id="comments">
+					<h3>Leave a Comment:</h3>
+			<div class="lrp" id="thrive_container_form_add_comment" style="">
+				<form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post" id="commentform">
+											<div class="llw">
+							<label for="author">Name *</label>
+							<input id="author" class="text_field author" name="author" type="text">
+						</div>
+						<div class="llw">
+							<label for="email">E-Mail *</label>
+							<input id="email" class="text_field email" name="email" type="text">
+						</div>
+						<div class="clear"></div>
+						<label for="website">Website</label>
+						<input id="website" class="text_field website" name="url" type="text">
+										<label for="comment">Comment</label>
+					<textarea id="comment" name="comment" class="textarea"></textarea>
+															<div class="btn blue small">
+						<input value="Post Comment" type="submit">
+					</div>
+					<div class="clear"></div>
+
+					<input name="comment_post_ID" value="19973" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+					<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="a4a8bd6548" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"></p>					<div class="clear"></div>
+				<input id="ak_js" name="ak_js" value="1519224293701" type="hidden"></form>
+			</div>
+		
+				<!-- /comments nr -->
+
+		
+		<div class="cmb" style="margin-left: 0;" id="thrive_container_list_comments">
+									                <div class="cmb" id="comment-281840">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/a4d62afebd84ceef69c277a4fbc4eafa.jpeg" srcset="http://1.gravatar.com/avatar/a4d62afebd84ceef69c277a4fbc4eafa?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">Santosh Kumar Jha</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Good start!<br>
+If you want to do little advance like MQTT using App inventor, you can refer this.</p>
+<p>internetofhomethings.com/homethings/?p=1317</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281840" cid="281840">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281840" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281840" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281840">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281840">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281868">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Thanks! I might do something similar in the future and thanks for sharing!</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281868" cid="281868">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281868" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281868" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281868">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281868">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281843">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/f27d798cb090de100cee9aa3cc06167a.jpeg" srcset="http://0.gravatar.com/avatar/f27d798cb090de100cee9aa3cc06167a?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://www.zierath-software.de/phpBB3/index.php" target="_blank" rel="nofollow">
+		                                    Holger Zierath	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>If ‘ve tried to make my first App …..<br>
+I don’t like this way to make App’s.<br>
+Too much complicated. 🙁<br>
+“programming” with scratch isn’t my thing and not realy programming 🙁<br>
+I much more like DroidScript with real commands.</p>
+<p>It’s a nice thing who like this way , sadly not my way</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281843" cid="281843">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281843" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281843" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281843">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281843">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281869">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>This isn’t for everyone. The DroidSript looks good, but I didn’t have enough time to try it.<br>
+Thanks!</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281869" cid="281869">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281869" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281869" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281869">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281869">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281846">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/6096fda13316f3614485b001c16cf8ed.jpeg" srcset="http://0.gravatar.com/avatar/6096fda13316f3614485b001c16cf8ed?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">Charbel</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>I do it and it work for 2 week then its make a error on wifi connection my project was with arduino uno i change 3 esp8266 and same problem</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281846" cid="281846">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281846" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281846" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281846">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281846">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281867">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>I’m not exactly sure about what project you are talking…</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281867" cid="281867">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281867" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281867" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281867">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281867">
+                </div>
+							<!-- #comment-## -->
+				                <div class="cmb" id="comment-301322">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/d41cc680210ab386edca0dd12929d02c.jpeg" srcset="http://1.gravatar.com/avatar/d41cc680210ab386edca0dd12929d02c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">fasih uz zafar</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   March 20, 2017	                                                                                                      </span>
+
+							                                <p></p><p>Download the netwatcher app to your computer and scan all the connected devices to your local network..<br>
+And set the new ip of the. Device(nodemcu).</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-301322" cid="301322">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-301322" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="301322" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="301322">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-301322">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281847">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/e3dd28d89d5ecde93988e28e72a971d4.jpeg" srcset="http://2.gravatar.com/avatar/e3dd28d89d5ecde93988e28e72a971d4?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">Marcos Vinicius da Silva</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Gostei do projeto, parabéns.</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281847" cid="281847">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281847" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281847" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281847">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281847">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281866">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Obrigado Marcos!</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281866" cid="281866">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281866" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281866" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281866">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281866">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281850">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/77ee503c022dbcff106ac08e1056cc31.jpeg" srcset="http://1.gravatar.com/avatar/77ee503c022dbcff106ac08e1056cc31?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">enes</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>If You could to explain me, how to show value of DHT11 (temp and hum) from arduino on android app created in Mit app inventor 2 using ethernet shield? Thanks</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281850" cid="281850">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281850" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281850" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281850">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281850">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281870">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>In a couple of weeks I’ll try to post a tutorial showing sensor data with the ESP8266. A similar app can be used with the Arduino and you can use it as an example</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281870" cid="281870">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281870" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281870" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281870">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281870">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281852">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/1ef49abbfdc9d60652f94a2a7a19f26c.jpeg" srcset="http://1.gravatar.com/avatar/1ef49abbfdc9d60652f94a2a7a19f26c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">JJ</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Nice article – Thanks.</p>
+<p>Two questions:<br>
+What if you not on the same network? i.e. away on holiday? How would you do that?</p>
+<p>What is you want to do something the other way around … like for example when a GPIO is triggered (PIR or sensor) on the ESP8266, then send / push a notification to the Android phone?</p>
+<p>Thxs</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281852" cid="281852">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281852" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281852" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281852">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281852">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281865">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Right now this project only works in your network… And there isn’t a good solution to overcome this problem with MIT app inventor.<br>
+The push notification should be one of my next projects. Thanks for the suggestion,<br>
+Rui</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281865" cid="281865">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281865" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281865" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281865">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281865">
+                </div>
+							<!-- #comment-## -->
+				                <div class="cmb" id="comment-284573">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/26b374aa846583f563b37a6449da0c1b.jpeg" srcset="http://2.gravatar.com/avatar/26b374aa846583f563b37a6449da0c1b?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">Mirco</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   May 28, 2016	                                                                                                      </span>
+
+							                                <p></p><p>In answer to your first question, why don’t you try just forwarding TCP port 80 from your public address to the Arduino address? It works for me, I used a dynamic DNS service to have a simple name associated with my dynamic internet address, easy and free.</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-284573" cid="284573">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-284573" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="284573" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="284573">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-284573">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281863">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/24a0b9b31c70db40687c51c44c3ed33c.jpeg" srcset="http://2.gravatar.com/avatar/24a0b9b31c70db40687c51c44c3ed33c?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://embeddedsystemsweb.com/" target="_blank" rel="nofollow">
+		                                    Sam	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Very comprehensive to me.<br>
+Thanks Rui.</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281863" cid="281863">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281863" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281863" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281863">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281863">
+                </div>
+							<ul class="children">
+				                <div class="cmb" id="comment-281864">
+                    <div class="cmc byAut">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/9461558a0e334e14711e74f60647f31f.jpeg" srcset="http://0.gravatar.com/avatar/9461558a0e334e14711e74f60647f31f?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <a href="http://randomnerdtutorials.com/" target="_blank" rel="nofollow">
+		                                    Rui Santos	                                    </a>
+	                                    says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 14, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Thank you Sam!</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281864" cid="281864">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281864" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281864" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281864">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281864">
+                </div>
+							<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+				                <div class="cmb" id="comment-281881">
+                    <div class="cmc">
+                        <div class="left">
+							<img alt="" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/a4d8b2a6ecd29254a39a13d9f088f3b6.jpeg" srcset="http://1.gravatar.com/avatar/a4d8b2a6ecd29254a39a13d9f088f3b6?s=100&amp;d=mm&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50">                        </div>
+
+                        <div class="ccr right">
+                                <span class="nam">
+                                                                            <span class="uNM">Xu le</span> says                                                                    </span>
+                            <span class="uDt">
+                                   	                                   		                                   April 15, 2016	                                                                                                      </span>
+
+							                                <p></p><p>Hi,<br>
+If your battery low.  While gpio 0 is on(state = on),  You renew battery. What is gpio? How make display state exactly?<br>
+(My english is not good)</p>
+<p></p>
+							
+							                                <a class="rpl reply left" href="#" id="link-reply-281881" cid="281881">
+									Reply                                </a>
+							                            <div class="clear"></div>
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="lrp" id="respond-container-281881" style="display: none;">
+                        <div class="clear"></div>
+                        <form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post">
+							                                <div class="llw">
+                                    <label for="author">Name*</label>
+                                    <input id="author" placeholder="" name="author" type="text">
+                                </div>
+                                <div class="llw">
+                                    <label for="email">Email*</label>
+
+                                    <input id="email" placeholder="" name="email" type="text">
+                                </div>
+                                <label for="website">Website</label>
+                                <input id="website" placeholder="" name="website" type="text">
+							                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="textarea"></textarea>
+
+                            <div class="btn blue small">
+                                <input value="Post Comment" type="submit">
+                            </div>
+
+                            <input id="comment_post_ID" value="19973" name="comment_post_ID" type="hidden">
+                            <input id="comment_parent" value="281881" name="comment_parent" type="hidden">
+                        </form>
+                        <a href="#" class="rpl right cancel_reply" cid="281881">
+							Cancel                        </a>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="lrp" style="display: none;" id="respond-container-281881">
+                </div>
+							<!-- #comment-## -->
+								<!-- #comment-## -->
+								<!-- #comment-## -->
+</div><!-- /comment_list -->
+
+		
+									<div class="ctb ctr" style="display: none;" id="thrive_container_preload_comments">
+					<img class="preloader" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/loading.gif" alt="">
+				</div>
+						<div class="clear"></div>
+			<a class="arp" id="shf">
+				Add Your Reply			</a>
+			<div class="">
+				<div class="lrp hid" id="thrive_container_form_add_comment" style="display:none;">
+					<form action="http://randomnerdtutorials.com/wp-comments-post.php" method="post" id="commentform">
+													<div class="llw">
+								<label for="author">
+									Name *								</label>
+								<input id="author" class="text_field author" name="author" type="text">
+							</div>
+							<div class="llw">
+								<label for="email">E-Mail *</label>
+								<input id="email" class="text_field email" name="email" type="text">
+							</div>
+							<div class="clear"></div>
+							<label for="website">Website</label>
+							<input id="website" class="text_field website" name="url" type="text">
+						
+						<label for="comment">Comment</label>
+						<textarea id="comment" name="comment" class="textarea"></textarea>
+												<div class="btn blue small">
+							<input value="Post Comment" type="submit">
+						</div>
+						<input name="comment_post_ID" value="19973" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="a4a8bd6548" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p style="display: none;"><input id="ak_js" name="ak_js" value="6" type="hidden"></p>						<div class="clear"></div>
+					</form>
+				</div>
+			</div>
+				<div class="clear"></div>
+	</article>
+	<div id="comment-bottom"></div>
+
+
+				</section>
+
+
+				</div>										
+		</div>
+				<div class="clear"></div>
+	
+
+
+<footer>
+			<div class="fmm">
+		<div class="wrp">
+			<div class="ft-m">
+									<div class="menu-footer-disclaimer-container"><ul id="menu-footer-disclaimer" class="footer_menu"><li id="menu-item-1538" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1538"><a title="More about Rui Santos" href="http://randomnerdtutorials.com/about/">About</a></li>
+<li id="menu-item-20492" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20492"><a href="http://randomnerdtutorials.com/support">Support</a></li>
+<li id="menu-item-20493" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20493"><a href="http://randomnerdtutorials.com/terms">Terms</a></li>
+<li id="menu-item-20495" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20495"><a href="http://randomnerdtutorials.com/privacy">Privacy</a></li>
+<li id="menu-item-20494" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20494"><a href="http://randomnerdtutorials.com/returns-and-refunds/">Refunds</a></li>
+<li id="menu-item-20497" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20497"><a target="_blank" href="http://homeautomationserver.com/">Home Automation Server</a></li>
+<li id="menu-item-43625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43625"><a target="_blank" href="https://makeradvisor.com/">MakerAdvisor.com</a></li>
+<li id="menu-item-20496" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20496"><a target="_blank" href="https://rntlab.com/">Join the Lab</a></li>
+</ul></div>							</div>
+		</div>
+		<div class="wrp">
+			<div class="ft-c">
+				<p>
+											Copyright © 2013-2018 - Random Nerd Tutorials														</p>
+			</div>
+			<div class="ft-s">
+													<span>Connect With Me:</span>
+								<ul>
+																<li class="fb">
+							<a href="https://www.facebook.com/RandomNerdTutorials" target="_blank"></a>
+						</li>
+																<li class="tw">
+							<a href="https://twitter.com/RuiSantosdotme" target="_blank"></a>
+						</li>
+																					<li class="yt">
+							<a href="https://www.youtube.com/RandomNerdTutorials" target="_blank"></a>
+						</li>
+														</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</footer>
+
+
+	<script>
+jQuery(document).ready(function(){
+jQuery('.rsswidget').attr('target', '_blank');
+});
+
+</script>		<script type="text/javascript">
+		jQuery(document).on("DOMNodeInserted", function(){
+			// Lock uploads to "Uploaded to this post"
+			jQuery('select.attachment-filters [value="uploaded"]').attr( 'selected', true ).parent().trigger('change');
+		});
+		</script>
+						<script type="text/javascript">
+					jQuery( ".tabs_widget .scT ul li" ).on( 'click', function ( e ) {
+						var $li = jQuery( this ),
+							tabs_wrapper = $li.parents( ".tabs_widget" ).first(),
+							target_tab = tabs_wrapper.find( ".scTC" ).eq( $li.index() );
+						tabs_wrapper.find( ".tS" ).removeClass( "tS" );
+						$li.addClass( 'tS' );
+						tabs_wrapper.find( ".scTC" ).hide();
+						target_tab.show();
+						e.preventDefault();
+					} );
+				</script>
+				<div class="tl-states-root tl-anim-zoom_in"><div class="tl-style" id="tve_one_set" data-state="2">
+        <div class="tve_one_set_vms_step1 tve_post_lightbox tve-leads-lightbox">
+        <div style="visibility: hidden; position: fixed; left: -9000px;" class="tl-lb-target tve-leads-track-lightbox-2" data-s-state=""><div class="tve_p_lb_overlay" style="height: 604px; min-height: 673px;"></div><div data-anim="zoom_in" class="tve_p_lb_content tve-tl-anim tl-anim-zoom_in bSe cnt" style="top: 74.5px;"><div class="tve_p_lb_inner" id="tve-p-scroller" style=""><article><div class="tve-leads-conversion-object" data-tl-type="lightbox"><div class="tve_flt"><div id="tve_editor" class="tve_shortcode_editor"><div class="tve_p_lb_control tve_editor_main_content tve_content_save"><h2 style="color: rgb(123, 197, 66); font-size: 42px; margin-top: 0px; margin-bottom: 0px;" class="tve_p_center rft"><span class="tve_custom_font_size rft" style="font-size: 42px;"><font color="#151515">Do You Want to</font> Download my Free eBook&nbsp;<font color="#151515">with 18+ Arduino Projects?</font></span></h2>
+<div class="thrv_wrapper thrv_columns" style="margin-top: 80px;margin-bottom: 0;">
+<div class="tve_colm tve_twc">
+<div data-tve-style="1" class="thrv_wrapper thrv_button_shortcode tve_ea_tl_state_lightbox tve_fullwidthBtn">
+<div class="tve_btn tve_nb tve_btn1 tve_normalBtn tve_green">
+<a class="tve_btnLink tve_evt_manager_listen tve_et_click" href="" data-tcb-events="__TCB_EVENT_[{&quot;t&quot;:&quot;click&quot;,&quot;a&quot;:&quot;tl_state_switch&quot;,&quot;config&quot;:{&quot;s&quot;:&quot;3&quot;}}]_TNEVE_BCT__">
+<span class="tve_left tve_btn_im">
+<i></i>
+<span class="tve_btn_divider"></span>
+</span>
+<span class="tve_btn_txt">YES, LET'S MAKE IT HAPPEN!</span>
+</a>
+</div>
+</div>
+</div>
+<div class="tve_colm tve_twc tve_lst">
+<div data-tve-style="1" class="thrv_wrapper thrv_button_shortcode tve_ea_tl_state_lightbox tve_fullwidthBtn">
+<div class="tve_btn tve_nb tve_btn1 tve_normalBtn tve_red">
+<a class="tve_btnLink tve_evt_manager_listen tve_et_click" href="" data-tcb-events="__TCB_EVENT_[{&quot;t&quot;:&quot;click&quot;,&quot;a&quot;:&quot;tl_state_lb_close&quot;,&quot;config&quot;:{}}]_TNEVE_BCT__">
+<span class="tve_left tve_btn_im">
+<i></i>
+<span class="tve_btn_divider"></span>
+</span>
+<span class="tve_btn_txt">NO, I DON'T LIKE ARDUINO.</span>
+</a>
+</div>
+</div>
+</div>
+</div></div></div></div></div></article></div><a href="javascript:void(0)" class="tve_p_lb_close" style="" title="Close">x</a></div></div></div></div><div style="display:none" class="tl-style" id="tve_one_set" data-state="3">
+        <div class="tve_one_set_vms_step2 tve_post_lightbox tve-leads-lightbox">
+        <div style="" class="tl-lb-target tve-leads-track-lightbox-3" data-s-state=""><div class="tve_p_lb_overlay" style=""></div><div data-anim="zoom_in" class="tve_p_lb_content tve-tl-anim tl-anim-zoom_in bSe cnt" style=""><div class="tve_p_lb_inner" id="tve-p-scroller" style=""><article><div class="tve-leads-conversion-object" data-tl-type="lightbox"><div class="tve_flt"><div id="tve_editor" class="tve_shortcode_editor"><div class="tve_p_lb_control tve_editor_main_content tve_content_save"><h2 style="color: rgb(21, 21, 21); font-size: 48px; margin-top: 0px; margin-bottom: 0px;" class="rft tve_p_center">
+<span class="tve_custom_font_size  rft" style="font-size: 35px;">Sign Up Below to Download the <font color="#7bc542">Free Arduino eBook</font> with 18+ Arduino Projects:</span>
+</h2>
+<div class="thrv_wrapper thrv_content_container_shortcode">
+<div class="tve_clear"></div>
+<div class="tve_center tve_content_inner" style="width: 580px;min-width:50px; min-height: 2em;margin-top: 50px;">
+<div class="thrv_wrapper thrv_lead_generation tve_clearfix tve_green tve_2 thrv_lead_generation_vertical" data-inputs-count="2" data-tve-style="1" style="margin-top: 0; margin-bottom: 0;" data-tve-version="1" data-connection="custom-html">
+<div class="thrv_lead_generation_code" style="display: none;"></div>
+<input class="tve-lg-err-msg" value="{&quot;email&quot;:&quot;Please enter a valid email address&quot;,&quot;phone&quot;:&quot;Please enter a valid phone number&quot;,&quot;required&quot;:&quot;Name and Email fields are required&quot;}" type="hidden">
+<div class="thrv_lead_generation_container tve_clearfix"><form method="POST" action="http://mail.ruisantos.me//subscribe"><input name="list" value="fOtiPynO892lCg2p1WntkttQ" type="hidden"><div class="tve_lead_generated_inputs_container tve_clearfix"><div class="tve_lead_fields_overlay"></div><div class="tve_lg_input_container tve_lg_input tve_lg_2"><input data-field="email" data-required="1" data-validation="email" name="email" placeholder="Enter your email address" data-placeholder="Enter your email address" style="padding-right: 20px;" type="text"></div><div style="display: none"></div><div class="tve_lg_input_container tve_submit_container tve tve_lg_submit tve_lg_2">
+<button type="Submit">SEND ME MY FREE EBOOK</button>
+</div></div></form></div>
+</div>
+</div>
+<div class="tve_clear"></div>
+</div></div></div></div></div></article></div><a href="javascript:void(0)" class="tve_p_lb_close" style="" title="Close">x</a></div></div></div></div></div><script type="text/javascript">var TVE_Event_Manager_Registered_Callbacks = TVE_Event_Manager_Registered_Callbacks || {};TVE_Event_Manager_Registered_Callbacks.tl_state_switch = function(t,a,c){var current=TL_Front.parent_state || ThriveGlobal.$j(this).parents('.tl-style').first();var container=current.parent().find('[data-state="'+c.s+'"]');if(!container.length){return false;}current.hide();container.show().parent().trigger('switchstate',[container,current]);return false;};;TVE_Event_Manager_Registered_Callbacks.tl_state_lb_close = function(){ThriveGlobal.$j(".tve_p_lb_close,.tve-screen-filler-close").trigger("click");return false;};</script><link rel="stylesheet" id="tve-leads-font-9062833c9baa57b288ba47a7993dc1c0-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css_006.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve-leads-font-d8ce67121b33ca7c4f98ac9add9816c0-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="tve-leads-32_set-css" href="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/32_set.css" type="text/css" media="all">
+<script async="async" type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/form.js"></script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/photon.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var edd_scripts = {"ajaxurl":"http:\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","position_in_cart":"","has_purchase_links":"","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"paypal","redirect_to_checkout":"0","checkout_page":"https:\/\/randomnerdtutorials.com\/checkout\/","permalinks":"1","quantities_enabled":"","taxes_enabled":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/edd-ajax.js"></script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/devicepx-jetpack.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tve_frontend_options = {"is_editor_page":"","page_events":[],"is_single":"1","ajaxurl":"http:\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","social_fb_app_id":"","dash_url":"http:\/\/randomnerdtutorials.com\/wp-content\/plugins\/thrive-leads\/thrive-dashboard","translations":{"Copy":"Copy"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/frontend_004.js"></script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/frontend_002.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ThriveApp = {"ajax_url":"http:\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","is_singular":"1","post_type":"post","lazy_load_comments":"1","comments_loaded":"0","theme_uri":"http:\/\/randomnerdtutorials.com\/wp-content\/themes\/rise","translations":{"ProductDetails":"Product Details"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/script.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"http:\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","is_crawler":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/frontend.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"sidebar-1","margin_top":10,"margin_bottom":0,"stop_id":"","screen_max_width":550,"screen_max_height":0,"width_inherit":false,"refresh_interval":0,"window_load_hook":false,"disable_mo_api":false,"widgets":["text-47","text-46"]}];
+/* ]]> */
+</script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/q2w3-fixed-widget.js"></script>
+<script type="text/javascript" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/wp-embed.js"></script>
+<script type="text/javascript">/*<![CDATA[*/if ( !window.TL_Const ) var TL_Const={"security":"451e2692dd","ajax_url":"\/\/randomnerdtutorials.com\/wp-admin\/admin-ajax.php","forms":{"lightbox":{"_key":"2","trigger":"exit_intent","trigger_config":{"m":"timer","ms":"31"},"form_type_id":10947,"main_group_id":10889,"active_test_id":""},"two_step_15598":{"_key":"6","trigger":"click","trigger_config":{"c":"tl-2step-trigger-15598"},"form_type_id":"15598","main_group_id":"15598","active_test_id":null}},"action_conversion":"tve_leads_ajax_conversion","action_impression":"tve_leads_ajax_impression","ajax_load":0,"main_group_id":10889,"display_options":{"allowed_post_types":[],"flag_url_match":false},"two_step_ids":["15598"],"custom_post_data":{"http_referrer":"https:\/\/www.google.com"},"current_screen":{"screen_type":4,"screen_id":19973},"ignored_fields":["email","_captcha_size","_captcha_theme","_captcha_type","_submit_option","_use_captcha","g-recaptcha-response","__tcb_lg_fc","__tcb_lg_msg","_state","_form_type","_error_message_option","_back_url","_submit_option","url","_asset_group","_asset_option","mailchimp_optin"]}/*]]> */</script><script type="text/javascript">var TL_Front = TL_Front || {}; TL_Front.impressions_data = TL_Front.impressions_data || {};TL_Front.impressions_data.lightbox = {"group_id":10889,"form_type_id":10947,"variation_key":"2","active_test_id":0,"output_js":true};TL_Front.impressions_data.two_step_15598 = {"group_id":15598,"form_type_id":15598,"variation_key":"6","active_test_id":null,"output_js":true};</script><script type="text/javascript">
+	(function ($) {
+	var event_data = {"form_id":"tve-leads-track-lightbox-2","form_type":"lightbox"};
+	event_data.source = 'exit_intent';
+			/* Chrome has a stupid bug in which it triggers almost simultaneously "mouseenter" "mouseleave" "mouseenter" if the following applies:
+	 - at page load, the cursor is outside the html element
+	 - the user moves the cursor over the html element
+	 */
+	var chrome_fix_id = 0,
+	me = function (e) { /* mouse enter */
+	clearTimeout(chrome_fix_id);
+	},
+	ml = function (e) {
+
+	if (e.clientY <= config.s) {
+	chrome_fix_id = setTimeout(function () {
+	ThriveGlobal.$j(TL_Front).trigger('showform.thriveleads', event_data);
+	c();
+	}, 50);
+	}
+	},
+	c = function () { // cancel
+	$(document).off('mouseenter.exit_intent mouseleave.exit_intent');
+	},
+	config = { // we can adjust this and the code below to allow users to tweak settings
+	s: 20 // sensitivity
+	};
+	$(function () {
+	$(document).on('mouseleave.exit_intent', ml)
+	.on('mouseenter.exit_intent', me);
+
+	});
+		})
+(ThriveGlobal.$j);
+</script><script type="text/javascript">
+	(function ($) {
+	$( function () {
+		var event_data = {"form_id":"tve-leads-track-2step-6","form_type":"lightbox"},
+			_selector = ".tl-2step-trigger-15598";
+		event_data.source = 'click';
+		event_data.first = true;
+		$( 'body' ).on( 'click', _selector, function ( event ) {
+			event_data.TargetEvent = event;
+			$( TL_Front ).trigger( 'showform.thriveleads', event_data );
+		} );
+	} );
+})
+	(ThriveGlobal.$j);
+</script><div class="tl-states-root tl-anim-instant"><div class="tl-style" id="tve_32_set" data-state="6">
+        <div class="tve_32_set tve_post_lightbox tve-leads-lightbox">
+        <div style="visibility: hidden; position: fixed; left: -9000px" class="tl-lb-target tve-leads-track-2step-6" data-s-state=""><div class="tve_p_lb_overlay" style="opacity:0.8"></div><div data-anim="instant" class="tve_p_lb_content tve-tl-anim tl-anim-instant bSe cnt" style="max-width:700px"><div class="tve_p_lb_inner" id="tve-p-scroller" style=""><article><style type="text/css" class="tve_custom_style">[data-tve-custom-colour="71325059"]:hover { border-color: rgb(255, 255, 255) !important; background-color: rgb(63, 163, 62) !important; }
+[data-tve-custom-colour="71325059"] { color: rgb(255, 255, 255) !important; text-shadow: transparent 0px 1px 0px !important; box-shadow: transparent 0px 3px 3px 1px !important; border-color: rgb(255, 255, 255) !important; background-color: rgb(57, 163, 55) !important; }</style><div class="tve-leads-conversion-object" data-tl-type="two_step_15598"><div class="tve_flt"><div id="tve_editor" class="tve_shortcode_editor"><div class="tve_p_lb_control tve_editor_main_content tve_content_save"><div class="thrv_wrapper thrv_columns tve_clearfix" style="">
+<div class="tve_colm tve_foc tve_df tve_ofo ">
+<div style="width: 143px;" class="thrv_wrapper tve_image_caption aligncenter">
+<span class="tve_image_frame">
+<img class="tve_image" src="ESP8266%20Android%20MIT%20App%20Inventor%20Tutorial%20%7C%20Random%20Nerd%20Tutorials_files/set_32_icon.png" style="width: 143px;">
+</span>
+</div>
+</div>
+<div class="tve_colm tve_tfo tve_df tve_lst">
+<h2 style="color: rgb(52, 48, 53); font-size: 36px; margin-top: 25px; margin-bottom: 15px;" class="tve_p_left rft">Getting Started with ESPlorer IDE and ESP8266</h2>
+<p style="color: #343035; font-size: 18px; margin-top: 0;" class="">
+Download a free PDF and learn how to use the ESPlorer IDE with the ESP8266. Enter your email below for instant access!</p>
+</div>
+</div>
+<div data-tve-style="1" class="thrv_wrapper thrv_lead_generation tve_clearfix tve_green tve_2 thrv_lead_generation_horizontal" data-inputs-count="2" style="margin-top: 0;margin-bottom: 20px;" data-tve-version="1" data-connection="custom-html">
+<div style="display: none;" class="thrv_lead_generation_code"></div>
+<input class="tve-lg-err-msg" value="{&quot;email&quot;:&quot;Please enter a valid email address&quot;,&quot;phone&quot;:&quot;Please enter a valid phone number&quot;,&quot;required&quot;:&quot;Name and Email fields are required&quot;}" type="hidden">
+<div class="thrv_lead_generation_container tve_clearfix"><form method="POST" action="http://mail.ruisantos.me//subscribe"><input name="list" value="fOtiPynO892lCg2p1WntkttQ" type="hidden"><div class="tve_lead_generated_inputs_container tve_clearfix"><div class="tve_lead_fields_overlay"></div><div class="tve_lg_input_container tve_lg_input tve_lg_2"><input data-field="email" data-required="1" data-validation="none" name="email" placeholder="Enter your email address" data-placeholder="Enter your email address" style="padding-right: 20px;" type="text"></div><div style="display: none"></div><div class="tve_lg_input_container tve_submit_container tve_lg_submit tve_lg_2">
+<button type="Submit" style="font-size: 20px;" data-tve-custom-colour="71325059">FREE DOWNLOAD</button>
+</div></div></form></div>
+</div><p data-default="Enter your text here..." class="tve_p_center" style="color: rgb(114, 114, 114); font-size: 14px;"><span class="tve_custom_font_size" style="font-size: 14px;">Unsubscribe at any time with one click.</span></p></div></div></div></div></article></div><a href="javascript:void(0)" class="tve_p_lb_close" style="" title="Close">x</a></div></div></div></div></div></div>
+
+</body></html>

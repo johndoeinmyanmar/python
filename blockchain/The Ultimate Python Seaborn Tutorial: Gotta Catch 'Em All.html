@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-montserrat-n7-active wf-montserrat-n6-active wf-montserrat-n4-active wf-montserrat-n5-active wf-sourcesanspro-n4-active wf-karla-n4-active wf-karla-n7-active wf-karla-i4-active wf-karla-i7-active wf-active" prefix="og: http://ogp.me/ns#" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/zxcvbn.js"></script><script async="" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/469443103391738"></script><script src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/fbevents.js" async=""></script><script src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/analytics.js" async="" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="pingback" href="https://elitedatascience.com/xmlrpc.php">
+
+    <title>The Ultimate Python Seaborn Tutorial: Gotta Catch 'Em All</title>
+                        <script src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/8015924.js" async="" type="text/javascript"></script><script src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/gtm.js" async=""></script><script async="" type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/webfont.js"></script><script>
+                            /* You can add more configuration options to webfontloader by previously defining the WebFontConfig with your options */
+                            if ( typeof WebFontConfig === "undefined" ) {
+                                WebFontConfig = new Object();
+                            }
+                            WebFontConfig['google'] = {families: ['Poppins:300,400,500,600,700', 'Montserrat:700,600,400,500', 'Source+Sans+Pro:400', 'Karla:400,700,400italic,700italic']};
+
+                            (function() {
+                                var wf = document.createElement( 'script' );
+                                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js';
+                                wf.type = 'text/javascript';
+                                wf.async = 'true';
+                                var s = document.getElementsByTagName( 'script' )[0];
+                                s.parentNode.insertBefore( wf, s );
+                            })();
+                        </script>
+                        
+<!-- This site is optimized with the Yoast SEO plugin v6.2 - https://yoa.st/1yg?utm_content=6.2 -->
+<link rel="canonical" href="https://elitedatascience.com/python-seaborn-tutorial">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Ultimate Python Seaborn Tutorial: Gotta Catch 'Em All">
+<meta property="og:description" content="In this step-by-step Seaborn tutorial, you’ll learn how to use&nbsp;one of Python’s most convenient libraries for data visualization. For those who’ve tinkered with&nbsp;Matplotlib before, you may have wondered, “why does it take me 10 lines of code just to make a decent-looking histogram?” Well, if you’re looking for a simpler way to plot&nbsp;attractive charts, then …">
+<meta property="og:url" content="https://elitedatascience.com/python-seaborn-tutorial">
+<meta property="og:site_name" content="EliteDataScience">
+<meta property="article:section" content="Tutorials">
+<meta property="article:published_time" content="2017-05-02T11:03:35-05:00">
+<meta property="article:modified_time" content="2018-02-08T11:56:38-05:00">
+<meta property="og:updated_time" content="2018-02-08T11:56:38-05:00">
+<meta property="og:image" content="https://elitedatascience.com/wp-content/uploads/2017/04/python-seaborn-tutorial-feature-image.jpg">
+<meta property="og:image:secure_url" content="https://elitedatascience.com/wp-content/uploads/2017/04/python-seaborn-tutorial-feature-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="In this step-by-step Seaborn tutorial, you’ll learn how to use&nbsp;one of Python’s most convenient libraries for data visualization. For those who’ve tinkered with&nbsp;Matplotlib before, you may have wondered, “why does it take me 10 lines of code just to make a decent-looking histogram?” Well, if you’re looking for a simpler way to plot&nbsp;attractive charts, then […]">
+<meta name="twitter:title" content="The Ultimate Python Seaborn Tutorial: Gotta Catch 'Em All">
+<meta name="twitter:image" content="https://elitedatascience.com/wp-content/uploads/2017/04/python-seaborn-tutorial-feature-image.jpg">
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/elitedatascience.com\/","name":"EliteDataScience","potentialAction":{"@type":"SearchAction","target":"https:\/\/elitedatascience.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="EliteDataScience » Feed" href="https://elitedatascience.com/feed">
+<link rel="alternate" type="application/rss+xml" title="EliteDataScience » Comments Feed" href="https://elitedatascience.com/comments/feed">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TFDKX2');</script>
+<!-- End Google Tag Manager --><link rel="alternate" type="application/rss+xml" title="EliteDataScience » The Ultimate Python Seaborn Tutorial: Gotta Catch ‘Em All Comments Feed" href="https://elitedatascience.com/python-seaborn-tutorial/feed">
+<link rel="stylesheet" id="crayon-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-four-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="mashsb-styles-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashsb.css" type="text/css" media="all">
+<style id="mashsb-styles-inline-css" type="text/css">
+.mashsb-count {color:#cccccc;}@media only screen and (min-width:568px){.mashsb-buttons a {min-width: 177px;}}
+</style>
+<link rel="stylesheet" id="mashfs-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashfs.css" type="text/css" media="all">
+<link rel="stylesheet" id="mashnet-styles-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashnet.css" type="text/css" media="all">
+<link rel="stylesheet" id="op_map_custom-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/op_map.css" type="text/css" media="all">
+<link rel="stylesheet" id="opst-css-style-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/all.css" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce_responsive_frontend_styles-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/woocommerce.css" type="text/css" media="all">
+<link rel="stylesheet" id="optimizepress-default-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/default.css" type="text/css" media="all">
+<link rel="stylesheet" id="ws-plugin--optimizemember-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/optimizeMember-o.css" type="text/css" media="all">
+<link rel="stylesheet" id="optimizepressplus-pack-css-front-all-css" href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/opplus-front-all.css" type="text/css" media="all">
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/jquery.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var OptimizePress = {"ajaxurl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","SN":"optimizepress","version":"2.5.12.4","script_debug":".min","localStorageEnabled":"","wp_admin_page":"","op_live_editor":"","op_page_builder":"","op_create_new_page":"","imgurl":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","OP_URL":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/","OP_JS":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","OP_PAGE_BUILDER_URL":"","include_url":"https:\/\/elitedatascience.com\/wp-includes\/","op_autosave_interval":"300","op_autosave_enabled":"Y","paths":{"url":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/","img":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/images\/","js":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/js\/","css":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/css\/"},"social":{"twitter":"optimizepress","facebook":"optimizepress","googleplus":"111273444733787349971"},"flowplayerHTML5":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/flowplayer\/flowplayer.swf","flowplayerKey":"","flowplayerLogo":"","mediaelementplayer":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlugin\/lib\/modules\/blog\/video\/mediaelement\/","pb_unload_alert":"This page is asking you to confirm that you want to leave - data you have entered may not be saved.","pb_save_alert":"Please make sure you are happy with all of your options as some options will not be able to be changed for this page later.","search_default":"Search...","optimizemember":{"enabled":true,"version":"1.2.8.1"},"OP_LEADS_URL":"https:\/\/my.optimizeleads.com\/","OP_LEADS_THEMES_URL":"https:\/\/my.optimizeleads.com\/build\/themes\/","map":{"gmapsApiKey":""},"oppp":{"version":"1.1.8.2","path":"https:\/\/elitedatascience.com\/wp-content\/plugins\/optimizePressPlusPack\/"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/op-jquery-base-all.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/crayon.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mashfs = {"mobile_width":"568"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashfs.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/op-front-all.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _zxcvbnSettings = {"src":"https:\/\/elitedatascience.com\/wp-includes\/js\/zxcvbn.min.js"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/zxcvbn-async.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/password-strength-meter.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/optimizeMember-o.php"></script>
+<link rel="https://api.w.org/" href="https://elitedatascience.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://elitedatascience.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://elitedatascience.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://elitedatascience.com/?p=878">
+<link rel="alternate" type="application/json+oembed" href="https://elitedatascience.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial">
+<link rel="alternate" type="text/xml+oembed" href="https://elitedatascience.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial&amp;format=xml">
+
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="https://elitedatascience.com/wp-content/plugins/optimizePressPlugin/lib/js/selectivizr-1.0.2-min.js?ver=1.0.2"></script>
+        <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="https://elitedatascience.com/wp-content/plugins/optimizePressPlugin/lib/js//html5shiv.min.js"></script>
+        <![endif]-->
+    
+            <style type="text/css" id="op_header_css">
+            
+            </style>
+            
+<style id="op_custom_css">
+.banner { padding: 20px 0; }
+.banner .op-logo { padding: 0; }
+.banner .op-logo img { max-width: 225px; }
+
+body #nav-side.navigation #navigation-alongside  { margin: 0; }
+
+.op-page-header.cf { display: none !important; }
+
+.single-post-content ol li, .single-post-content ul li { margin: 2px 0px 2px 15px; 
+list-style-position: outside;}
+
+.single-post-content ol, .single-post-content ul { margin-left: 10px; }
+
+body.single-post .post-image { display: none; }
+
+.single-post-content ol li:first-child, .single-post-content ul li:first-child { margin-top: 5px; }
+
+.single-post-content h3 { padding-top: 20px; }
+.single-post-content h4 { font-weight: 500; }
+
+.latest-post h1.the-title { font-size: 30px; }
+
+
+.single-post-content .image-text-style-1 .image-text-style-img-container img { box-shadow: 0 0 8px rgba(0,0,0,.33); }
+
+.single-post-content .image-text-style-1 .image-text-align-left { padding-left: 0px; }
+
+.single-post-content .image-text-style-1 .image-text-align-center { padding-left: 0px; }
+
+.single-post-content .image-text-style-1 h3 { font-size: 16px; padding-bottom: 0px; font-weight:bold; }
+
+.single-post-content .image-text-style-1 img { height: auto; }
+
+.image-text-style-1 span { width: 49%; }
+
+@media only screen and (max-width: 767px) {
+.image-text-style-1 span {
+    width: 100%;
+} }
+
+.footer li a { font-weight: 500; }
+
+.older-post h4 a { 
+font-weight: bold;
+font-size: 25px;
+front-family: "Helvetica Neue", Helvetica, sans-serif;
+color: #222;
+}
+</style>
+
+            <meta property="fb:app_id" content="1841787069391547">
+        <link rel="icon" href="https://elitedatascience.com/wp-content/uploads/2016/11/cropped-beaker-dark-full-32x32.png" sizes="32x32">
+<link rel="icon" href="https://elitedatascience.com/wp-content/uploads/2016/11/cropped-beaker-dark-full-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://elitedatascience.com/wp-content/uploads/2016/11/cropped-beaker-dark-full-180x180.png">
+<meta name="msapplication-TileImage" content="https://elitedatascience.com/wp-content/uploads/2016/11/cropped-beaker-dark-full-270x270.png">
+<style type="text/css" title="dynamic-css" class="options-output">.sub-menu{border-bottom-color:#005BDC;}.op-navbar{background:#ffffff;}.op-navbar{border-bottom-color:#f0f0f0;}.header-style-centered #navbar, .header-style-with-tagline #navbar{border-top-color:#f0f0f0;}.op-footer{background:#fcfcfc;}.op-footer h1, .op-footer h2, .op-footer h3, .op-footer h4, .op-footer h5, .op-footer h6, .op-footer .calendar_wrap{color:#191919;}.op-footer, .footer-copyright, .op-footer p, .op-footer ul, .op-footer{color:#6d6d6d;}.op-footer a{color:#6d6d6d;}.op-footer a:hover{color:#6d6d6d;}.op-footer a:active{color:#6d6d6d;}.op-entry a{color:#0f87c9;}.op-entry a:hover{color:#0f87c9;}.op-entry a:active{color:#0f87c9;}.btn a, .btn, .btn-primary,
+                                        .op-navbar .nav-close-wrap,
+                                        .pagination > .btn,
+                                        #infinite-handle span button,
+                                        .woocommerce-product-search input[type=submit],
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-handle{background-color:#005BDC;}.op-read-more{border-color:#005BDC;}.btn a:hover,
+                                        .btn:hover,
+                                        .btn-primary:hover,
+                                        .btn a:active,
+                                        .btn:active,
+                                        .btn-primary:active,
+                                        .pagination > .btn:hover,
+                                        .pagination > .btn:active,
+                                        #infinite-handle span button:hover,
+                                        #infinite-handle span button:active,
+                                        .woocommerce-product-search input[type=submit]:hover,
+                                        .woocommerce-product-search input[type=submit]:active,
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-range:hover,
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-range:active,
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-handle:hover,
+                                        .woocommerce .widget_price_filter .ui-slider .ui-slider-handle:active,
+                                        .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content,
+                                        .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content:hover,
+                                        .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content:active{background-color:#0054cc;}.op-read-more:hover,
+                                        .op-read-more:active{border-color:#0054cc;}.btn a, .btn, .btn-primary,
+                            .pagination > .btn,
+                            .pagination > .btn:hover,
+                            .pagination > .btn:active,
+                            #infinite-handle span button,
+                            #infinite-handle span button:hover,
+                            #infinite-handle span button:hover:active,
+                            .op-navbar .nav-close-wrap,
+                            .woocommerce-product-search input[type=submit]{color:#ffffff;}.op-navbar .navbar-nav > .menu-item > a, .op-navbar .navbar-nav li .navbar-tagline,
+                                .op-navbar .navbar-nav .menu-item .menu-item-search-link,
+                                .op-navbar .navbar-nav .menu-item .op-search-form-close-button,
+                                .op-navbar.navbar-default .navbar-toggle,
+                                .op-search-form-top-menu {color:#6b6b6b;} .op-navbar .navbar-nav > .menu-item:hover > a,
+                                .op-navbar .navbar-nav li .navbar-tagline:hover,
+                                .op-navbar .navbar-nav .menu-item .menu-item-search-link:hover,
+                                .op-navbar .navbar-nav .menu-item .op-search-form-close-button:hover,
+                                .op-navbar.navbar-default .navbar-toggle:hover,
+                                .op-navbar .navbar-nav li .sub-menu a:hover {color:#6b6b6b;} .op-navbar .navbar-nav > .menu-item.active a,
+                                .op-navbar .navbar-nav > .menu-item.active:hover a {color:#6b6b6b;} .op-small-category-link a,
+                            .op-small-category-link a:hover,
+                            .op-small-category-link a:focus,
+                            .op-small-category-link a:active,
+                            .op-small-category-link span,
+                            .op-content-grid-row .op-small-category-link a,
+                            .op-homepage-hero-category,
+                            .op-homepage-hero-category:hover,
+                            .op-homepage-hero-category:focus,
+                            .op-homepage-hero-category:active{color:#ffffff;}.op-small-category-link a,
+                                        .op-small-category-link a:hover,
+                                        .op-small-category-link a:focus,
+                                        .op-small-category-link a:active,
+                                        .op-small-category-link span,
+                                        .op-homepage-hero-category,
+                                        .op-homepage-hero-category:hover,
+                                        .op-homepage-hero-category:focus,
+                                        .op-homepage-hero-category:active{background-color:#1cb186;}body, p, .sm-wrap{font-family:Arial, Helvetica, sans-serif;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body, p, .sm-wrap,{opacity: 0;}.ie.wf-loading body, p, .sm-wrap,{visibility: hidden;}body, p{font-size:18px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body, p,{opacity: 0;}.ie.wf-loading body, p,{visibility: hidden;}h1, h2, h3, h4, h5, h6, .op-entry .op-author-name{font-family:Poppins;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1, h2, h3, h4, h5, h6, .op-entry .op-author-name,{opacity: 0;}.ie.wf-loading h1, h2, h3, h4, h5, h6, .op-entry .op-author-name,{visibility: hidden;}h1{line-height:40px;font-size:35px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{line-height:34px;font-size:26px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{line-height:33px;font-size:22px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{line-height:30px;font-size:20px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{line-height:27px;font-size:17px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{line-height:24px;font-size:14px;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}.op-homepage-hero-button,
+                            .op-homepage-hero-button:hover,
+                            .op-homepage-hero-button:active,
+                            .op-homepage-hero-button:focus{color:#ffffff;}.op-homepage-hero-button-style-2{border-color:#ffffff;}.op-homepage-hero-button{background-color:#005BDC;}.op-homepage-hero-button:hover,
+                                        .op-homepage-hero-button:active,
+                                        .op-homepage-hero-button:focus{background-color:#0054cc;}.op-homepage-hero{background-size:cover;background-image:url('https://elitedatascience.com/wp-content/uploads/2018/02/future-city-3-comp.jpeg');}.op-homepage-hero-container{background-color:rgba(50,50,50,0.75);}.op-homepage-hero, .op-homepage-hero-content, .op-homepage-hero-title, .op-homepage-hero-subtitle, .op-homepage-hero-excerpt{color:#ffffff;}.op-homepage-hero-title::after{background-color:#ffffff;}.op-homepage-hero-title{font-family:Poppins;font-weight:600;font-style:normal;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading .op-homepage-hero-title,{opacity: 0;}.ie.wf-loading .op-homepage-hero-title,{visibility: hidden;}.op-homepage-hero-subtitle,.op-homepage-hero-excerpt{font-family:Karla;font-weight:400;font-style:normal;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading .op-homepage-hero-subtitle,.wf-loading .op-homepage-hero-excerpt,{opacity: 0;}.ie.wf-loading .op-homepage-hero-subtitle,.ie.wf-loading .op-homepage-hero-excerpt,{visibility: hidden;}.op-homepage-hero-button{font-family:Karla;font-weight:400;font-style:normal;opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading .op-homepage-hero-button,{opacity: 0;}.ie.wf-loading .op-homepage-hero-button,{visibility: hidden;}.op-hero-header,
+                .op-hero-area .feature-title,
+                .op-hero-area .op-headline,
+                .op-hero-area p,
+                .op-hero-layout-meta-wrap,
+                .op-blog-meta-wrapper,
+                .op-hero-layout-meta-wrap a{color:#ffffff;}.page .op-hero-header, .page .op-hero-area .feature-title, .page .op-hero-area .op-headline, .page .op-hero-layout-meta-wrap, .page .op-blog-meta-wrapper, .page .op-hero-layout-meta-wrap a{color:#ffffff;}</style><link href="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/css.css" rel="stylesheet"><style type="text/css">.op-blog-post-header {background-color: #23282d;
+                background-image: -moz-linear-gradient(top, #23282d 0%, #23282d 100%);
+                background-image: -webkit-linear-gradient(top, #23282d 0%, #23282d 100%);
+                background-image: linear-gradient(to bottom, #23282d 0%, #23282d 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#23282d', endColorstr='#23282d', GradientType=0); color: #ffffff; }.op-hero-area .feature-title {color: #ffffff; }.op-hero-area .op-headline {color: #ffffff; }.page .op-hero-area .op-headline {color: #ffffff; }.op-hero-area .op-blog-meta-wrapper {color: #ffffff; }.op-hero-area .op-hero-layout-meta-wrap a {color: #ffffff; }.op-blog-post-header .op-small-category-link a {color: ; background-color: ; }</style><style type="text/css">.fancybox-margin{margin-right:13px;}</style><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="post-template-default single single-post postid-878 single-format-standard op-plugin op-navbar-fixed op-not-touch-device" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+        <div id="page" class="page-container hfeed site">
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+        <header id="masthead" class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
+            <nav style="margin-top: -66px; top: 66px;" class="op-navbar navbar navbar-default op-navbar-fixed fixed" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+                                <div class="container op-container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="https://elitedatascience.com/">
+                            <img src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/elitedatascience-dark.png" srcset="https://elitedatascience.com/wp-content/uploads/2016/11/elitedatascience-dark.png 1x, https://elitedatascience.com/wp-content/uploads/2016/11/elitedatascience-dark.png 2x" title="EliteDataScience" alt="EliteDataScience" height="50" width="485">                        </a>
+                        <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                    </div> <!--/.navbar-header -->
+                    <div id="navbar" class="pull-right navbar-menu">
+                        <div class="nav-close-wrap text-right ">
+                            <span class="glyphicon glyphicon-remove closenav"></span>
+                        </div>
+                        <div class="menu-header-navigation-container"><ul id="menu-header-navigation" class="nav navbar-nav"><li id="menu-item-1586" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1586"><a href="https://elitedatascience.com/start-here"><i class="fa fa-bolt"></i><span class="fontawesome-text"> Start Here</span></a></li>
+<li id="menu-item-1577" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-1577"><a href="https://elitedatascience.com/"><i class="fa fa-book"></i><span class="fontawesome-text"> Articles</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1572" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1572"><a href="https://elitedatascience.com/category/guides">Guides</a></li>
+	<li id="menu-item-1570" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1570"><a href="https://elitedatascience.com/category/explainers">Concept Explainers</a></li>
+	<li id="menu-item-1571" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1571"><a href="https://elitedatascience.com/category/tutorials">Code Tutorials</a></li>
+	<li id="menu-item-1573" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1573"><a href="https://elitedatascience.com/category/career">Career Help</a></li>
+	<li id="menu-item-1569" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1569"><a href="https://elitedatascience.com/category/resources">Tools &amp; Resources</a></li>
+</ul>
+</li>
+<li id="menu-item-1486" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1486"><a href="#"><i class="fa fa-university"></i><span class="fontawesome-text"> Products</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-1429" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1429"><a href="https://elitedatascience.com/machine-learning-masterclass">ML Masterclass</a></li>
+	<li id="menu-item-1487" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1487"><a href="https://elitedatascience.com/interview-prep-kit">Interview Prep Kit</a></li>
+</ul>
+</li>
+
+            <li class="menu-item menu-item-search-form">
+                <span class="menu-item-search-form-container menu-item-search-form-item menu-item-search-toggle menu-item-hidden">
+                    <form method="get" class="searchform" action="https://elitedatascience.com/">
+                        <div class="inline-flex">
+                            <input size="15" class="op-search-form-top-menu" name="s" id="s" placeholder="Enter your search keyword(s) here and press enter" type="text">
+                        </div>
+                    </form>
+                    <a class="op-search-form-close-button" id="op_remove_search_link" href="#">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span class="visuallyhidden">Close Search Form</span>
+                    </a>
+                </span>
+
+                <span class="menu-item-search-form-item menu-item-search-link menu-item-search-toggle">
+                    <a class="menu-item-search-link" id="op_search_link" href="#">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <span class="visuallyhidden">Open Search Form</span>
+                    </a>
+                </span>
+            </li>
+
+            </ul></div>                    </div><!--/.nav-collapse -->
+                </div> <!--/.container-fluid -->
+            </nav>
+        </header>
+        <main id="main" class="site-content" role="main">
+            <div class="op_optin_single_after_header_container op_optin_style_dark">
+    <div id="op-trigger-op_theme_popup_5a8c5072f1b65" class="optin-box-optimizetheme-lightbox optin-box-optimizetheme optin-box-optimizetheme-after-header optin-box-optimizetheme-dark">
+        <div class="container op-container optin-box-content optin-box-optimizetheme-content"><div class="optin-box-optimizetheme-headline-container"><h2 class="optin-box-optimizetheme-headline">Free: 7-Day Crash Course</h2><p class="optin-box-optimizetheme-subheadline">Data Science &amp; Applied Machine Learning 101</p></div>
+            <div class="optin-box-optimizetheme-open-lightbox-container">
+                <button type="button" class="default-button" data-toggle="modal" data-target="#op_theme_popup_5a8c5072f1b65">Get it delivered to your inbox!</button>
+            </div>
+        </div></div>
+
+    <div class="optin-box-optimizetheme-modal modal fade" id="op_theme_popup_5a8c5072f1b65" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <button type="button" class="close optin-box-optimizetheme-close-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+            <div class="modal-content">
+                <div class="modal-body">
+                <aside id="op-optin-5a8c4f7f7ad7d" class="optin-box optin-box-optimizetheme optin-box-optimizetheme-after-header optin-box-optimizetheme-dark">
+    <div class="container op-container optin-box-content optin-box-optimizetheme-content">
+        
+        <div class="optin-box-optimizetheme-headline-container">
+            <h2 class="optin-box-optimizetheme-headline">Step-by-Step Blueprint for Data Science</h2>            <p class="optin-box-optimizetheme-subheadline">Introduction
+ to the machine learning workflow, exploratory analysis, data cleaning, 
+feature engineering, algorithm selection, model training, and next steps
+ for continued study... (Go at your own pace!)</p>        </div>
+
+        <div class="optin-box-optimizetheme-form-container">
+        <form action="https://www.getdrip.com/forms/39357181/submissions" method="post" class="cf op-optin-validation"><div style="display:none"><input name="redirect_url" value="https://www.getdrip.com/forms/39357181/submissions" type="hidden"><input name="email_field" value="fields[email]" type="hidden"></div>                <div class="text-boxes optin-box-optimizetheme-text-boxes">
+                    <div class="text-box name"><input required="required" name="fields[first_name]" placeholder="Enter your first name" type="text"></div><div class="text-box email"><input required="required" name="fields[email]" placeholder="Enter your best email" type="email"></div>                </div>
+                <button type="submit" class="default-button"><span>Let's Start!</span></button>                            <input id="op_optin_nonce" name="op_optin_nonce" value="9260e6c2bf" type="hidden"><input name="_wp_http_referer" value="/python-seaborn-tutorial" type="hidden"></form>
+        </div>
+        <div class="optin-box-optimizetheme-privacy">No spam. No nonsense. 100% privacy guaranteed.</div>
+            </div>
+    <style>#op-optin-5a8c4f7f7ad7d .default-button { color: #FFFFFF; background-color: #276CF2; }#op-optin-5a8c4f7f7ad7d .default-button:hover { background-color: #0054cc; }</style>
+</aside>
+
+                </div>
+            </div>
+        </div>
+    </div><style>#op-trigger-op_theme_popup_5a8c5072f1b65 .optin-box-optimizetheme-open-lightbox-container .default-button { color: #FFFFFF; background-color: #276CF2; }#op-trigger-op_theme_popup_5a8c5072f1b65 .optin-box-optimizetheme-open-lightbox-container .default-button:hover { background-color: #0054cc; }</style></div>
+            <article id="post-878" class="post-878 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorials" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+                <div class="op-hero-area op-blog-post" role="banner">
+                    <header class="op-hero-area op-blog-post-header">
+    <div class="op-blog-hero-background">
+                <div class="op-blog-header-content op-blog-header-content-img">
+            <div class="container op-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="op-category-wrap">        <div class="op-small-category-link"><a href="https://elitedatascience.com/category/tutorials" rel="category tag">Tutorials</a></div>
+    </div><h1 class="op-headline" itemprop="headline"><a href="https://elitedatascience.com/python-seaborn-tutorial">The Ultimate Python Seaborn Tutorial: Gotta Catch ‘Em All</a></h1><div class="op-blog-meta-wrapper"><span class="op-post-date"><span class="glyphicon glyphicon-time op-list-space-right-small" aria-hidden="true"></span><time class="entry-date published updated op-list-space-right-large" datetime="2017-05-02T11:03:35+00:00" itemprop="datePublished">May 2, 2017</time></span></div>                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img class="attachment-post-thumbnail size-post-thumbnail wp-post-image" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/pokemon-feature-image-no-text.jpg" alt="The Ultimate Python Seaborn Tutorial: Gotta Catch ‘Em All" height="360" width="640"><div class="op-blog-hero-background-image"></div><div class="post-thumbnail-placeholder"></div><style> .op-blog-post-header { background-color: #23282d;
+                background-image: -moz-linear-gradient(top, #23282d 0%, #23282d 100%);
+                background-image: -webkit-linear-gradient(top, #23282d 0%, #23282d 100%);
+                background-image: linear-gradient(to bottom, #23282d 0%, #23282d 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#23282d', endColorstr='#23282d', GradientType=0); } .op-blog-header-content-img { background-color:rgba(50, 50, 50, 0.75) }.op-blog-hero-background-image { background-image: url('https://elitedatascience.com/wp-content/uploads/2017/04/pokemon-feature-image-no-text.jpg'); background-size: cover;background-position: center center; } </style>    </div>
+</header>
+                </div>
+
+                
+                <div id="primary" class="content-area">
+                    
+                                            <div class="op-entry single container op-container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                                    
+<div class="entry-content" itemprop="text">
+    <aside class="mashsb-container mashsb-main mashsb-stretched"><div class="mashsb-box"><div class="mashsb-count mash-small" style="float:left;"><div class="counts mashsbcount">111</div><span class="mashsb-sharetext">SHARES</span></div><div class="mashsb-buttons"><a class="mashicon-facebook mash-small mash-center mashsb-noshadow" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Share</span></a><a class="mashicon-google mash-small mash-center mashsb-noshadow" href="https://plus.google.com/share?text=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Google</span></a><a class="mashicon-linkedin mash-small mash-center mashsb-noshadow" href="https://www.linkedin.com/shareArticle?trk=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Linkedin</span></a><a class="mashicon-twitter mash-small mash-center mashsb-noshadow" href="https://twitter.com/intent/tweet?text=The%20Ultimate%20Python%20Seaborn%20Tutorial%3A%20Gotta%20Catch%20%E2%80%98Em%20All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Tweet</span></a><div class="onoffswitch2 mash-small mashsb-noshadow" style="display:none;"></div></div>
+            </div>
+                <div style="clear:both;"></div><div class="mashsb-toggle-container"></div></aside>
+            <!-- Share buttons by mashshare.net - Version: 3.4.9--><p>In
+ this step-by-step Seaborn tutorial, you’ll learn how to use&nbsp;one of
+ Python’s most convenient libraries for data visualization.</p>
+<p>For those who’ve tinkered with&nbsp;Matplotlib before, you may have 
+wondered, “why does it take me 10 lines of code just to make a 
+decent-looking histogram?”</p>
+<p>Well, if you’re looking for a simpler way to plot&nbsp;attractive 
+charts, then you’ll love Seaborn. We’ll walk you through everything you 
+need to know to get started, and we’ll use&nbsp;a fun Pokémon dataset 
+(which you can download below).</p>
+<h2>Introduction to Seaborn</h2>
+<p>Seaborn provides a high-level interface to&nbsp;Matplotlib, a 
+powerful but sometimes unwieldy&nbsp;Python visualization&nbsp;library.</p>
+<p>On Seaborn’s&nbsp;official website, they state:</p>
+<blockquote><p>If matplotlib “tries to make easy things easy and hard 
+things possible”, seaborn tries to make a well-defined set of hard 
+things easy too.</p></blockquote>
+<p>We’ve found this to be a pretty good summary of Seaborn’s strengths. 
+In practice, the “well-defined set of hard things” includes:</p>
+<ul>
+<li>Using&nbsp;default themes that are aesthetically pleasing.</li>
+<li>Setting custom color palettes.</li>
+<li>Making attractive&nbsp;statistical plots.</li>
+<li>Easily and flexibly displaying distributions.</li>
+<li>Visualizing information from matrices and DataFrames.</li>
+</ul>
+<p>Those last three points are why&nbsp;<strong>Seaborn is our tool of choice for Exploratory Analysis.</strong> It makes it very easy to “get to know” your data quickly and efficiently.</p>
+<p>However, Seaborn is a complement, not a substitute, for Matplotlib. 
+There are some tweaks that still require&nbsp;Matplotlib, and we’ll 
+cover how to do that as well.</p>
+<h4><strong>How to Learn Seaborn, the Self-Starter Way:</strong></h4>
+<p>While Seaborn simplifies data visualization in Python, it still has 
+many features. Therefore, the best way to learn Seaborn is to <em>learn by doing</em>.</p>
+
+<ul id="step-graphic-d5489d97dbd2947cbea7faab01417a94" class="step-graphic-style-1">
+			<li>
+			<span class="step-graphic-style-1-number-container"><span class="step-graphic-style-1-number">1</span></span>			<div>
+				<p class="heading">First, understand the basics and paradigms of the library.</p>
+				<p>Each library approaches data visualization differently, so it's important to understand how Seaborn "thinks about" the problem.
+</p>
+			</div>
+		</li>
+				<li>
+			<span class="step-graphic-style-1-number-container"><span class="step-graphic-style-1-number">2</span></span>			<div>
+				<p class="heading">Then, fire up a dataset for practice.</p>
+				<p>Learning in context is the best way to master a new skill quickly.
+</p>
+			</div>
+		</li>
+				<li>
+			<span class="step-graphic-style-1-number-container"><span class="step-graphic-style-1-number">3</span></span>			<div>
+				<p class="heading">Finally, refer to galleries to spark ideas and documentation to customize your charts.</p>
+				<p>Since you've already learned the library's paradigms and had some hands-on practice, you'll easily find what you need.
+</p>
+			</div>
+		</li>
+		</ul>
+<p>This process&nbsp;will give you&nbsp;intuition about&nbsp;what you 
+can do with&nbsp;Seaborn, leaving documentation to serve as further 
+guidance. This is the fastest way to go from zero to proficient.</p>
+<p><strong>A quick tip before&nbsp;we begin:</strong></p>
+<p>We tried to make this tutorial as streamlined as possible, which 
+means we won’t&nbsp;go into too much detail&nbsp;for any one topic. It’s
+ helpful to have the <a href="http://seaborn.pydata.org/api.html" target="_blank" rel="noopener noreferrer">Seaborn documentation</a> open beside you, in case you want to learn more about a feature.</p>
+<h2 id="toc">Seaborn Tutorial Contents</h2>
+<p>Instead of just showing you how to make a bunch of plots, we’re going
+ to walk through the most important paradigms of the Seaborn library. 
+Along the way, we’ll illustrate each&nbsp;concept with examples.</p>
+<p><strong>Here are the steps&nbsp;we’ll cover in this tutorial:</strong></p>
+<ol>
+<li><a href="#step-1">Installing Seaborn.</a></li>
+<li><a href="#step-2">Importing libraries and dataset.</a></li>
+<li><a href="#step-3">Seaborn’s plotting functions.</a>
+<ul>
+<li>Scatter Plot</li>
+</ul>
+</li>
+<li><a href="#step-4">Customizing with Matplotlib.</a></li>
+<li><a href="#step-5">The role of Pandas.</a>
+<ul>
+<li>Box Plot</li>
+</ul>
+</li>
+<li><a href="#step-6">Seaborn themes.</a>
+<ul>
+<li>Violin Plot</li>
+</ul>
+</li>
+<li><a href="#step-7">Color palettes.</a>
+<ul>
+<li>Swarm Plot</li>
+</ul>
+</li>
+<li><a href="#step-8">Overlaying plots.</a></li>
+<li><a href="#step-9">Putting it all together.</a></li>
+<li><a href="#step-10">Pokédex (mini-gallery).</a>
+<ul>
+<li>Heatmap</li>
+<li>Histogram</li>
+<li>Bar Plot</li>
+<li>Factor Plot</li>
+<li>Density Plot</li>
+<li>Joint Distribution Plot</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="step-1">Step 1: Installing Seaborn.</h2>
+<p>First, things first: <strong>Let’s. Get. Pumped. Up!</strong></p>
+<div class="video-plugin-new youtube not-flowplayer" style="max-width:100%; width:640px; height:auto; padding-top:0; padding-bottom:0; margin:0 auto;float:left; border: 0px solid #fff;margin-bottom: 20px;"><div style="width:640px;height:0;  padding-bottom: 56.25%; padding-top:0;"><iframe src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/rg6CiPI6h2g.html" allowfullscreen="" frameborder="0" height="360" width="640"></iframe></div></div>
+<p>(<em>Yes… We totally looped that&nbsp;while writing this tutorial…</em>)</p>
+<p>Next, make sure you have the following installed on your computer:</p>
+<ul>
+<li>Python 2.7+ or Python 3</li>
+<li>Pandas</li>
+<li>Matplotlib</li>
+<li>Seaborn</li>
+<li>Jupyter Notebook (optional, but recommended)</li>
+</ul>
+<p>We strongly recommend installing the <a href="https://www.continuum.io/downloads" target="_blank" rel="noopener noreferrer">Anaconda Distribution</a>, which comes with all of those packages. Simply follow the instructions on that download page.</p>
+<p>Once you have Anaconda installed, simply start&nbsp;Jupyter (either 
+through the command line or the Navigator app) and open a new notebook:</p>
+
+                <div class="image-caption" style="width:788px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Jupyter New Notebook" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/jupyter-new-notebook.png" class="full-width" border="0"></div>
+            
+<h2 id="step-2">Step 2: Importing libraries and dataset.</h2>
+<p>Let's start by importing Pandas, which is a great library for managing relational (i.e. table-format) datasets:</p>
+		<div id="crayon-5a8c5072c3962508151365" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Pandas</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c3962508151365-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c3962508151365-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c3962508151365-1"><span class="crayon-c"># Pandas for managing datasets</span></div><div class="crayon-line" id="crayon-5a8c5072c3962508151365-2"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-e">pandas </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span class="crayon-v">pd</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>Next, we'll import Matplotlib, which will help us customize our plots&nbsp;further.</p>
+<ul>
+<li><strong>Tip:</strong> In Jupyter Notebook, you can also include
+			<span id="crayon-5a8c5072c396b568162921" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-o">%</span><span class="crayon-e">matplotlib </span><span class="crayon-v">inline</span></span></span>&nbsp;to display&nbsp;your plots inside your notebook.</li>
+</ul>
+<p></p>
+		<div id="crayon-5a8c5072c396d494913073" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Matplotlib</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c396d494913073-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c396d494913073-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c396d494913073-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c396d494913073-1"><span class="crayon-c"># Matplotlib for additional customization</span></div><div class="crayon-line" id="crayon-5a8c5072c396d494913073-2"><span class="crayon-st">from</span><span class="crayon-h"> </span><span class="crayon-e">matplotlib </span><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-e">pyplot </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span class="crayon-v">plt</span></div><div class="crayon-line" id="crayon-5a8c5072c396d494913073-3"><span class="crayon-o">%</span><span class="crayon-e">matplotlib </span><span class="crayon-v">inline</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>Then,&nbsp;we'll import the Seaborn library, which is the star of today's show.</p>
+		<div id="crayon-5a8c5072c3970477152908" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Seaborn</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c3970477152908-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c3970477152908-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c3970477152908-1"><span class="crayon-c"># Seaborn for plotting and styling</span></div><div class="crayon-line" id="crayon-5a8c5072c3970477152908-2"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-e">seaborn </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span class="crayon-v">sns</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>Now we're ready to import our dataset.</p>
+<ul>
+<li><strong>Tip:</strong> we gave each of our imported libraries an&nbsp;<strong>alias</strong>. Later,&nbsp;we can invoke Pandas with
+			<span id="crayon-5a8c5072c3972382144257" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">pd</span></span></span>, Matplotlib with
+			<span id="crayon-5a8c5072c3974572526736" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">plt</span></span></span>, and Seaborn with
+			<span id="crayon-5a8c5072c3977772858914" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">sns</span></span></span>.</li>
+</ul>
+<p>Today, we'll be using a cool Pokémon dataset (first generation). Here's the free download:</p>
+<ul class="downloadlist-1 border"><li><a href="https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv"><img src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/style2-thumb-dl-table.png" alt="Pokemon.csv" class="thumb"></a><div class="content"><a href="https://elitedatascience.com/wp-content/uploads/2017/04/Pokemon.csv">Pokemon.csv</a><p>Dataset for this tutorial.</p></div></li></ul>
+<p>Once you've downloaded the CSV file, you can import it with Pandas.</p>
+<ul>
+<li><strong>Tip:</strong> The argument&nbsp;
+			<span id="crayon-5a8c5072c3979313506525" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">index_col</span><span class="crayon-o">=</span><span class="crayon-cn">0</span></span></span>&nbsp;simply means we'll treat the first column of the dataset as the ID column.</li>
+</ul>
+<p></p>
+		<div id="crayon-5a8c5072c397c082040499" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Import dataset</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c397c082040499-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c397c082040499-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c397c082040499-1"><span class="crayon-c"># Read dataset</span></div><div class="crayon-line" id="crayon-5a8c5072c397c082040499-2"><span class="crayon-v">df</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">pd</span><span class="crayon-sy">.</span><span class="crayon-e">read_csv</span><span class="crayon-sy">(</span><span class="crayon-s">'Pokemon.csv'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">index_col</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>Here's what the dataset looks like:</p>
+		<div id="crayon-5a8c5072c397e018455855" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Example observations</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c397e018455855-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c397e018455855-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c397e018455855-1"><span class="crayon-c"># Display first 5 observations</span></div><div class="crayon-line" id="crayon-5a8c5072c397e018455855-2"><span class="crayon-v">df</span><span class="crayon-sy">.</span><span class="crayon-e">head</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:711px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Pokemon Dataset Example Observations" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/pokemon-dataset-head.png" class="full-width" border="0"></div>
+            <p></p>
+<p>As you can see, we have combat stats data for the original 151 (a.k.a best 151) Pokémon.</p>
+<h2 id="step-3">Step 3: Seaborn's plotting functions.</h2>
+<p>One of Seaborn's greatest strengths is its diversity of plotting functions.&nbsp;For instance, making a&nbsp;<strong>scatter plot</strong> is just one line of code using the 
+			<span id="crayon-5a8c5072c3981770919493" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-e">lmplot</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></span></span>&nbsp;function.</p>
+<p>There&nbsp;are two ways you can do so.</p>
+<ul>
+<li>The first way (recommended) is to pass your DataFrame to the
+			<span id="crayon-5a8c5072c3983358619391" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">data</span><span class="crayon-o">=</span></span></span>&nbsp;argument,&nbsp;while passing column names to the axes arguments,
+			<span id="crayon-5a8c5072c3985225481660" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">x</span><span class="crayon-o">=</span></span></span>&nbsp;and
+			<span id="crayon-5a8c5072c3987028056378" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">y</span><span class="crayon-o">=</span></span></span>.</li>
+<li>The second way is to directly pass in Series of data to the axes arguments.</li>
+</ul>
+<p>For example, let's compare the Attack and Defense stats for our Pokémon:</p>
+		<div id="crayon-5a8c5072c398a943309919" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Default Scatterplot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c398a943309919-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c398a943309919-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c398a943309919-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c398a943309919-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c398a943309919-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c398a943309919-1"><span class="crayon-c"># Recommended way</span></div><div class="crayon-line" id="crayon-5a8c5072c398a943309919-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">lmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Defense'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c398a943309919-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c398a943309919-4"><span class="crayon-c"># Alternative way</span></div><div class="crayon-line" id="crayon-5a8c5072c398a943309919-5"><span class="crayon-c"># sns.lmplot(x=df.Attack, y=df.Defense)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:483px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Default Scatterplot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-scatterplot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>By the way, Seaborn doesn't have a dedicated scatter plot function, 
+which is why you see a diagonal&nbsp;line. We actually 
+used&nbsp;Seaborn's function for fitting and plotting a&nbsp;<strong>regression line</strong>.</p>
+<p>Thankfully, each plotting function has&nbsp;several useful options that you can set. Here's how we can tweak&nbsp;the
+			<span id="crayon-5a8c5072c398c592924524" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-e">lmplot</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></span></span>:</p>
+<ul>
+<li>First, we'll set
+			<span id="crayon-5a8c5072c398e350470042" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">fit_reg</span><span class="crayon-o">=</span><span class="crayon-t">False</span></span></span>&nbsp;to remove the regression line, since we only want a&nbsp;scatter plot.</li>
+<li>Then, we'll set
+			<span id="crayon-5a8c5072c3991833930405" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Stage'</span></span></span>&nbsp;to color our points by the Pokémon's evolution stage. This&nbsp;<strong>hue</strong> argument is very useful&nbsp;because it allows you to express a third dimension of information using color.</li>
+</ul>
+<p></p>
+		<div id="crayon-5a8c5072c3993183102973" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Scatterplot parameters</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c3993183102973-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c3993183102973-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c3993183102973-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c3993183102973-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c3993183102973-1"><span class="crayon-c"># Scatterplot arguments</span></div><div class="crayon-line" id="crayon-5a8c5072c3993183102973-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">lmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Defense'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5a8c5072c3993183102973-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">fit_reg</span><span class="crayon-o">=</span><span class="crayon-t">False</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-c"># No regression line</span></div><div class="crayon-line" id="crayon-5a8c5072c3993183102973-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Stage'</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-c"># Color by evolution stage</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:544px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Scatterplot with Hue" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-scatterplot-hue.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Looking better, but we can improve this scatter plot further. For 
+example, all&nbsp;of our Pokémon have positive&nbsp;Attack 
+and&nbsp;Defense values, yet&nbsp;our <strong>axes limits</strong> fall below zero. Let's see how we can fix that...</p>
+<h2 id="step-4">Step 4: Customizing with Matplotlib.</h2>
+<p>Remember, Seaborn is a high-level interface to Matplotlib. From our experience, Seaborn will get you&nbsp;<em>most</em> of the way there, but you'll sometimes need to bring in&nbsp;Matplotlib.</p>
+<p>Setting your axes limits is one&nbsp;of those times, but&nbsp;the process is pretty simple:</p>
+<ol>
+<li>First, invoke your Seaborn plotting function as normal.</li>
+<li>Then, invoke&nbsp;Matplotlib's customization functions. In this case, we'll use its
+			<span id="crayon-5a8c5072c3996365481670" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-e">ylim</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></span></span>&nbsp;and
+			<span id="crayon-5a8c5072c3998747029933" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-e">xlim</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></span></span>&nbsp;functions.</li>
+</ol>
+<p>Here's our new scatter plot with sensible axes limits:</p>
+		<div id="crayon-5a8c5072c399a854678064" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Customizing with Matplotlib</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-5">5</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-6">6</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-7">7</div><div class="crayon-num" data-line="crayon-5a8c5072c399a854678064-8">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c399a854678064-1"><span class="crayon-c"># Plot using Seaborn</span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">lmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Defense'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">fit_reg</span><span class="crayon-o">=</span><span class="crayon-t">False</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Stage'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-5">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-6"><span class="crayon-c"># Tweak using Matplotlib</span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-7"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">ylim</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">None</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c399a854678064-8"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">xlim</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">None</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:544px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Customizing with FacetGrid" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-facetgrid-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>For more information on Matplotlib's customization functions, check out its <a href="https://matplotlib.org/users/pyplot_tutorial.html" target="_blank" rel="noopener noreferrer">documentation</a>.</p>
+<h2 id="step-5">Step 5: The role of Pandas.</h2>
+<p>Even though this is a Seaborn tutorial, Pandas actually plays a very 
+important role. You see, Seaborn's plotting functions benefit from a 
+base DataFrame that's&nbsp;reasonably formatted.</p>
+<p>For example, let's say we wanted to make a&nbsp;<strong>box plot</strong> for our Pokémon's combat stats:</p>
+		<div id="crayon-5a8c5072c399d902362170" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Default boxplot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c399d902362170-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c399d902362170-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c399d902362170-1"><span class="crayon-c"># Boxplot</span></div><div class="crayon-line" id="crayon-5a8c5072c399d902362170-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">boxplot</span><span class="crayon-sy">(</span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:672px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Default Boxplot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-boxplot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Well, that's a reasonable start, but there are some columns we'd probably like to remove:</p>
+<ul>
+<li>We can remove the Total since we have&nbsp;individual stats.</li>
+<li>We can remove the Stage and Legendary columns because they aren't combat stats.</li>
+</ul>
+<p>In turns out that this isn't easy to do within Seaborn alone. Instead, it's much simpler&nbsp;to <strong>pre-format</strong> your DataFrame.</p>
+<p>Let's create a new DataFrame called
+			<span id="crayon-5a8c5072c39a0645738676" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">stats_df</span></span></span>&nbsp;that only keeps&nbsp;the stats columns:</p>
+		<div id="crayon-5a8c5072c39a2816724156" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Pre-format DataFrame</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39a2816724156-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39a2816724156-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39a2816724156-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39a2816724156-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39a2816724156-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39a2816724156-1"><span class="crayon-c"># Pre-format DataFrame</span></div><div class="crayon-line" id="crayon-5a8c5072c39a2816724156-2"><span class="crayon-v">stats_df</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">df</span><span class="crayon-sy">.</span><span class="crayon-e">drop</span><span class="crayon-sy">(</span><span class="crayon-sy">[</span><span class="crayon-s">'Total'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'Stage'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'Legendary'</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">axis</span><span class="crayon-o">=</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39a2816724156-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39a2816724156-4"><span class="crayon-c"># New boxplot using stats_df</span></div><div class="crayon-line" id="crayon-5a8c5072c39a2816724156-5"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">boxplot</span><span class="crayon-sy">(</span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">stats_df</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:672px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Boxplot with Preprocessed DataFrame" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-boxplot-preprocess-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>It's outside the scope of this tutorial to dive into Pandas, but here's a handy&nbsp;<a href="http://pandas.pydata.org/pandas-docs/stable/10min.html" target="_blank" rel="noopener noreferrer">cheat sheet</a>.</p>
+<h2 id="step-6">Step 6: Seaborn themes.</h2>
+<p>Another advantage of Seaborn is that it comes with decent 
+style&nbsp;themes right out of the box. The default theme is 
+called&nbsp;<em>'darkgrid'</em>.</p>
+<p>Next, we'll change the theme to&nbsp;<em>'whitegrid'</em> while making a&nbsp;<strong>violin plot</strong>.</p>
+<ul>
+<li>Violin plots are useful&nbsp;alternatives to box plots.</li>
+<li>They&nbsp;show the distribution (through the thickness of the violin) instead of only the summary statistics.</li>
+</ul>
+<p>For example, we can visualize the distribution of Attack by Pokémon's primary type:</p>
+		<div id="crayon-5a8c5072c39a5169107107" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Set theme, then plot violin plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39a5169107107-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39a5169107107-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39a5169107107-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39a5169107107-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39a5169107107-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39a5169107107-1"><span class="crayon-c"># Set theme</span></div><div class="crayon-line" id="crayon-5a8c5072c39a5169107107-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">set_style</span><span class="crayon-sy">(</span><span class="crayon-s">'whitegrid'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39a5169107107-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39a5169107107-4"><span class="crayon-c"># Violin plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39a5169107107-5"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">violinplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:696px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Violin Plot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-violin-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>As you can see, Dragon types&nbsp;tend to have higher Attack stats than Ghost types, but they also have greater variance.</p>
+<p>Now, Pokémon fans might find something quite jarring about that&nbsp;plot:&nbsp;<em>The colors are nonsensical.</em> Why is the&nbsp;Grass type colored&nbsp;pink or the Water type colored&nbsp;orange? We must fix this!</p>
+<h2 id="step-7">Step 7: Color palettes.</h2>
+<p>Fortunately, Seaborn allows us to set custom color palettes. We can simply create an ordered&nbsp;<strong>Python list</strong> of color hex values.</p>
+<p>Let's use <a href="http://bulbapedia.bulbagarden.net/wiki/Category:Type_color_templates" target="_blank" rel="noopener noreferrer">Bulbapedia</a> to help us create a new color palette:</p>
+		<div id="crayon-5a8c5072c39a8056578900" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Pokemon color palette</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -27px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-5">5</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-6">6</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-7">7</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-8">8</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-9">9</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-10">10</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-11">11</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-12">12</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-13">13</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-14">14</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-15">15</div><div class="crayon-num" data-line="crayon-5a8c5072c39a8056578900-16">16</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-1"><span class="crayon-v">pkmn_type_colors</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-s">'#78C850'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Grass</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#F08030'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Fire</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#6890F0'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Water</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#A8B820'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Bug</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#A8A878'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Normal</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#A040A0'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Poison</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#F8D030'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Electric</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#E0C068'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Ground</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#EE99AC'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Fairy</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#C03028'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Fighting</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#F85888'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Psychic</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#B8A038'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Rock</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#705898'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Ghost</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#98D8D8'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Ice</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'#7038F8'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Dragon</span></div><div class="crayon-line" id="crayon-5a8c5072c39a8056578900-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-sy">]</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>Wonderful. Now we can simply use the
+			<span id="crayon-5a8c5072c39ab024737525" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">palette</span><span class="crayon-o">=</span></span></span>&nbsp;argument to recolor our chart.</p>
+		<div id="crayon-5a8c5072c39ad541769797" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Custom color palette</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39ad541769797-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39ad541769797-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39ad541769797-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39ad541769797-1"><span class="crayon-c"># Violin plot with Pokemon color palette</span></div><div class="crayon-line" id="crayon-5a8c5072c39ad541769797-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">violinplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39ad541769797-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">palette</span><span class="crayon-o">=</span><span class="crayon-v">pkmn_type_colors</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c"># Set color palette</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:696px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Custom Color Palette" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-violin-plot-color-palette.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Much better!</p>
+<p>Violin plots are great for visualizing&nbsp;distributions. However, 
+since we only have 151 Pokémon in our dataset, we may&nbsp;want to 
+simply display each point.</p>
+<p>That's where the <strong>swarm plot</strong> comes in. This visualization will show each point, while "stacking" those&nbsp;with similar values:</p>
+		<div id="crayon-5a8c5072c39b0789733401" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Swarm plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39b0789733401-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39b0789733401-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39b0789733401-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39b0789733401-1"><span class="crayon-c"># Swarm plot with Pokemon color palette</span></div><div class="crayon-line" id="crayon-5a8c5072c39b0789733401-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">swarmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b0789733401-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">palette</span><span class="crayon-o">=</span><span class="crayon-v">pkmn_type_colors</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:696px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Swarm Plot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-swarm-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>That's handy, but can't we combine&nbsp;our swarm plot and the violin plot? After all, they display similar information, right?</p>
+<h2 id="step-8">Step 8: Overlaying plots.</h2>
+<p>The answer is yes.</p>
+<p>It's pretty straightforward to overlay plots using Seaborn, and it 
+works the same way as with&nbsp;Matplotlib. Here's what we'll do:</p>
+<ol>
+<li>First, we'll make our figure larger using Matplotlib.</li>
+<li>Then, we'll plot the violin plot. However, we'll set
+			<span id="crayon-5a8c5072c39b3254643021" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">inner</span><span class="crayon-o">=</span><span class="crayon-t">None</span></span></span>&nbsp;to remove the bars inside the violins.</li>
+<li>Next, we'll plot the swarm plot. This time, we'll make the points black so they pop out more.</li>
+<li>Finally, we'll set a title using Matplotlib.</li>
+</ol>
+<p></p>
+		<div id="crayon-5a8c5072c39b5564184743" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Overlaying swarm and violin plots</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -27px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-5">5</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-6">6</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-7">7</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-8">8</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-9">9</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-10">10</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-11">11</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-12">12</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-13">13</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-14">14</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-15">15</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-16">16</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-17">17</div><div class="crayon-num" data-line="crayon-5a8c5072c39b5564184743-18">18</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-1"><span class="crayon-c"># Set figure size with matplotlib</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-2"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">figure</span><span class="crayon-sy">(</span><span class="crayon-v">figsize</span><span class="crayon-o">=</span><span class="crayon-sy">(</span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-cn">6</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-4"><span class="crayon-c"># Create plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-5"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">violinplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">inner</span><span class="crayon-o">=</span><span class="crayon-t">None</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-c"># Remove the bars inside the violins</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">palette</span><span class="crayon-o">=</span><span class="crayon-v">pkmn_type_colors</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-10">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-11"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">swarmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">color</span><span class="crayon-o">=</span><span class="crayon-s">'k'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-c"># Make points black</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">alpha</span><span class="crayon-o">=</span><span class="crayon-cn">0.7</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c"># and slightly transparent</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-16">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-17"><span class="crayon-c"># Set title with matplotlib</span></div><div class="crayon-line" id="crayon-5a8c5072c39b5564184743-18"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">title</span><span class="crayon-sy">(</span><span class="crayon-s">'Attack by Type'</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:849px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Overlaid Swarm and Violin Plots" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/overlaid-swarm-and-violin-plot.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Awesome, now we have a pretty chart that tells us how Attack values 
+are distributed across different Pokémon types. But what it we want to 
+see&nbsp;all of the other stats as well?</p>
+<h2 id="step-9">Step 9: Putting it all together.</h2>
+<p>Well, we could certainly repeat that chart for each stat. But we can 
+also combine the&nbsp;information into one chart... we just have to do 
+some&nbsp;<strong>data wrangling</strong>&nbsp;with Pandas beforehand.</p>
+<p>First, here's a reminder of our&nbsp;data format:</p>
+		<div id="crayon-5a8c5072c39b8816239446" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">First 5 rows of stats_df</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39b8816239446-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39b8816239446-1"><span class="crayon-v">stats_df</span><span class="crayon-sy">.</span><span class="crayon-e">head</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:538px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Stats DF Head" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/pokemon-stats-df-head.png" class="full-width" border="0"></div>
+            <p></p>
+<p>As you can see, all&nbsp;of our stats are in&nbsp;separate columns. Instead, we want to "melt" them into one column.</p>
+<p>To do so, we'll use Pandas's
+			<span id="crayon-5a8c5072c39bb259549188" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-e">melt</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></span></span>&nbsp;function. It takes 3 arguments:</p>
+<ul>
+<li>First, the DataFrame to melt.</li>
+<li>Second, ID variables to keep (Pandas will melt all of the other ones).</li>
+<li>Finally, a name for&nbsp;the new, melted variable.</li>
+</ul>
+<p>Here's the output:</p>
+		<div id="crayon-5a8c5072c39bd977495013" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Melt DataFrame</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39bd977495013-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39bd977495013-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39bd977495013-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39bd977495013-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39bd977495013-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39bd977495013-1"><span class="crayon-c"># Melt DataFrame</span></div><div class="crayon-line" id="crayon-5a8c5072c39bd977495013-2"><span class="crayon-v">melted_df</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">pd</span><span class="crayon-sy">.</span><span class="crayon-e">melt</span><span class="crayon-sy">(</span><span class="crayon-v">stats_df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39bd977495013-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">id_vars</span><span class="crayon-o">=</span><span class="crayon-sy">[</span><span class="crayon-s">"Name"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Type 1"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Type 2"</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-c"># Variables to keep</span></div><div class="crayon-line" id="crayon-5a8c5072c39bd977495013-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">var_name</span><span class="crayon-o">=</span><span class="crayon-s">"Stat"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c"># Name of melted variable</span></div><div class="crayon-line" id="crayon-5a8c5072c39bd977495013-5"><span class="crayon-v">melted_df</span><span class="crayon-sy">.</span><span class="crayon-e">head</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:555px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Melted DataFrame" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-melted-dataframe-head.png" class="full-width" border="0"></div>
+            <p></p>
+<p>All 6 of the stat columns have been "melted" into one, and the new 
+Stat column indicates the&nbsp;original stat (HP, Attack, Defense, Sp. 
+Attack, Sp. Defense, or Speed). For example, it's hard to see here, but 
+Bulbasaur now has 6 rows of data.</p>
+<p>In fact, if you print the shape of these two DataFrames...</p>
+		<div id="crayon-5a8c5072c39c0206069767" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Shape comparison</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39c0206069767-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39c0206069767-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39c0206069767-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39c0206069767-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39c0206069767-1"><span class="crayon-k ">print</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">stats_df</span><span class="crayon-sy">.</span><span class="crayon-i">shape</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39c0206069767-2"><span class="crayon-k ">print</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">melted_df</span><span class="crayon-sy">.</span><span class="crayon-i">shape</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39c0206069767-3"><span class="crayon-c"># (151, 9)</span></div><div class="crayon-line" id="crayon-5a8c5072c39c0206069767-4"><span class="crayon-c"># (906, 5)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p>...you'll find that
+			<span id="crayon-5a8c5072c39c2728880478" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">melted_df</span></span></span>&nbsp;has 6 times the number of rows as
+			<span id="crayon-5a8c5072c39c4115169036" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">stats_df</span></span></span>.</p>
+<p>Now we can make a&nbsp;swarm plot with
+			<span id="crayon-5a8c5072c39c6882719202" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">melted_df</span></span></span>.</p>
+<ul>
+<li>But this time, we're going to set
+			<span id="crayon-5a8c5072c39c9145417842" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Stat'</span></span></span>&nbsp;and
+			<span id="crayon-5a8c5072c39cb168434246" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'value'</span></span></span>&nbsp;so our swarms are separated by stat.</li>
+<li>Then, we'll set
+			<span id="crayon-5a8c5072c39cd568875227" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span></span></span>&nbsp;to color our points by the Pokémon type.</li>
+</ul>
+<p></p>
+		<div id="crayon-5a8c5072c39cf743958981" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Swarmplot with melted_df</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39cf743958981-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39cf743958981-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39cf743958981-3">3</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39cf743958981-1"><span class="crayon-c"># Swarmplot with melted_df</span></div><div class="crayon-line" id="crayon-5a8c5072c39cf743958981-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">swarmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Stat'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'value'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">melted_df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39cf743958981-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:694px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Swarmplot with Melted DataFrame" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/swarmplot-with-melted-df.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Finally,&nbsp;let's make a few final tweaks for a more readable chart:</p>
+<ol>
+<li>Enlarge the plot.</li>
+<li>Separate points by hue using the argument
+			<span id="crayon-5a8c5072c39d2011002512" class="crayon-syntax crayon-syntax-inline  crayon-theme-classic crayon-theme-classic-inline crayon-font-monaco" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important;"><span class="crayon-pre crayon-code" style="font-size: 13px !important; line-height: 22px !important;font-size: 13px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><span class="crayon-v">split</span><span class="crayon-o">=</span><span class="crayon-t">True</span></span></span>&nbsp;.</li>
+<li>Use our custom Pokemon color palette.</li>
+<li>Adjust the y-axis limits to end at 0.</li>
+<li>Place the legend to the right.</li>
+</ol>
+<p></p>
+		<div id="crayon-5a8c5072c39d4503944974" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Customizations</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -27px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-5">5</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-6">6</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-7">7</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-8">8</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-9">9</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-10">10</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-11">11</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-12">12</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-13">13</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-14">14</div><div class="crayon-num" data-line="crayon-5a8c5072c39d4503944974-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-1"><span class="crayon-c"># 1. Enlarge the plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-2"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">figure</span><span class="crayon-sy">(</span><span class="crayon-v">figsize</span><span class="crayon-o">=</span><span class="crayon-sy">(</span><span class="crayon-cn">10</span><span class="crayon-sy">,</span><span class="crayon-cn">6</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-4"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">swarmplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Stat'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'value'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">melted_df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">split</span><span class="crayon-o">=</span><span class="crayon-t">True</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-c"># 2. Separate points by hue</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">palette</span><span class="crayon-o">=</span><span class="crayon-v">pkmn_type_colors</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c"># 3. Use Pokemon palette</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-10">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-11"><span class="crayon-c"># 4. Adjust the y-axis</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-12"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">ylim</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">260</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-13">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-14"><span class="crayon-c"># 5. Place legend to the right</span></div><div class="crayon-line" id="crayon-5a8c5072c39d4503944974-15"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">legend</span><span class="crayon-sy">(</span><span class="crayon-v">bbox_to_anchor</span><span class="crayon-o">=</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">loc</span><span class="crayon-o">=</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:955px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Final Swarmplot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/ultimate-swarmplot-post-customizations.png" class="full-width" border="0"></div>
+            <p></p>
+<p>There we go!</p>
+<h2 id="step-10">Step 10: Pokédex (mini-gallery).</h2>
+<p>We're going to conclude this tutorial with a few quick-fire data 
+visualizations, just to give you a sense of what's possible with 
+Seaborn.</p>
+<h4>10.1 - Heatmap</h4>
+<p>Heatmaps help you visualize matrix-like data.</p>
+		<div id="crayon-5a8c5072c39d7264199931" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Heatmap</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39d7264199931-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39d7264199931-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39d7264199931-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39d7264199931-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39d7264199931-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39d7264199931-1"><span class="crayon-c"># Calculate correlations</span></div><div class="crayon-line" id="crayon-5a8c5072c39d7264199931-2"><span class="crayon-v">corr</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">stats_df</span><span class="crayon-sy">.</span><span class="crayon-e">corr</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39d7264199931-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39d7264199931-4"><span class="crayon-c"># Heatmap</span></div><div class="crayon-line" id="crayon-5a8c5072c39d7264199931-5"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">heatmap</span><span class="crayon-sy">(</span><span class="crayon-v">corr</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:629px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Seaborn Histogram" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-heatmap-example.png" class="full-width" border="0"></div>
+            <p></p>
+<h4>10.2 - Histogram</h4>
+<p>Histograms allow you to plot&nbsp;the distributions of numeric variables.</p>
+		<div id="crayon-5a8c5072c39d9359380667" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Histogram</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39d9359380667-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39d9359380667-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39d9359380667-1"><span class="crayon-c"># Distribution Plot (a.k.a. Histogram)</span></div><div class="crayon-line" id="crayon-5a8c5072c39d9359380667-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">distplot</span><span class="crayon-sy">(</span><span class="crayon-v">df</span><span class="crayon-sy">.</span><span class="crayon-v">Attack</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:696px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Seaborn Histogram" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-histogram-example.png" class="full-width" border="0"></div>
+            <p></p>
+<h4>10.3 - Bar Plot</h4>
+<p>Bar plots help&nbsp;you visualize the distributions of categorical variables.</p>
+		<div id="crayon-5a8c5072c39dc296123920" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Bar Plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39dc296123920-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39dc296123920-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39dc296123920-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39dc296123920-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39dc296123920-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39dc296123920-1"><span class="crayon-c"># Count Plot (a.k.a. Bar Plot)</span></div><div class="crayon-line" id="crayon-5a8c5072c39dc296123920-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">countplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">palette</span><span class="crayon-o">=</span><span class="crayon-v">pkmn_type_colors</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39dc296123920-3">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39dc296123920-4"><span class="crayon-c"># Rotate x-labels</span></div><div class="crayon-line" id="crayon-5a8c5072c39dc296123920-5"><span class="crayon-v">plt</span><span class="crayon-sy">.</span><span class="crayon-e">xticks</span><span class="crayon-sy">(</span><span class="crayon-v">rotation</span><span class="crayon-o">=</span><span class="crayon-o">-</span><span class="crayon-cn">45</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:686px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Seaborn Bar Plot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-bar-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<h4>10.4 - Factor Plot</h4>
+<p>Factor plots&nbsp;make it easy to separate plots by categorical classes.</p>
+		<div id="crayon-5a8c5072c39de859076746" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Factor Plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -27px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-2">2</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-3">3</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-4">4</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-5">5</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-6">6</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-7">7</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-8">8</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-9">9</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-10">10</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-11">11</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-12">12</div><div class="crayon-num" data-line="crayon-5a8c5072c39de859076746-13">13</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39de859076746-1"><span class="crayon-c"># Factor Plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-2"><span class="crayon-v">g</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">factorplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Type 1'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">,</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">hue</span><span class="crayon-o">=</span><span class="crayon-s">'Stage'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Color by stage</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">col</span><span class="crayon-o">=</span><span class="crayon-s">'Stage'</span><span class="crayon-sy">,</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-c"># Separate by stage</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">kind</span><span class="crayon-o">=</span><span class="crayon-s">'swarm'</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c"># Swarmplot</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-8">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-9"><span class="crayon-c"># Rotate x-axis labels</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-10"><span class="crayon-v">g</span><span class="crayon-sy">.</span><span class="crayon-e">set_xticklabels</span><span class="crayon-sy">(</span><span class="crayon-v">rotation</span><span class="crayon-o">=</span><span class="crayon-o">-</span><span class="crayon-cn">45</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-11">&nbsp;</div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-12"><span class="crayon-c"># Doesn't work because only rotates last plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39de859076746-13"><span class="crayon-c"># plt.xticks(rotation=-45)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:1182px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Factor Plot Example" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-factor-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<h4>10.5 - Density Plot</h4>
+<p>Density plots display the distribution between two variables.</p>
+<ul>
+<li><strong>Tip:&nbsp;</strong>Consider overlaying this with a scatter plot.</li>
+</ul>
+<p></p>
+		<div id="crayon-5a8c5072c39e1055672828" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Density Plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39e1055672828-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39e1055672828-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39e1055672828-1"><span class="crayon-c"># Density Plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39e1055672828-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">kdeplot</span><span class="crayon-sy">(</span><span class="crayon-v">df</span><span class="crayon-sy">.</span><span class="crayon-v">Attack</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">df</span><span class="crayon-sy">.</span><span class="crayon-v">Defense</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:693px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Density Plot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-density-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<h4>10.6 - Joint Distribution Plot</h4>
+<p>Joint distribution plots combine information from scatter plots and 
+histograms to give you detailed information for bi-variate 
+distributions.</p>
+		<div id="crayon-5a8c5072c39e4878244198" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover disable-anim" style="margin-top: 10px; margin-bottom: 15px; font-size: 13px ! important; line-height: 22px ! important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-title">Joint Distribution Plot</span>
+			<div class="crayon-tools" style="font-size: 13px !important;height: 19.5px !important; line-height: 19.5px !important;"><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 18.2px !important; line-height: 18.2px !important;"></div>
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table style="margin-left: -19px;" class="crayon-table">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 13px !important; line-height: 22px !important;"><div class="crayon-num" data-line="crayon-5a8c5072c39e4878244198-1">1</div><div class="crayon-num" data-line="crayon-5a8c5072c39e4878244198-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 13px !important; line-height: 22px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5a8c5072c39e4878244198-1"><span class="crayon-c"># Joint Distribution Plot</span></div><div class="crayon-line" id="crayon-5a8c5072c39e4878244198-2"><span class="crayon-v">sns</span><span class="crayon-sy">.</span><span class="crayon-e">jointplot</span><span class="crayon-sy">(</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-s">'Attack'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-s">'Defense'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-v">df</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><p></p><div class="image-caption" style="width:588px;margin-top:0px;margin-bottom:px;margin-right:auto;margin-left:auto;"><img alt="Joint Distribution Plot" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/seaborn-joint-distribution-plot-example.png" class="full-width" border="0"></div>
+            <p></p>
+<p>Congratulations... you've made it to the end of this Python Seaborn tutorial!</p>
+<p>We've just concluded a tour of key Seaborn paradigms and showed you 
+many examples along the way. Feel free to use this page along 
+with&nbsp;the <a href="http://seaborn.pydata.org/examples/" target="_blank" rel="noopener noreferrer">official Seaborn gallery</a> as references for your projects going forward.</p>
+<aside class="mashsb-container mashsb-main mashsb-stretched"><div class="mashsb-box"><div class="mashsb-count mash-small" style="float:left;"><div class="counts mashsbcount">111</div><span class="mashsb-sharetext">SHARES</span></div><div class="mashsb-buttons"><a class="mashicon-facebook mash-small mash-center mashsb-noshadow" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Share</span></a><a class="mashicon-google mash-small mash-center mashsb-noshadow" href="https://plus.google.com/share?text=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Google</span></a><a class="mashicon-linkedin mash-small mash-center mashsb-noshadow" href="https://www.linkedin.com/shareArticle?trk=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com%2Fpython-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Linkedin</span></a><a class="mashicon-twitter mash-small mash-center mashsb-noshadow" href="https://twitter.com/intent/tweet?text=The%20Ultimate%20Python%20Seaborn%20Tutorial%3A%20Gotta%20Catch%20%E2%80%98Em%20All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Tweet</span></a><div class="onoffswitch2 mash-small mashsb-noshadow" style="display:none;"></div></div>
+            </div>
+                <div style="clear:both;"></div><div class="mashsb-toggle-container"></div></aside>
+            <!-- Share buttons by mashshare.net - Version: 3.4.9--></div>
+
+
+                <aside class="pn-art-wrap">
+                    <hr>
+                    <div class="row">
+                        <a href="https://elitedatascience.com/machine-learning-iteration" title="The 5 Levels of Machine Learning Iteration" class="col-xs-6">
+                            <strong>« Previous Post</strong>
+                            <span class="pna-title">The 5 Levels of Machine Learning Iteration</span>
+                        </a>
+                        <a href="https://elitedatascience.com/machine-learning-algorithms" title="Modern Machine Learning Algorithms: Strengths and Weaknesses" class="col-xs-6">
+                            <strong>Next Post »</strong>
+                            <span class="pna-title">Modern Machine Learning Algorithms: Strengths and Weaknesses</span>
+                        </a>
+                    </div> <!--// .row -->
+                </aside>
+                                            </div>
+                            </div>
+                        </div>
+                                        <div class="op_optin_single_before_footer_container op_optin_style_dark">
+    <div id="op-trigger-op_theme_popup_5a8c5073246ed" class="optin-box-optimizetheme-lightbox optin-box-optimizetheme optin-box-optimizetheme-before-footer optin-box-optimizetheme-dark">
+        <div class="container op-container optin-box-content optin-box-optimizetheme-content"><div class="optin-box-optimizetheme-headline-container"><h2 class="optin-box-optimizetheme-headline">Free: 7-Day Crash Course</h2><p class="optin-box-optimizetheme-subheadline">Data Science &amp; Applied Machine Learning 101</p></div>
+            <div class="optin-box-optimizetheme-open-lightbox-container">
+                <button type="button" class="default-button" data-toggle="modal" data-target="#op_theme_popup_5a8c5073246ed">Get it delivered to your inbox!</button>
+            </div>
+        </div></div>
+
+    <div class="optin-box-optimizetheme-modal modal fade" id="op_theme_popup_5a8c5073246ed" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <button type="button" class="close optin-box-optimizetheme-close-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+            <div class="modal-content">
+                <div class="modal-body">
+                <aside id="op-optin-5a8c4f7fae430" class="optin-box optin-box-optimizetheme optin-box-optimizetheme-before-footer optin-box-optimizetheme-dark">
+    <div class="container op-container optin-box-content optin-box-optimizetheme-content">
+        
+        <div class="optin-box-optimizetheme-headline-container">
+            <h2 class="optin-box-optimizetheme-headline">Step-by-Step Blueprint for Data Science</h2>            <p class="optin-box-optimizetheme-subheadline">Introduction
+ to the machine learning workflow, exploratory analysis, data cleaning, 
+feature engineering, algorithm selection, model training, and next steps
+ for continued study... (Go at your own pace!)</p>        </div>
+
+        <div class="optin-box-optimizetheme-form-container">
+        <form action="https://www.getdrip.com/forms/39357181/submissions" method="post" class="cf op-optin-validation"><div style="display:none"><input name="redirect_url" value="https://www.getdrip.com/forms/39357181/submissions" type="hidden"><input name="email_field" value="fields[email]" type="hidden"></div>                <div class="text-boxes optin-box-optimizetheme-text-boxes">
+                    <div class="text-box name"><input required="required" name="fields[first_name]" placeholder="Enter your first name" type="text"></div><div class="text-box email"><input required="required" name="fields[email]" placeholder="Enter your best email" type="email"></div>                </div>
+                <button type="submit" class="default-button"><span>Let's Start!</span></button>                            <input id="op_optin_nonce" name="op_optin_nonce" value="9260e6c2bf" type="hidden"><input name="_wp_http_referer" value="/python-seaborn-tutorial" type="hidden"></form>
+        </div>
+        <div class="optin-box-optimizetheme-privacy">No spam. No nonsense. 100% privacy guaranteed.</div>
+            </div>
+    <style>#op-optin-5a8c4f7fae430 .default-button { color: #FFFFFF; background-color: #276CF2; }#op-optin-5a8c4f7fae430 .default-button:hover { background-color: #0054cc; }</style>
+</aside>
+
+                </div>
+            </div>
+        </div>
+    </div><style>#op-trigger-op_theme_popup_5a8c5073246ed .optin-box-optimizetheme-open-lightbox-container .default-button { color: #FFFFFF; background-color: #276CF2; }#op-trigger-op_theme_popup_5a8c5073246ed .optin-box-optimizetheme-open-lightbox-container .default-button:hover { background-color: #0054cc; }</style></div>                </div><!-- #primary -->
+            </article>
+
+
+        </main>
+    </div> <!-- #page .hfeed .site -->
+        <footer id="colophon" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+            <section class="op-footer">
+                <div class="container op-container">
+                    <div class="row">
+                        
+        <div class="col-sm-3">
+            <aside id="nav_menu-4" class="widget widget_nav_menu"><h2 class="widget-title">Links</h2><div class="menu-footer-navigation-links-container"><ul id="menu-footer-navigation-links" class="menu"><li id="menu-item-1598" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1598"><a href="https://elitedatascience.com/start-here">Start Here</a></li>
+<li id="menu-item-1597" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1597"><a href="https://elitedatascience.com/">Homepage</a></li>
+<li id="menu-item-1599" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1599"><a href="https://elitedatascience.com/login">Login</a></li>
+</ul></div></aside>        </div>
+
+        
+        <div class="col-sm-3">
+            <aside id="nav_menu-2" class="widget widget_nav_menu"><h2 class="widget-title">Articles</h2><div class="menu-footer-navigation-articles-container"><ul id="menu-footer-navigation-articles" class="menu"><li id="menu-item-1594" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1594"><a href="https://elitedatascience.com/category/guides">Guides</a></li>
+<li id="menu-item-1590" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1590"><a href="https://elitedatascience.com/category/explainers">Concept Explainers</a></li>
+<li id="menu-item-1593" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1593"><a href="https://elitedatascience.com/category/tutorials">Code Tutorials</a></li>
+<li id="menu-item-1592" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1592"><a href="https://elitedatascience.com/category/career">Career Help</a></li>
+<li id="menu-item-1591" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1591"><a href="https://elitedatascience.com/category/resources">Tools &amp; Resources</a></li>
+</ul></div></aside>        </div>
+
+        
+        <div class="col-sm-3">
+            <aside id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widget-title">Products</h2><div class="menu-footer-navigation-products-container"><ul id="menu-footer-navigation-products" class="menu"><li id="menu-item-1596" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1596"><a href="https://elitedatascience.com/machine-learning-masterclass">Machine Learning Masterclass</a></li>
+<li id="menu-item-1595" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1595"><a href="https://elitedatascience.com/interview-prep-kit">Interview Prep Kit</a></li>
+</ul></div></aside>        </div>
+
+        
+        <div class="col-sm-3">
+            <aside id="custom_html-2" class="widget_text widget widget_custom_html"><h2 class="widget-title">Share</h2><div class="textwidget custom-html-widget"><div style="margin-top:-10px">
+<aside class="mashsb-container mashsb-main mashsb-stretched"><div class="mashsb-box"><div class="mashsb-buttons"><a class="mashicon-facebook mash-small mash-center mashsb-noshadow" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Felitedatascience.com" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Share</span></a><a class="mashicon-google mash-small mash-center mashsb-noshadow" href="https://plus.google.com/share?text=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Google</span></a><a class="mashicon-linkedin mash-small mash-center mashsb-noshadow" href="https://www.linkedin.com/shareArticle?trk=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https%3A%2F%2Felitedatascience.com" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Linkedin</span></a><a class="mashicon-twitter mash-small mash-center mashsb-noshadow" href="https://twitter.com/intent/tweet?text=The%20Ultimate%20Python%20Seaborn%20Tutorial%3A%20Gotta%20Catch%20%E2%80%98Em%20All&amp;url=https://elitedatascience.com" target="_blank" rel="nofollow"><span class="icon"></span><span class="text">Tweet</span></a><div class="onoffswitch2 mash-small mashsb-noshadow" style="display:none;"></div></div></div>
+                    <div style="clear:both;"></div><div class="mashsb-toggle-container"></div></aside>
+            <!-- Share buttons made by mashshare.net - Version: 3.4.9-->
+</div>
+</div></aside>        </div>
+
+                            </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                                                    </div>
+                        <div class="col-sm-12 footer-copyright">
+                            <p>Copyright © 2016-2018 · EliteDataScience.com · All Rights Reserved&nbsp;· <a href="https://elitedatascience.com/terms-of-service">Terms</a>&nbsp;· <a href="https://elitedatascience.com/privacy-policy">Privacy</a></p>                                                    </div>
+                    </div>
+                </div>
+            </section>
+            <script type="text/javascript">
+/* <![CDATA[ */
+var TVE_Ult_Data = {"ajaxurl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","ajax_load_action":"tve_ult_ajax_load","conversion_events_action":"tve_ult_conversion_event","shortcode_campaign_ids":[],"matched_display_settings":[],"campaign_ids":[],"post_id":878,"is_singular":true,"tu_em":""};
+/* ]]> */
+</script>
+		<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/no-campaign.js"></script><aside id="mashfs-main" class="mashfs-hide mashfs-left" style="background-color: transparent; margin-left: 0px; margin-right: 0px; top: 196.5px; display: block;"><span class="mashfs-buttons"><a href="https://www.linkedin.com/shareArticle?trk=The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-linkedin mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="http://www.facebook.com/sharer.php?u=https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-facebook mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="https://plus.google.com/share?text=The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-google mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="https://twitter.com/intent/tweet?text=The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-twitter mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="http://service.weibo.com/share/share.php?url=https://elitedatascience.com/python-seaborn-tutorial&amp;title=The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All" class="mashicon-weibo mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="mailto:?subject=Check%20out%20this%20site%20The%20Ultimate%20Python%20Seaborn%20Tutorial%3A%20Gotta%20Catch%20%E2%80%98Em%20All&amp;body=Check%20out%20this%20site%20https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-mail mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="https://getpocket.com/save?title=The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All&amp;url=https://elitedatascience.com/python-seaborn-tutorial" class="mashicon-pocket mashfs-popup-share" style="margin-bottom: 0px;"><span class="icon"></span></a><a href="#" id="mashfs-hidebtn" style="background-color: transparent;color: #5a5a5f;">&lt;&lt;</a></span></aside><!-- Drip -->
+<script data-cfasync="false" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/email-decode.js"></script><script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '8015924';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//tag.getdrip.com/8015924.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script><script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/elitedatascience.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/scripts.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mashsb = {"shares":"111","round_shares":"1","animate_shares":"0","dynamic_buttons":"0","share_url":"https:\/\/elitedatascience.com\/python-seaborn-tutorial","title":"The+Ultimate+Python+Seaborn+Tutorial%3A+Gotta+Catch+%E2%80%98Em+All","image":"https:\/\/elitedatascience.com\/wp-content\/uploads\/2017\/04\/pokemon-feature-image-no-text.jpg","desc":"In this step-by-step Seaborn tutorial, you'll learn how to use\u00a0one of Python's most convenient libraries for data visualization.\r\n\r\nFor those who've tinkered with\u00a0Matplotlib before, you may have wondered, \"why does it take me 10 lines of \u2026","hashtag":"","subscribe":"content","subscribe_url":"","activestatus":"1","singular":"1","twitter_popup":"1","refresh":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashsb.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var mashnet = {"body":"Check out this article: ","subject":"Check out this site","pinterest_select":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/mashnet.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/core.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/widget.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/accordion.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/opplus-front-all.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/all.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","is_crawler":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/frontend.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/q2w3-fixed-widget.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/wp-embed.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var OPValidation = {"labels":{"email":"Please enter valid email address","text":"Please fill all fields"},"ajaxUrl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","nonce":"1adaccc7a4"};
+var OPValidation = {"labels":{"email":"Please enter valid email address","text":"Please fill all fields"},"ajaxUrl":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","nonce":"1adaccc7a4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/validation.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/flowplayer.js"></script>
+<script type="text/javascript" src="The%20Ultimate%20Python%20Seaborn%20Tutorial:%20Gotta%20Catch%20%27Em%20All_files/op-video-all.js"></script>
+<script type="text/javascript">/*<![CDATA[*/if ( !window.TL_Const ) var TL_Const={"security":"28fd974ef0","ajax_url":"https:\/\/elitedatascience.com\/wp-admin\/admin-ajax.php","forms":[],"action_conversion":"tve_leads_ajax_conversion","action_impression":"tve_leads_ajax_impression","ajax_load":1,"custom_post_data":[],"current_screen":{"screen_type":4,"screen_id":878},"ignored_fields":["email","_captcha_size","_captcha_theme","_captcha_type","_submit_option","_use_captcha","g-recaptcha-response","__tcb_lg_fc","__tcb_lg_msg","_state","_form_type","_error_message_option","_back_url","_submit_option","url","_asset_group","_asset_option","mailchimp_optin"]}/*]]> */</script>        </footer>
+
+
+
+<script id="" type="text/javascript">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","469443103391738");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=469443103391738&amp;ev=PageView&amp;noscript=1"></noscript>
+
+</body></html>

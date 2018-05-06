@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html data-admin-domain="//blog.hatena.ne.jp" data-author="nagixx" data-avail-langs="ja en" data-blog="nagix.hatenablog.com" data-blog-host="nagix.hatenablog.com" data-blog-is-public="1" data-blog-name="nagix" data-blog-owner="nagixx" data-blog-uri="http://nagix.hatenablog.com/" data-blog-uuid="12921228815714338053" data-blogs-uri-base="http://nagix.hatenablog.com" data-brand="hatenablog" data-data-layer="{&quot;hatenablog&quot;:{&quot;admin&quot;:{},&quot;pro&quot;:&quot;free&quot;,&quot;page_id&quot;:&quot;entry&quot;,&quot;blog&quot;:{&quot;lang&quot;:&quot;ja&quot;,&quot;disable_ads&quot;:&quot;&quot;,&quot;enable_ads&quot;:&quot;true&quot;,&quot;name&quot;:&quot;nagix&quot;,&quot;is_public&quot;:&quot;true&quot;,&quot;uri&quot;:&quot;http://nagix.hatenablog.com/&quot;,&quot;is_sleeping&quot;:&quot;true&quot;,&quot;force_pc_view&quot;:&quot;false&quot;,&quot;entry_show_footer_related_entries&quot;:&quot;true&quot;,&quot;is_responsive_view&quot;:&quot;false&quot;,&quot;content_seems_japanese&quot;:&quot;true&quot;,&quot;enable_keyword_link&quot;:&quot;true&quot;,&quot;owner_name&quot;:&quot;nagixx&quot;},&quot;brand&quot;:&quot;hatenablog&quot;,&quot;analytics&quot;:{&quot;property_id&quot;:&quot;&quot;,&quot;non_sampling_property_id&quot;:&quot;&quot;,&quot;brand_property_id&quot;:&quot;&quot;,&quot;separated_property_id&quot;:&quot;UA-29716941-17&quot;},&quot;brand_tracking_category&quot;:&quot;hatenablog&quot;,&quot;permalink_entry&quot;:{&quot;hour&quot;:&quot;0&quot;,&quot;author_name&quot;:&quot;nagixx&quot;,&quot;date&quot;:&quot;2017-07-11&quot;,&quot;categories&quot;:&quot;Chart.js&quot;,&quot;title&quot;:&quot;Drawing a real-time Bitcoin chart using Chart.js&quot;,&quot;uri&quot;:&quot;http://nagix.hatenablog.com/entry/2017/07/11/004952&quot;},&quot;router_type&quot;:&quot;blogs&quot;}}" data-device="pc" data-dont-recommend-pro="false" data-globalheader-color="b" data-globalheader-type="pc" data-has-touch-view="1" data-page="entry" data-plus-available="" data-pro="false" data-router-type="blogs" data-static-domain="https://cdn.blog.st-hatena.com" data-version="ea2b358fa95d7bf931c4f15d7b111b81" itemscope="" itemtype="http://schema.org/Article" data-initial-state="{}" lang="ja"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/osd.js"></script><script async="" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/cbgapi.loaded_1"></script><script async="" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/cbgapi.loaded_0"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/pubads_impl_rendering_180.js"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/notices.asc" async=""></script>
+  
+
+  
+
+
+
+  
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11">
+  <title>Drawing a real-time Bitcoin chart using Chart.js - nagix</title>
+
+  
+  <link rel="canonical" href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/004952.html">
+
+
+
+  
+  
+
+<meta itemprop="name" content="Drawing a real-time Bitcoin chart using Chart.js - nagix">
+
+  <meta itemprop="image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20170710/20170710085252.png">
+
+
+  <meta property="og:title" content="Drawing a real-time Bitcoin chart using Chart.js - nagix">
+<meta property="og:type" content="article">
+  <meta property="og:url" content="http://nagix.hatenablog.com/entry/2017/07/11/004952">
+
+  <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20170710/20170710085252.png">
+
+    <meta property="og:description" content="(*日本語の記事はこちら) Chart.js is a popular JavaScript chart library that enables to create dynamic, beautiful charts easily. I recently made chartjs-plugin-streaming, a Chart.js plugin for live streaming data with the auto-scroll feature. It is suitable for IoT-related use cases such as sensor data monitor…">
+<meta property="og:site_name" content="nagix">
+
+  <meta property="article:published_time" content="1499701792">
+
+    <meta property="article:tag" content="Chart.js">
+      <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20170710/20170710085252.png">
+  <meta name="twitter:title" content="Drawing a real-time Bitcoin chart using Chart.js - nagix">    <meta name="twitter:description" content="(*日本語の記事はこちら) Chart.js is a popular JavaScript chart library that enables to create dynamic, beautiful charts easily. I recently made chartjs-plugin-streaming, …">  <meta name="twitter:app:name:iphone" content="はてなブログアプリ">
+  <meta name="twitter:app:id:iphone" content="583299321">
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952">  <meta name="twitter:site" content="@nagix">
+  
+    <meta name="description" content="(*日本語の記事はこちら) Chart.js is a popular JavaScript chart library that enables to create dynamic, beautiful charts easily. I recently made chartjs-plugin-streaming, a Chart.js plugin for live streaming data with the auto-scroll feature. It is suitable for IoT-related use cases such as sensor data monitor…">
+
+  
+<script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/dfp.json" type="text/javascript" async=""></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/recaptcha__en.js" async="" type="text/javascript"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/sdk.js" id="facebook-jssdk"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/gpt.js" type="text/javascript" async=""></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/audience.js" type="text/javascript" async=""></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/apstag.js" async=""></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/jstag" type="text/javascript" async=""></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/widgets_002.js" id="twitter-wjs"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/analytics.js" async="" type="text/javascript"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/gtm.js" async=""></script><script id="embed-gtm-data-layer-loader" data-data-layer-page-specific="{&quot;hatenablog&quot;:{&quot;blogs_permalink&quot;:{&quot;is_blog_sleeping&quot;:&quot;true&quot;,&quot;blog_hide_afc_func&quot;:&quot;false&quot;,&quot;has_related_entries_with_elasticsearch&quot;:&quot;true&quot;,&quot;is_author_pro&quot;:&quot;false&quot;,&quot;blog_struct_hide_afc&quot;:&quot;false&quot;,&quot;blog_afc_issued&quot;:&quot;false&quot;,&quot;brand_hide_afc&quot;:&quot;false&quot;,&quot;entry_afc_issued&quot;:&quot;false&quot;,&quot;blog_hide_afc_field&quot;:&quot;false&quot;}}}">
+(function() {
+  function loadDataLayer(elem, attrName) {
+    if (!elem) { return {}; }
+    var json = elem.getAttribute(attrName);
+    if (!json) { return {}; }
+    return JSON.parse(json);
+  }
+
+  var globalVariables = loadDataLayer(
+    document.documentElement,
+    'data-data-layer'
+  );
+  var pageSpecificVariables = loadDataLayer(
+    document.getElementById('embed-gtm-data-layer-loader'),
+    'data-data-layer-page-specific'
+  );
+
+  var variables = [globalVariables, pageSpecificVariables];
+
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+
+  for (var i = 0; i < variables.length; i++) {
+    window.dataLayer.push(variables[i]);
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4CXTW');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+  <link rel="shortcut icon" href="https://cdn.blog.st-hatena.com/images/favicon.ico">
+<link rel="icon" sizes="192x192" href="https://cdn.blog.st-hatena.com/images/common/meta-icon-global.png">
+
+  
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://nagix.hatenablog.com/feed">
+<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="http://nagix.hatenablog.com/rss">
+<link rel="alternate" type="application/json+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952&amp;format=json" title="oEmbed Profile of Drawing a real-time Bitcoin chart using Chart.js">
+<link rel="alternate" type="text/xml+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952&amp;format=xml" title="oEmbed Profile of Drawing a real-time Bitcoin chart using Chart.js">
+  
+  <link rel="author" href="http://www.hatena.ne.jp/nagixx/">
+
+
+  
+    <link rel="stylesheet" type="text/css" href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/blog.css">
+
+    
+  <link rel="stylesheet" type="text/css" href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/7dc39a2e19629f8366ca7f3bbf92d7a52e4838b3.css">
+  
+
+  
+
+  
+<script> </script>
+
+  
+<style>
+  div#google_afc_user,
+  div.google-afc-user-container,
+  div.google_afc_image,
+  div.google_afc_blocklink {
+      display: block !important;
+  }
+</style>
+
+
+  
+<script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/button.js" async="" charset="utf-8" type="text/javascript"></script><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/timeline.js" async="" charset="utf-8" type="text/javascript"></script><script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/entries.json"></script><link href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/integrator_002.js" rel="preload"><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/integrator_002.js" type="text/javascript"></script><link href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/integrator.js" rel="preload"><script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/integrator.js" type="text/javascript"></script><script async="" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/pubads_impl_180.js"></script><link href="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/container.html" rel="prefetch"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, "hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in{animation-duration:250ms;animation-name:fb_bounce_in}.fb_customer_chat_bounce_out{animation-duration:250ms;animation-name:fb_fade_out}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{height:100%;overflow:hidden;position:fixed;width:100%}@keyframes fb_fade_out{from{opacity:1}to{opacity:0}}@keyframes fb_bounce_in{0%{opacity:0;transform:scale(.8, .8);transform-origin:100% 100%}10%{opacity:.1}20%{opacity:.2}30%{opacity:.3}40%{opacity:.4}50%{opacity:.5}60%{opacity:.6}70%{opacity:.7}80%{opacity:.8;transform:scale(1.03, 1.03)}90{opacity:.9}100%{opacity:1;transform:scale(1, 1)}}</style></head>
+
+  <body class="page-entry category-Chart.js">
+    
+    <div id="header-container">
+     <div id="sp-suggest" style="display: none;"><a id="sp-suggest-link" href="#">スマートフォン用の表示で見る</a></div>
+    </div>
+
+    <div id="globalheader-container" data-brand="hatenablog">
+  <iframe id="globalheader" allowtransparency="true" frameborder="0" height="37"></iframe>
+</div>
+
+
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner">
+    <div id="blog-title-content">
+      <h1 id="title"><a href="http://nagix.hatenablog.com/">nagix</a></h1>
+      
+    </div>
+  </div>
+</header>
+
+        
+
+        
+        
+
+
+
+
+<div id="content" class="hfeed">
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+  <article class="entry no-entry sleeping-ads" style="display: block !important;">
+    <div class="entry-inner">
+      <div class="entry-content">
+        
+        <div data-google-query-id="CKeWupadtNkCFQqmaAod_5UKJQ" id="google_afc_user_container_0" class="sleeping-ad" style=""><div style="border: 0pt none; display: inline-block; width: 336px; height: 280px;" id="google_ads_iframe_/4374287/blo_pc_com_6_3328_0_no_0__container__"><iframe data-is-safeframe="true" marginheight="0" marginwidth="0" scrolling="no" name="" title="3rd party ad content" id="google_ads_iframe_/4374287/blo_pc_com_6_3328_0_no_0" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/container.html" style="border: 0px none; vertical-align: bottom;" frameborder="0" height="280" width="336"></iframe></div></div>
+        <script>
+  var hatenadfp = hatenadfp || {};
+  hatenadfp.adUnits = hatenadfp.adUnits || [];
+  hatenadfp.adUnits.push(
+    
+      
+      
+      { unitName: 'blo_pc_com_6_3328_0_no', size: [[300, 250], [336, 280]], divId: 'google_afc_user_container_0' }
+    
+  );
+  hatenadfp.isNGContent = false;
+  
+</script>
+
+
+
+        
+        <p class="sleeping-ads-notice" style="display: none;">この広告は、90日以上更新していないブログに表示しています。</p>
+      </div>
+    </div>
+  </article>
+
+
+
+          
+  
+  <!-- google_ad_section_start -->
+  <!-- rakuten_ad_target_begin -->
+  
+  
+  
+
+  
+
+  
+    
+      
+        <article class="entry hentry js-entry-article date-first autopagerize_page_element chars-12400 words-1800 mode-html entry-odd" id="entry-8599973812278252134" data-keyword-campaign="" data-uuid="8599973812278252134" data-publication-type="entry">
+  <div class="entry-inner">
+    <header class="entry-header">
+    <div class="date entry-date first">
+    <a href="http://nagix.hatenablog.com/archive/2017/07/11" rel="nofollow">
+      <time pubdate="" datetime="2017-07-10T15:49:52Z" title="2017-07-10T15:49:52Z">
+        <span class="date-year">2017</span><span class="hyphen">-</span><span class="date-month">07</span><span class="hyphen">-</span><span class="date-day">11</span>
+      </time>
+    </a>
+  </div>
+  <h1 class="entry-title">
+  <a href="http://nagix.hatenablog.com/entry/2017/07/11/004952" class="entry-title-link bookmark">Drawing a real-time Bitcoin chart using Chart.js</a>
+</h1>
+
+  
+  
+
+  <div class="entry-categories categories">
+    
+    <a href="http://nagix.hatenablog.com/archive/category/Chart.js" class="entry-category-link category-Chart.js">Chart.js</a>
+    
+  </div>
+
+
+  
+
+  
+
+</header>
+
+    
+
+    <div class="entry-content">
+  
+    <p>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/moment.js"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/Chart.js"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/chartjs-plugin-streaming.bin"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/pusher.js"></script>
+</p>
+<p>(*日本語の記事は<a href="http://nagix.hatenablog.com/entry/2017/07/10/081553">こちら</a>)</p>
+<p><a href="http://www.chartjs.org/">Chart.js</a> is a popular <a class="keyword" href="http://d.hatena.ne.jp/keyword/JavaScript">JavaScript</a> chart library that enables to create dynamic, beautiful charts easily. I recently made <a href="https://nagix.github.io/chartjs-plugin-streaming/">chartjs-plugin-streaming</a>,
+ a Chart.js plugin for live streaming data with the auto-scroll feature.
+ It is suitable for IoT-related use cases such as sensor data 
+monitoring, and when I was looking for some real examples of streaming 
+data, I noticed that it is also good for displaying real-time digital 
+currency trading data that the digital currency exchanges provide. So, I
+ just tried that out.</p>
+<p>It is becoming more common for the exchanges to deliver trading data 
+efficiently using WebSocket. Some of them require authentication, but in
+ this article, let's create trading charts for the exchanges that 
+provide public <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a> without authentication.</p>
+<h3>First example: Bitfinex WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></h3>
+<p>First, we need to include the following required libraries.</p>
+<ul>
+<li><a href="https://momentjs.com/">Moment.js</a>: Date &amp; time library</li>
+<li><a href="http://www.chartjs.org/">Chart.js</a>: Chart library</li>
+<li><a href="https://nagix.github.io/chartjs-plugin-streaming/">chartjs-plugin-streaming</a>: Chart.js plugin for streaming data</li>
+<li><a href="https://pusher.com/">Pusher</a>: Pub/Sub messaging library</li>
+</ul>
+<p>Put the following tags between &lt;head&gt; and &lt;/head&gt;.</p>
+<pre data-unlink="">&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://github.com/nagix/chartjs-plugin-streaming/releases/download/v1.1.0/chartjs-plugin-streaming.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pusher/4.1.0/pusher.js"&gt;&lt;/script&gt;</pre>
+<p>Next, let's add a <a class="keyword" href="http://d.hatena.ne.jp/keyword/canvas">canvas</a> to the page. Include an id so that you can identify the chart later.</p>
+<pre>&lt;<a class="keyword" href="http://d.hatena.ne.jp/keyword/canvas">canvas</a> id="Bitfinex"&gt;&lt;/<a class="keyword" href="http://d.hatena.ne.jp/keyword/canvas">canvas</a>&gt;</pre>
+<p>Then, prepare an object for buffering data, which is <code>buf</code>. Set the array that has two empty array elements to the&nbsp;property with the same name as <a class="keyword" href="http://d.hatena.ne.jp/keyword/canvas">canvas</a>'s id. The first array is for 'buy' prices and the second is for 'sell' prices.</p>
+<pre>&lt;script type="text/<a class="keyword" href="http://d.hatena.ne.jp/keyword/javascript">javascript</a>"&gt;
+var buf = {};
+buf['Bitfinex'] = [[], []];
+&lt;/script&gt;</pre>
+<p>Now, let's <a class="keyword" href="http://d.hatena.ne.jp/keyword/access">access</a>
+ the real data. We are going to collect real-time trading data using 
+WebSocket from Bitfinex in Hong Kong, which is one of the largest 
+exchanges by BTC/USD trading volume. You can subscribe trading data of 
+the <a class="keyword" href="http://d.hatena.ne.jp/keyword/Bitcoin">Bitcoin</a>/US dollar pair by sending a request like below to the <a class="keyword" href="http://d.hatena.ne.jp/keyword/URI">URI</a> <code>wss://api.bitfinex.com/ws</code> provided by Bitfinex. (See <a href="https://docs.bitfinex.com/v1/docs/ws-general">Bitfinex WebSocket API</a> for details)</p>
+<pre>{
+    "event": "subscribe", // subscribe request
+    "channel": "trades",  // trade data
+    "pair": "BTCUSD"      // <a class="keyword" href="http://d.hatena.ne.jp/keyword/Bitcoin">Bitcoin</a>/US dollar
+}</pre>
+<p>The data you will receive through the callback function is like this.</p>
+<pre>[
+    5,             // 0: channel ID
+    'te',          // 1: message type
+    '1234-BTCUSD', // 2: sequence ID
+    1443659698,    // 3: timestamp
+    236.42,        // 4: price
+    0.49064538     // 5: amount bought (positive) or sold (negative)
+]</pre>
+<p>As we only need the trade type, the timestamp (X-axis) and the price 
+(Y-axis), the filtered data is stored into the buffer on every message 
+receipt using the following code.</p>
+<pre>var ws = new WebSocket('<a class="keyword" href="http://d.hatena.ne.jp/keyword/wss">wss</a>://<a class="keyword" href="http://d.hatena.ne.jp/keyword/api">api</a>.bitfinex.com/ws/');
+ws.onopen = function() {
+    ws.send(<a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.stringify({      // send subscribe request
+        "event": "subscribe",
+        "channel": "trades",
+        "pair": "BTCUSD"
+    }));
+};
+ws.onmessage = function(msg) {     // callback on message receipt
+    var response = <a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.parse(msg.data);
+    if (response[1] === 'te') {    // Only 'te' message type is needed
+        buf['Bitfinex'][response[5] &gt; 0 ? 0 : 1].push({
+            x: response[3] * 1000, // timestamp in milliseconds
+            y: response[4]         // price in US dollar
+        });
+    }
+}</pre>
+<p>Finally, we need to configure the chart. Regarding the details of the chart customization, please refer to the Chart.js <a href="http://www.chartjs.org/docs/">official documentation</a>. The key points here are that the <code>'realtime'</code>
+ scale that the chartjs-plugin-streaming plugin provides are set to the X
+ axis, and that the entire data stored in the buffer is added to the 
+chart in the <code>onRefresh</code> callback function that is called at a regular interval (every second by default).</p>
+<pre>var id = 'Bitfinex';
+var ctx = document.getElementById(id).getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            data: [],
+            label: 'Buy',                     // 'buy' price data
+            borderColor: 'rgb(255, 99, 132)', // line color
+            backgroundColor: 'rgba(255, 99, 132, 0.5)', // fill color
+            fill: false,                      // no fill
+            lineTension: 0                    // straight line
+        }, {
+            data: [],
+            label: 'Sell',                    // 'sell' price data
+            borderColor: 'rgb(54, 162, 235)', // line color
+            backgroundColor: 'rgba(54, 162, 235, 0.5)', // fill color
+            fill: false,                      // no fill
+            lineTension: 0                    // straight line
+        }]
+    },
+    options: {
+        title: {
+            text: 'BTC/USD (' + id + ')', // chart title
+            display: true
+        },
+        scales: {
+            xAxes: [{
+                type: 'realtime' // auto-scroll on X axis
+            }]
+        },
+        plugins: {
+            streaming: {
+                duration: 300000, // display data for the latest 300000ms (5 mins)
+                onRefresh: function(chart) { // callback on chart update interval
+                    Array.prototype.push.apply(
+                        chart.data.datasets[0].data, buf[id][0]
+                    );            // add 'buy' price data to chart
+                    Array.prototype.push.apply(
+                        chart.data.datasets[1].data, buf[id][1]
+                    );            // add 'sell' price data to chart
+                    buf[id] = [[], []]; // clear buffer
+                }
+            }
+        }
+    }
+});</pre>
+<p>Below is the completed chart. You can see that the chart is scrolling from the right to the left slowly.</p>
+<p><iframe tabindex="-1" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" class="chartjs-hidden-iframe"></iframe><canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" id="Bitfinex">Bitfinex</canvas></p>
+<h3>Bitstamp WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></h3>
+<p>The next example is Bitstamp, an exchange in UK, which is the central trading hub in Europe. Bitstamp uses <a href="https://pusher.com/">Pusher</a>, a Pub/Sub messaging library for real time WebSocket streaming. Therefore, the data subscription code is much simpler. (See <a href="https://www.bitstamp.net/websocket/">Bitstamp WebSocket API</a> for details)</p>
+<p>The data you will receive through the callback function is like this.</p>
+<pre>{
+    id: 17044523,            // trade unique ID
+    amount: 1,               // amount
+    price: 2496.21,          // price
+    type: 1,                 // trade type (0: buy, 1: sell）
+    timestamp: "1499472674", // timestamp
+    buy_order_id: 47485421,  //	buy order ID
+    sell_order_id: 47485426  //	sell order ID
+}</pre>
+<p>Below is the code that receives data. It also takes only the trade type, the timestamp and the price.</p>
+<pre>buf['Bitstamp'] = [[], []]; // prepare buffer
+var pusher = new Pusher('de504dc5763aeef9ff52'); // Pusher key for Bitstamp
+var channel = pusher.subscribe('live_trades'); // subscribe live trade data
+channel.bind('trade', function (data) { // callback on message receipt
+    buf['Bitstamp'][data.type].push({
+        x: data.timestamp * 1000, // timestamp in milliseconds
+        y: data.price             // price in US dollar
+    });
+});</pre>
+<p>The configuration of the chart is the same as above except for the id. Below is the completed chart.</p>
+<p><iframe tabindex="-1" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" class="chartjs-hidden-iframe"></iframe><canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" id="Bitstamp">Bitstamp</canvas></p>
+<h3>BTC-E WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></h3>
+<p>BTC-E is also a popular exchage located in Bulgaria. It uses Pusher for streaming as well. (See <a href="https://btc-e.com/pushAPI/docs">BTC-E WebSocket API</a> for details)</p>
+<p>Below is the data you will receive.</p>
+<pre>[
+    [
+        "buy",       // 0: trade type
+        "2476.999",  // 1: price
+        "0.08863539" // 2: amount
+    ]
+]</pre>
+<p>As timestamps are not included in case of BTC-E, set the current time using <code>Date.now()</code>.</p>
+<pre>buf['BTC-E'] = [[], []]; // prepare buffer
+var pusher = new Pusher('c354d4d129ee0faa5c92'); // Pusher key for BTC-E
+var channel = pusher.subscribe('btc_usd.trades'); // subscribe BTC/USD trades
+channel.bind('trades', function (dataset) { // callback on message receipt
+    dataset.forEach(function(data) {
+        buf['BTC-E'][data[0] === 'buy' ? 0 : 1].push({
+            x: Date.now(), // timestamp in milliseconds
+            y: data[1]     // price in US dollar
+        });
+    });
+});</pre>
+<p><iframe tabindex="-1" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" class="chartjs-hidden-iframe"></iframe><canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" id="BTC-E">BTC-E</canvas></p>
+<h3>BitMEX WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></h3>
+<p>BitMEX is an exchange in Hong Kong, which is famous for high leverage trading. It provides a normal WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a>. Below are the request and the message to be received. (See <a href="https://www.bitmex.com/app/wsAPI">BitMEX WebSocket API</a> for details)</p>
+<pre>{
+    "op": "subscribe", // subscribe request
+    "args": [
+        "trade:XBTUSD" // <a class="keyword" href="http://d.hatena.ne.jp/keyword/Bitcoin">Bitcoin</a>/US dollar
+    ]
+}</pre>
+<pre>{
+    table: "trade",
+    action: "insert",
+    data: [
+        {
+            timestamp: "2017-07-09T01:39:30.866Z", // timestamp
+            symbol: "XBTUSD",         // currency pair symbol
+            side: "Buy",              // trade type
+            size: 34,                 // amount
+            price: 2548.9,            // price
+            tickDirection: "ZeroPlusTick", // tick direction
+            trdMatchID: "34d6de97-5d54-3431-e505-ffc3bc8c58ef",
+            grossValue: 2039284,      // gross value 
+            homeNotional: 0.02039284, // notional in <a class="keyword" href="http://d.hatena.ne.jp/keyword/Bitcoin">Bitcoin</a>
+            foreignNotional: 52       // notional in US dollar
+        }
+    ]
+}</pre>
+<p>The code and chart are as follows.</p>
+<pre>buf['BitMEX'] = [[], []]; // prepare buffer
+var ws = new WebSocket('<a class="keyword" href="http://d.hatena.ne.jp/keyword/wss">wss</a>://www.bitmex.com/realtime');
+ws.onopen = function() {
+    ws.send(<a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.stringify(    // send subscribe request
+      　"op": "subscribe",
+      　"args": [
+            "trade:XBTUSD"
+        ]
+    }));
+};
+ws.onmessage = function(msg) { // callback on message receipt
+    var response = <a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.parse(msg.data);
+    response.data.forEach(function(data) {
+        buf['BitMEX'][data.side === 'Buy' ? 0 : 1].push({
+            x: data.timestamp, // timestamp
+            y: data.price      // price in US dollar
+        });
+    });
+}</pre>
+<p><iframe tabindex="-1" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" class="chartjs-hidden-iframe"></iframe><canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" id="BitMEX">BitMEX</canvas></p>
+<h3>CoinCheck WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></h3>
+<p>The last one is Japanese exchange, CoinCheck. Only BTC/Japanese-yen 
+rates are delivered here, so let's display them. Below are the request 
+and the message to be received. (See <a href="https://coincheck.com/documents/exchange/api#websocket">CoinCheck WebSocket API</a> for details）</p>
+<pre>{
+    "type": "subscribe",        // subscribe request
+    "channel": "btc_jpy-trades" // <a class="keyword" href="http://d.hatena.ne.jp/keyword/Bitcoin">Bitcoin</a>/Japanese yen
+}</pre>
+<pre>[
+    9856377,    // trade ID
+    "btc_jpy",  // currency pair
+    "289544.0", // price
+    "0.0367",   // amount
+    "sell"      // trade type
+]</pre>
+<p>The code and chart are as follows.</p>
+<pre>buf['CoinCheck'] = [[], []];
+var ws = new WebSocket('<a class="keyword" href="http://d.hatena.ne.jp/keyword/wss">wss</a>://ws-<a class="keyword" href="http://d.hatena.ne.jp/keyword/api">api</a>.coincheck.com/');
+ws.onopen = function() {
+    ws.send(<a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.stringify({        // send subscribe request
+        "type": "subscribe",
+        "channel": "btc_jpy-trades"
+    }));
+};
+ws.onmessage = function(msg) { // callback on message receipt
+    var response = <a class="keyword" href="http://d.hatena.ne.jp/keyword/JSON">JSON</a>.parse(msg.data);
+    buf['CoinCheck'][response[4] === 'buy' ? 0 : 1].push({
+        x: Date.now(), // timestamp in milliseconds
+        y: response[2] // price in Japanese yen
+    });
+}</pre>
+<p><iframe tabindex="-1" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" class="chartjs-hidden-iframe"></iframe><canvas height="270" width="540" style="display: block; width: 540px; height: 270px;" id="CoinCheck">CoinCheck WebSocket <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a></canvas></p>
+<p>There are many other digital currency exchanges that provide <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a> to deliver real-time trading data. The <a class="keyword" href="http://d.hatena.ne.jp/keyword/API">API</a> and data format are slightly different each other, but you can draw a chart with minimum modification. I <a class="keyword" href="http://d.hatena.ne.jp/keyword/hope">hope</a> this article helps you try out for yourself.</p>
+<script type="text/javascript">// <![CDATA[
+var buf = {};
+
+buf['Bitfinex'] = [[], []];
+var wsBitfinex = new WebSocket('wss://api.bitfinex.com/ws/');
+wsBitfinex.onopen = function() {
+    wsBitfinex.send(JSON.stringify({"event":"subscribe", "channel":"trades", "pair":"BTCUSD"}));
+};
+wsBitfinex.onmessage = function(msg) {
+    var response = JSON.parse(msg.data);
+    if (response[1] === 'te') {
+        buf['Bitfinex'][response[5] > 0 ? 0 : 1].push({
+            x: response[3] * 1000,
+            y: response[4]
+        });
+    }
+}
+
+buf['Bitstamp'] = [[], []];
+var pusher = new Pusher('de504dc5763aeef9ff52');
+var channel = pusher.subscribe('live_trades');
+channel.bind('trade', function (data) {
+    buf['Bitstamp'][data.type].push({
+        x: data.timestamp * 1000,
+        y: data.price
+    });
+});
+
+buf['BTC-E'] = [[], []];
+var pusher = new Pusher('c354d4d129ee0faa5c92');
+var channel = pusher.subscribe('btc_usd.trades');
+channel.bind('trades', function (dataset) {
+    dataset.forEach(function(data) {
+        buf['BTC-E'][data[0] === 'buy' ? 0 : 1].push({
+            x: Date.now(),
+            y: data[1]
+        });
+    });
+});
+
+buf['BitMEX'] = [[], []];
+var wsBitMEX = new WebSocket('wss://www.bitmex.com/realtime');
+wsBitMEX.onopen = function() {
+    wsBitMEX.send(JSON.stringify({"op":"subscribe", "args":["trade:XBTUSD"]}));
+};
+wsBitMEX.onmessage = function(msg) {
+    var response = JSON.parse(msg.data);
+    console.log(response);
+    if (response.table === 'trade') {
+        response.data.forEach(function(data) {
+            buf['BitMEX'][data.side === 'Buy' ? 0 : 1].push({
+                x: data.timestamp,
+                y: data.price
+            });
+        });
+    }
+}
+
+buf['CoinCheck'] = [[], []];
+var wsCoinCheck = new WebSocket('wss://ws-api.coincheck.com/');
+wsCoinCheck.onopen = function() {
+    wsCoinCheck.send(JSON.stringify({"type":"subscribe", "channel":"btc_jpy-trades"}));
+};
+wsCoinCheck.onmessage = function(msg) {
+    var response = JSON.parse(msg.data);
+    buf['CoinCheck'][response[4] === 'buy' ? 0 : 1].push({
+        x: Date.now(),
+        y: response[2]
+    });
+}
+
+var ids = ['Bitfinex', 'Bitstamp', 'BTC-E', 'BitMEX', 'CoinCheck'];
+ids.forEach(function(id) {
+    var ctx = document.getElementById(id).getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [{
+                data: [],
+                label: 'Buy',
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                fill: false,
+                lineTension: 0
+            }, {
+                data: [],
+                label: 'Sell',
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                fill: false,
+                lineTension: 0
+            }]
+        },
+        options: {
+            title: {
+                text: (id !== 'CoinCheck' ? 'BTC/USD' : 'BTC/JPY') + ' (' + id + ')',
+                display: true
+            },
+            scales: {
+                xAxes: [{
+                    type: 'realtime'
+                }]
+            },
+            plugins: {
+                streaming: {
+                    duration: 300000,
+                    onRefresh: function(chart) {
+                        Array.prototype.push.apply(chart.data.datasets[0].data, buf[id][0]);
+                        Array.prototype.push.apply(chart.data.datasets[1].data, buf[id][1]);
+                        buf[id] = [[], []];
+                    }
+                }
+            }
+        }
+    });
+});
+// ]]></script>
+  
+</div>
+
+    
+  <footer class="entry-footer">
+    
+    <p class="entry-footer-section">
+  <span class="author vcard"><span class="fn" data-load-nickname="1" data-user-name="nagixx"><span class="user-name-nickname">nagix</span> <span class="user-name-paren">(</span><span class="user-name-hatena-id">id:nagixx</span><span class="user-name-paren">)</span></span></span>
+  <span class="entry-footer-time"><a href="http://nagix.hatenablog.com/entry/2017/07/11/004952"><time data-relative="" datetime="2017-07-10T15:49:52Z" title="2017-07-10T15:49:52Z" pubdate="" class="updated">224日前</time></a></span>
+</p>
+
+    
+  <div class="hatena-star-container">
+  <span class="hatena-star-comment-container"><img class="hatena-star-comment-button" style="cursor: pointer; margin: 0px; padding: 0px; border: medium none; vertical-align: middle; display: none;" title="Comments" alt="Comments" tabindex="0" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/comment.gif"></span><span class="hatena-star-star-container"><img class="hatena-star-add-button" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: medium none; vertical-align: middle;" title="Add Star" alt="Add Star" tabindex="0" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/hatena-star-add-button.png"></span></div>
+  <div class="hatena-star-metadata" style="display: none">
+    <a class="hatena-star-permalink" href="http://nagix.hatenablog.com/entry/2017/07/11/004952">Drawing a real-time Bitcoin chart using Chart.js</a>
+  </div>
+
+
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <iframe style="width: 84px; height: 40px;" src="javascript:false" scrolling="no" title="この記事をはてなブックマークに追加" class="hatena-bookmark-button-frame" frameborder="0" height="40" width="84"></iframe>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div fb-iframe-plugin-query="app_id=719729204785177&amp;container_width=0&amp;href=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952&amp;layout=box_count&amp;locale=ja_JP&amp;sdk=joey" fb-xfbml-state="rendered" class="fb-share-button fb_iframe_widget" data-layout="box_count" data-href="http://nagix.hatenablog.com/entry/2017/07/11/004952"><span style="vertical-align: bottom; width: 57px; height: 40px;"><iframe class="" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/share_button.html" style="border: medium none; visibility: visible; width: 57px; height: 40px;" title="fb:share_button Facebook Social Plugin" scrolling="no" allowfullscreen="true" allowtransparency="true" name="f1ba6126a65910e" frameborder="0" height="1000px" width="1000px"></iframe></span></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <iframe data-url="http://nagix.hatenablog.com/entry/2017/07/11/004952" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/tweet_button.html" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 66px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" scrolling="no" id="twitter-widget-1" frameborder="0"></iframe>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 24px;"><iframe title="G+" data-gapiattached="true" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/fastbutton.html" name="I0_1519120585035" id="I0_1519120585035" vspace="0" tabindex="0" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" ng-non-bindable="" frameborder="0" width="100%"></iframe></div>
+    </div>
+  
+  
+  
+  
+</div>
+
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">
+      <script>
+  var hatenadfp = hatenadfp || {};
+  hatenadfp.adUnits = hatenadfp.adUnits || [];
+  hatenadfp.adUnits.push(
+    
+      
+      
+      { unitName: 'blog_user', size: [[300, 250], [336, 280], [468, 60],
+ ["fluid"]], divId: 'google_afc_user_container_1', allowContentMatch: 
+true }
+    
+  );
+  hatenadfp.isNGContent = false;
+  
+</script>
+
+      <div data-google-query-id="CLOjo5adtNkCFUcNaAod-k4Arg" id="google_afc_user_container_1" class="google-afc-user-container  google_afc_blocklink2_5 google_afc_boder"><div style="border: 0pt none;" id="google_ads_iframe_/4374287/blog_user_0__container__"><iframe srcdoc="" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/4374287/blog_user_0" title="3rd party ad content" id="google_ads_iframe_/4374287/blog_user_0" frameborder="0" height="280" width="336"></iframe></div></div>
+      
+        <a href="http://blog.hatena.ne.jp/guide/pro" class="open-pro-modal" data-guide-pro-modal-ad-url="http://hatenablog.com/guide/pro/modal/ad">広告を非表示にする</a>
+      
+      
+    </div>
+  
+
+
+    <div class="customized-footer">
+      
+
+        
+
+        
+
+          <div class="entry-footer-modules" id="entry-footer-secondary-modules">      
+<div class="hatena-module hatena-module-related-entries">
+      
+  <!-- Hatena-Epic-has-related-entries-with-elasticsearch:true -->
+  <div class="hatena-module-title">
+    関連記事
+  </div>
+  <div class="hatena-module-body">
+    <ul class="related-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://nagix.hatenablog.com/entry/2017/07/10/081553">
+  <img alt="Bitcoin のリアルタイムチャートを Chart.js で表示する" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/httpscdn-ak.png" class="urllist-image related-entries-image" title="Bitcoin のリアルタイムチャートを Chart.js で表示する" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://nagix.hatenablog.com/archive/2017/07/10" rel="nofollow">
+    <time pubdate="" datetime="2017-07-09T23:15:53Z" title="2017-07-09T23:15:53Z">
+      2017-07-10
+    </time>
+  </a>
+</div>
+
+          <a href="http://nagix.hatenablog.com/entry/2017/07/10/081553" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Bitcoin のリアルタイムチャートを Chart.js で表示する</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">(*English translation is here) Chart.js は動的で美しいチャ…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="http://nagix.hatenablog.com/entry/2015/10/29/172915">
+  <img alt="Apache Drillで整数型と浮動小数点型が混じったJSONデータを読む時の注意" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/httpf.png" class="urllist-image related-entries-image" title="Apache Drillで整数型と浮動小数点型が混じったJSONデータを読む時の注意" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="http://nagix.hatenablog.com/archive/2015/10/29" rel="nofollow">
+    <time pubdate="" datetime="2015-10-29T08:29:15Z" title="2015-10-29T08:29:15Z">
+      2015-10-29
+    </time>
+  </a>
+</div>
+
+          <a href="http://nagix.hatenablog.com/entry/2015/10/29/172915" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Apache Drillで整数型と浮動小数点型が混じったJSONデータを読む時の注意</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">こんな感じのJSONデータがあるとします。気温を記録しているセ…</div>
+      </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+  </div>
+        
+
+      
+    </div>
+    
+  <div class="comment-box">
+    
+    <ul class="comment">
+      <li class="read-more-comments" style="display: none;"><a>もっと読む</a></li>
+    </ul>
+    
+      <a style="display: none;" class="leave-comment-title">コメントを書く</a>
+    
+  </div>
+
+  </footer>
+
+  </div>
+</article>
+
+      
+      
+    
+  
+
+  
+  <!-- rakuten_ad_target_end -->
+  <!-- google_ad_section_end -->
+  
+  
+  
+  <div class="pager pager-permalink permalink">
+    
+    
+      
+      <span class="pager-next">
+        <a href="http://nagix.hatenablog.com/entry/2017/07/10/081553" rel="next">
+          Bitcoin のリアルタイムチャートを Chart.…
+          <span class="pager-arrow"> »</span>
+        </a>
+      </span>
+    
+  </div>
+
+
+  
+
+
+
+        </div>
+      </div>
+
+      <aside id="box1">
+  <div id="box1-inner">
+  </div>
+</aside>
+
+    </div><!-- #wrapper -->
+
+    
+<aside id="box2">
+  
+  <div id="box2-inner">
+    
+      
+
+<div class="hatena-module hatena-module-profile">
+  <div class="hatena-module-title">
+    プロフィール
+  </div>
+  <div class="hatena-module-body">
+    
+    <a href="http://nagix.hatenablog.com/about" class="profile-icon-link">
+      <img src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/profile.png" alt="id:nagixx" class="profile-icon">
+    </a>
+    
+
+    
+    <span class="id">
+      <a href="http://nagix.hatenablog.com/about" class="hatena-id-link"><span data-load-nickname="1" data-user-name="nagixx"><span class="user-name-nickname">nagix</span> <span class="user-name-paren">(</span><span class="user-name-hatena-id">id:nagixx</span><span class="user-name-paren">)</span></span></a>
+      
+  
+    
+    
+  
+
+
+    </span>
+    
+
+    
+
+    
+
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box">
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button unsubscribing">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once="">
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div style="display: block;" class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">19</span>
+  </div>
+</div>
+
+    
+
+    
+    <div class="hatena-follow-button-box btn-twitter">
+      <iframe data-screen-name="nagix" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/follow_button.html" title="Twitter Follow Button" style="position: static; visibility: visible; width: 133px; height: 20px;" class="twitter-follow-button twitter-follow-button-rendered" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    検索
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="http://nagix.hatenablog.com/search" method="get">
+  <input name="q" class="search-module-input" placeholder="記事を検索" required="" type="text">
+  <input value="検索" class="search-module-button" type="submit">
+</form>
+
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-links">
+  <div class="hatena-module-title">
+    リンク
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://hatenablog.com/">はてなブログ</a>
+        </li>
+      
+        <li>
+          <a href="http://hatenablog.com/guide?via=200109">ブログをはじめる（無料）</a>
+        </li>
+      
+        <li>
+          <a href="http://staff.hatenablog.com/">お知らせ</a>
+        </li>
+      
+        <li>
+          <a href="http://hatenablog.com/g/">はてなブログ グループ</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-recent-entries ">
+  <div class="hatena-module-title">
+    <a href="http://nagix.hatenablog.com/archive">
+      最新記事
+    </a>
+  </div>
+  <div class="hatena-module-body">
+    <ul class="recent-entries hatena-urllist ">
+  
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://nagix.hatenablog.com/entry/2017/07/11/004952" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Drawing a real-time Bitcoin chart using Chart.js</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://nagix.hatenablog.com/entry/2017/07/10/081553" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Bitcoin のリアルタイムチャートを Chart.js で表示する</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://nagix.hatenablog.com/entry/2016/04/11/091940" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">HDFS Snapshot + distcp と MapR-FS Volume Mirroring の違い</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://nagix.hatenablog.com/entry/2015/12/25/181736" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">2016 年に向けた注目の新機能の開発状況</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://nagix.hatenablog.com/entry/2015/12/24/235900" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Drill のユーザ認証とインパーソネーション</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-archive" data-archive-type="default" data-archive-url="http://nagix.hatenablog.com/archive">
+  <div class="hatena-module-title">
+    <a href="http://nagix.hatenablog.com/archive">月別アーカイブ</a>
+  </div>
+  <div class="hatena-module-body">
+  
+
+  
+    
+    
+      <ul class="hatena-urllist">
+        
+          <li class="archive-module-year" data-year="2017">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2017" class="archive-module-year-title">
+              2017 (2)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2017/7" class="archive-module-month-title">
+                    2017 / 7 (2)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2016">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2016" class="archive-module-year-title">
+              2016 (1)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2016/4" class="archive-module-month-title">
+                    2016 / 4 (1)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2015">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2015" class="archive-module-year-title">
+              2015 (26)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/12" class="archive-module-month-title">
+                    2015 / 12 (18)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/10" class="archive-module-month-title">
+                    2015 / 10 (1)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/8" class="archive-module-month-title">
+                    2015 / 8 (2)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/7" class="archive-module-month-title">
+                    2015 / 7 (1)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/6" class="archive-module-month-title">
+                    2015 / 6 (2)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2015/5" class="archive-module-month-title">
+                    2015 / 5 (2)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2014">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2014" class="archive-module-year-title">
+              2014 (2)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2014/12" class="archive-module-month-title">
+                    2014 / 12 (2)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2013">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2013" class="archive-module-year-title">
+              2013 (2)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2013/12" class="archive-module-month-title">
+                    2013 / 12 (1)
+                  </a>
+                </li>
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2013/10" class="archive-module-month-title">
+                    2013 / 10 (1)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2012">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2012" class="archive-module-year-title">
+              2012 (1)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2012/6" class="archive-module-month-title">
+                    2012 / 6 (1)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          <li class="archive-module-year archive-module-year-hidden" data-year="2011">
+            <div class="archive-module-button">
+              <span class="archive-module-hide-button">▼</span>
+              <span class="archive-module-show-button">▶</span>
+            </div>
+            <a href="http://nagix.hatenablog.com/archive/2011" class="archive-module-year-title">
+              2011 (1)
+            </a>
+            <ul class="archive-module-months">
+              
+                <li class="archive-module-month">
+                  <a href="http://nagix.hatenablog.com/archive/2011/12" class="archive-module-month-title">
+                    2011 / 12 (1)
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      </ul>
+    
+  
+
+
+</div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+    <div class="hatena-module-title">Twitter</div>
+  <div class="hatena-module-body">
+    <iframe title="Twitterタイムライン" data-widget-id="412765116782743552" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 600px; padding: 0px; border: medium none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" class="twitter-timeline twitter-timeline-rendered" allowfullscreen="true" allowtransparency="true" scrolling="no" id="twitter-widget-2" frameborder="0"></iframe>
+<script>!function(d,s,id){var 
+js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </div>
+</div>
+
+    
+    
+  </div>
+</aside>
+
+
+  </div>
+</div>
+
+
+
+
+        
+
+        
+  <script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/hatena_dfp2.js"></script>
+
+
+        
+
+      </div>
+    </div>
+    
+<footer id="footer" data-brand="hatenablog">
+  <div id="footer-inner">
+    
+      <div style="display: block !important;" class="guest-footer js-guide-register test-blogs-register-guide" data-action="guide-register">
+  <div class="guest-footer-content">
+    <h3>はてなブログをはじめよう！</h3>
+    <p>nagixxさんは、はてなブログを使っています。あなたもはてなブログをはじめてみませんか？</p>
+    <div class="guest-footer-btn-container">
+      <div class="guest-footer-btn">
+        <a class="btn btn-register" href="http://blog.hatena.ne.jp/register?via=200227" target="_blank">はてなブログをはじめる（無料）</a>
+      </div>
+      <div class="guest-footer-btn">
+        <a href="http://hatenablog.com/guide" target="_blank">はてなブログとは</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <address class="footer-address">
+      <a href="http://nagix.hatenablog.com/">
+        <img src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/blog-icon-noimage.png" alt="nagix" height="16" width="16">
+        <span class="footer-address-name">nagix</span>
+      </a>
+    </address>
+    <p class="services">
+      Powered by <a href="http://hatenablog.com/">Hatena Blog</a>
+      |
+        <a href="https://blog.hatena.ne.jp/-/abuse_report?target_url=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952" class="report-abuse-link test-report-abuse-link" target="_blank">ブログを報告する</a>
+    </p>
+  </div>
+</footer>
+
+
+    
+
+    
+  <script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/HatenaStar.js"></script>
+
+
+    
+      <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="http://staticxx.facebook.com/connect/xd_arbiter/r/lY4eZXm_YWu.js?version=42#channel=f311e189fc0a89c&amp;origin=http%3A%2F%2Fnagix.hatenablog.com" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/lY4eZXm_YWu_002.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=719729204785177&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    
+    
+
+<div style="top: 3243px; left: 191px; display: none;" class="quote-box">
+  <div style="display: block;" class="tooltip-quote tooltip-quote-star">
+    <i class="blogicon-star" title="引用スターをつける"></i>
+  </div>
+  <div style="display: block;" class="tooltip-quote tooltip-quote-stock">
+    <i class="blogicon-quote" title="引用をストック"></i>
+  </div>
+  <div style="display: block;" class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet available">
+    <a href="https://twitter.com/share?url=http%3A%2F%2Fnagix.hatenablog.com%2Fentry%2F2017%2F07%2F11%2F004952&amp;text=%E2%80%9Cvar+id+%3D+%27Bitfinex%27%3B+var+ctx+%3D+document.getElementById%28id%29.getContext%28%272d%27%29%3B+var+chart+%3D+new+Chart%28ctx%2C+%7B+type%3A+%27line%27%2C+data%3A+%7B+datasets%3A+%5B%7B+data%3A+%5B%5D%2C+label%3A+%27Buy%27%2C+%2F%2F+%27buy%27+price+data+borderColor%3A+%27rgb%28255%2C+99%2C+132%29%27%2C+%2F%2F+line+color+backgroundColor%3A+%27rgba%28255%2C+99%2C+132%2C+0.5%29%27%2C+%2F%2F+fill+color+fill%3A+false%2C+%2F%2F+no+fill+lineTension%3A+0+%2F%2F+straight+line+%7D%2C+%7B+data%3A+%5B%5D%2C+label%3A+%27Sell%27%2C+%2F%2F+%27sell%27+price+data+borderColor%3A+%27rgb%2854%2C+162%2C+235%29%27%2C+%2F%2F+line+color+backgroundColor%3A+%27rgba%2854%2C+162%2C+235%2C+0.5%29%27%2C+%2F%2F+fill+color+fill%3A+false%2C+%2F%2F+no+fill+lineTension%3A+0+%2F%2F+straight+line+%7D%5D+%7D%2C+options%3A+%7B+title%3A+%7B+text%3A+%27BTC%2FUSD+%28%27+%2B+id+%2B+%27%29%27%2C+%2F%2F+chart+title+display%3A+true+%7D%2C+scales%3A+%7B+xAxes%3A+%5B%7B+type%3A+%27realtime%27+%2F%2F+auto-scroll+on+X+axis+%7D%5D+%7D%2C+plugins%3A+%7B+streaming%3A+%7B+duration%3A+300000%2C+%2F%2F+display+data+for+the+latest+300000ms+%285+mins%29+onRefresh%3A+function%28chart%29+%7B+%2F%2F+callback+on+chart+update+interval+Array.prototype.push.apply%28+chart.data.datasets%5B0%5D.data%2C+buf%5Bid%5D%5B0%5D+%29%3B+%2F%2F+add+%27buy%27+price+data+to+chart+Array.prototype.push.apply%28+chart.data.datasets%5B1%5D.data%2C+buf%5Bid%5D%5B1%5D+%29%3B+%2F%2F+add+%27sell%27+price+data+to+chart+buf%5Bid%5D+%3D+%5B%5B%5D%2C+%5B%5D%5D%3B+%2F%2F+clear+buffer+%7D+%7D+%7D+%7D+%7D%29%3B%E2%80%9D" class="js-tweet-quote" target="_blank" data-track-name="quote-tweet" data-track-once=""><i class="blogicon-twitter" title="引用してツイートする"></i></a>
+  </div>
+</div>
+
+<div class="message-box" id="quote-star-message-box" style="display: none; position: absolute;">
+  スターをつけました
+</div>
+
+<div class="quote-stock-panel" id="quote-stock-message-box" style="position: absolute; z-index: 3000">
+  <div class="message-box" id="quote-stock-succeeded-message" style="display: none">
+    <p>引用をストックしました</p>
+    <button class="btn btn-primary" id="quote-stock-show-editor-button" data-track-name="curation-quote-edit-button">ストック一覧を見る</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="message-box" id="quote-login-required-message" style="display: none">
+    <p>引用するにはまずログインしてください</p>
+    <button class="btn btn-primary" id="quote-login-button">ログイン</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="quote-stock-failed-message" style="display: none">
+    <p>引用をストックできませんでした。再度お試しください</p>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="unstockable-quote-message-box" style="display: none; position: absolute; z-index: 3000;">
+    <p>限定公開記事のため引用できません。</p>
+  </div>
+</div>
+
+<script type="x-underscore-template" id="js-requote-button-template">
+  <div class="requote-button js-requote-button">
+    <button class="requote-button-btn tipsy-top" title="引用する"><i class="blogicon-quote"></i></button>
+  </div>
+</script>
+
+
+
+    
+    <div id="hidden-subscribe-button" style="display: none;">
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box">
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button unsubscribing">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once="">
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div style="display: block;" class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">19</span>
+  </div>
+</div>
+
+    </div>
+
+    
+  <script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/widgets.js"></script>
+
+<script gapi_processed="true" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/platform.js" async="" defer="defer">
+  { lang: 'ja', "parsetags": "explicit" }
+</script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+
+  <script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/react-with-addons.js"></script>
+  <script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/react-dom.js"></script>
+
+
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/jquery_003.js"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/jquery-ui.js"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/jquery.js"></script>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/jquery_002.js"></script>
+
+
+
+
+<script id="hatenablog-js" data-env="production" type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/hatenablog.js" crossorigin="anonymous"></script><div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; display: none;"></div>
+<script type="text/javascript" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/texts-ja.js"></script>
+
+
+  <script type="text/javascript">Hatena.Diary.GlobalHeader.init()</script>
+
+
+<script src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/api.js" async="" defer="defer"></script>
+
+
+
+
+    
+
+
+
+
+
+  
+
+
+<iframe style="display: none;" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/widget_iframe.html" allowtransparency="true" scrolling="no" frameborder="0"></iframe><div style="display: none;" id="cboxOverlay"></div><div style="display: none;" tabindex="-1" role="dialog" class="" id="colorbox"><div id="cboxWrapper"><div><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div style="clear: left;"><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div style="float: left;" id="cboxTitle"></div><div style="float: left;" id="cboxCurrent"></div><button id="cboxPrevious" type="button"></button><button id="cboxNext" type="button"></button><button id="cboxSlideshow" type="button"></button><div style="float: left;" id="cboxLoadingOverlay"></div><div style="float: left;" id="cboxLoadingGraphic"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div style="clear: left;"><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><div style="top: -9999px; z-index: -9999;"></div><iframe title="Twitter analytics iframe" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" allowfullscreen="true" allowtransparency="true" scrolling="no" id="rufous-sandbox" frameborder="0"></iframe><iframe src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/iu3.html" style="display: none;"></iframe><iframe aria-hidden="true" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/postmessageRelay.html" id="oauth2relay678024252" name="oauth2relay678024252"></iframe><iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_5807875695942"></iframe><iframe src="Drawing%20a%20real-time%20Bitcoin%20chart%20using%20Chart.js%20-%20nagix_files/pd.html" style="display:none;" height="0" width="0"></iframe><div style="color: rgb(0, 0, 0); position: absolute; display: none; z-index: 10002; left: 0px; top: 0px; background-color: rgb(255, 255, 255); border: 0px none; padding: 0px; text-align: center;"><div style="text-align: left; margin: 0px; padding: 0px;"></div></div></body></html>

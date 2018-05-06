@@ -1,3 +1,4 @@
+# OOP design for vector calcultion 
 class Vector:
 	"""Represent a vector in multidiemnsional space."""
 

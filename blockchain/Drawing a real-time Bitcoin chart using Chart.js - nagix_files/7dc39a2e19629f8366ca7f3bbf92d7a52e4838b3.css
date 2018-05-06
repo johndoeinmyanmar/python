@@ -1,0 +1,1434 @@
+/* <system section="theme" selected="11696248318753242429"> */
+@charset "utf-8";
+/*
+Theme: responsiblue
+Author: satotaka
+
+Licensed under the MIT license.
+*/
+/* import normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* ==========================================================================
+HTML5 display definitions
+========================================================================== */
+/**
+* Correct `block` display not defined in IE 8/9.
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+* Correct `inline-block` display not defined in IE 8/9.
+*/
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+/**
+* Prevent modern browsers from displaying `audio` without controls.
+* Remove excess height in iOS 5 devices.
+*/
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+* Address styling not present in IE 8/9.
+*/
+[hidden] {
+  display: none;
+}
+/* ==========================================================================
+Base
+========================================================================== */
+/**
+* 1. Set default font family to sans-serif.
+* 2. Prevent iOS text size adjust after orientation change, without disabling
+* user zoom.
+*/
+html {
+  font-family: sans-serif;
+  /* 1 */
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+
+}
+/**
+* Remove default margin.
+*/
+body {
+  margin: 0;
+}
+/* ==========================================================================
+Links
+========================================================================== */
+/**
+* Address `outline` inconsistency between Chrome and other browsers.
+*/
+a:focus {
+  outline: thin dotted;
+}
+/**
+* Improve readability when focused and also mouse hovered in all browsers.
+*/
+a:active,
+a:hover {
+  outline: 0;
+}
+/* ==========================================================================
+Typography
+========================================================================== */
+/**
+* Address variable `h1` font-size and margin within `section` and `article`
+* contexts in Firefox 4+, Safari 5, and Chrome.
+*/
+h1 {
+  font-size: 3em;
+  margin: 0.67em 0;
+}
+/**
+* Address styling not present in IE 8/9, Safari 5, and Chrome.
+*/
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+* Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+*/
+b,
+strong {
+  font-weight: bold;
+}
+/**
+* Address styling not present in Safari 5 and Chrome.
+*/
+dfn {
+  font-style: italic;
+}
+/**
+* Address differences between Firefox and other browsers.
+*/
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+* Address styling not present in IE 8/9.
+*/
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+* Correct font family set oddly in Safari 5 and Chrome.
+*/
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+/**
+* Improve readability of pre-formatted text in all browsers.
+*/
+pre {
+  overflow: auto;
+  white-space: pre;
+}
+/**
+* Set consistent quote types.
+*/
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+/**
+* Address inconsistent and variable font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+/**
+* Prevent `sub` and `sup` affecting `line-height` in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* ==========================================================================
+Embedded content
+========================================================================== */
+/**
+* Remove border when inside `a` element in IE 8/9.
+*/
+img {
+  border: 0;
+}
+/**
+* Correct overflow displayed oddly in IE 9.
+*/
+svg:not(:root) {
+  overflow: hidden;
+}
+/* ==========================================================================
+Figures
+========================================================================== */
+/**
+* Address margin not present in IE 8/9 and Safari 5.
+*/
+figure {
+  margin: 0;
+}
+/* ==========================================================================
+Forms
+========================================================================== */
+/**
+* Define consistent border, margin, and padding.
+*/
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+* 1. Correct `color` not being inherited in IE 8/9.
+* 2. Remove padding so people aren't caught out if they zero out fieldsets.
+*/
+legend {
+  border: 0;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/**
+* 1. Correct font family not being inherited in all browsers.
+* 2. Correct font size not being inherited in all browsers.
+* 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+*/
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+
+  font-size: 100%;
+  /* 2 */
+
+  margin: 0;
+  /* 3 */
+
+}
+/**
+* Address Firefox 4+ setting `line-height` on `input` using `!important` in
+* the UA stylesheet.
+*/
+button,
+input {
+  line-height: normal;
+}
+/**
+* Address inconsistent `text-transform` inheritance for `button` and `select`.
+* All other form control elements do not inherit `text-transform` values.
+* Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+* Correct `select` style inheritance in Firefox 4+ and Opera.
+*/
+button,
+select {
+  text-transform: none;
+}
+/**
+* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+* and `video` controls.
+* 2. Correct inability to style clickable `input` types in iOS.
+* 3. Improve usability and consistency of cursor style between image-type
+* `input` and others.
+*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+
+  cursor: pointer;
+  /* 3 */
+
+}
+/**
+* Re-set default cursor for disabled elements.
+*/
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+* 1. Address box sizing set to `content-box` in IE 8/9.
+* 2. Remove excess padding in IE 8/9.
+*/
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/**
+* 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+* 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+* (include `-moz` to future-proof).
+*/
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+
+  box-sizing: content-box;
+}
+/**
+* Remove inner padding and search cancel button in Safari 5 and Chrome
+* on OS X.
+*/
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+* Remove inner padding and border in Firefox 4+.
+*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+* 1. Remove default vertical scrollbar in IE 8/9.
+* 2. Improve readability and alignment in all browsers.
+*/
+textarea {
+  overflow: auto;
+  /* 1 */
+
+  vertical-align: top;
+  /* 2 */
+
+}
+/* ==========================================================================
+Tables
+========================================================================== */
+/**
+* Remove most spacing between table cells.
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* import mixin */
+.clearfix {
+  display: block;
+  *zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+.inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.border-box {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ellipsis {
+  white-space: nowrap;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* import variable */
+/* Background color */
+/* Background color */
+/* Base text color */
+/* Light text color */
+/* h1~h6 text color */
+/* Link text color */
+/* Link text color(hover) */
+/* Link text color(hover) */
+/* Border color */
+/* button background */
+/* button hover backgroud *//* Common */
+html,
+body {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS PGothic', sans-serif;
+  color: #454545;
+  background-color: #ffffff;
+}
+a {
+  color: #1487bd;
+}
+a:hover {
+  color: #0f5373;
+}
+a:visited {
+  color: #789dae;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover,
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+  color: #333333;
+  text-decoration: none;
+}
+a.keyword {
+  text-decoration: none;
+  border-bottom: 1px solid #454545;
+  color: #454545;
+}
+/* Buttons */
+.btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  line-height: 18px;
+  color: #454545;
+  background-color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+}
+.btn:hover {
+  background-color: #f5f5f5;
+  text-decoration: none !important;
+}
+.btn-small {
+  padding: 2px 10px !important;
+  font-size: 11px !important;
+}
+.btn-large {
+  padding: 13px 19px;
+  font-size: 17px;
+  line-height: normal;
+  font-weight: bold;
+}
+/* ヘッダ（グローバルヘッダ）
+グローバルヘッダの中はiframeですが、
+#globalheader-container に背景色や文字色を指定することでiframeの中にも色が反映されます。
+*/
+#globalheader-container {
+  background-color: #e9ecf0;
+  color: #666;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+/* container */
+#container {
+  width: 100%;
+  background-color: #ffffff;
+}
+#container #content {
+  margin: 0 auto;
+  padding-left: 100px;
+  width: 900px;
+  *zoom: 1;
+}
+#container #content:after {
+  display: block;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+/* 2カラムレイアウト */
+#main {
+  width: 60%;
+  float: left;
+}
+#box2 {
+  width: 35%;
+  float: right;
+}
+/* header */
+#blog-title {
+  background-color: #37a4cb;
+  margin: 37px 0 30px;
+  padding: 30px 0 40px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+#title {
+  margin: 0;
+}
+#title a {
+  color: #ffffff;
+}
+#blog-description {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 80%;
+  margin: 5px 0 0 0;
+}
+/* ヘッダ画像を設定したとき */
+.header-image-enable #blog-title #title a {
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+.header-image-enable #blog-title #blog-description {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+.header-image-enable #title {
+  padding-top: 55px;
+}
+.header-image-enable #blog-title {
+  padding-top: 0px;
+}
+.header-image-enable #blog-title,
+.header-image-enable #blog-description {
+  text-align: center;
+}
+/* ヘッダ画像を横方向リピートで両端まで */
+.header-image-enable #blog-title #blog-title-inner {
+    color: #ffffff;
+    background-color: #37a4cb;
+    background-repeat: repeat-x;
+    position: relative;
+    width: 100%;
+}
+/* パンくず（カテゴリーページで表示されます） */
+#top-box {
+  margin: 10px auto 20px;
+  font-size: 90%;
+}
+#top-box .breadcrumb {
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+/* entry */
+.entry {
+  position: relative;
+  margin-bottom: 100px;
+}
+.entry-header {
+  padding: 0 0 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #393e40;
+  position: relative;
+}
+.entry-title {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 160%;
+}
+/* 日付 */
+.date {
+font-weight: bold;
+background: none repeat scroll 0 0 #393e40;
+border-radius: 50% 50% 50% 50%;
+color: #ffffff;
+height: 4.8em;
+line-height: 1.2;
+margin: 0 0 0 -88px;
+position: absolute;
+text-align: center;
+top: -0.9em;
+width: 4.8em;
+}
+
+.date a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.date-year {
+left: 1.3em;
+position: relative;
+}
+
+.hyphen {
+display: none;
+}
+
+.date-month {
+font-size: 1.2em;
+position: relative;
+right: 1.3em;
+top: 1.1em
+}
+
+.date-day {
+font-size: 1.6em;
+position: relative;
+right: 1em;
+top: 1.6em;
+}
+
+/* カテゴリ */
+.categories {
+  margin-top: 6px;
+  font-size: 80%;
+  font-weight: bold;
+}
+.categories a {
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  color: #ffffff;
+  background-color: #37A4CB;
+  margin-right: 3px;
+  padding: 4px 6px;
+  position: relative;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+.categories.no-categories {
+  margin: 0;
+}
+/* 「編集する」ボタン */
+.entry-header-menu {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: -0.25em;
+}
+.entry-header-menu a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  line-height: 3.2;
+  color: #ffffff;
+  background-color: #37a4cb;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-border-top-right-radius: 50%;
+  -webkit-border-bottom-right-radius: 50%;
+  -webkit-border-bottom-left-radius: 50%;
+  -webkit-border-top-left-radius: 50%;
+  -moz-border-radius-topright: 50%;
+  -moz-border-radius-bottomright: 50%;
+  -moz-border-radius-bottomleft: 50%;
+  -moz-border-radius-topleft: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  height: 40px;  
+  width: 40px;
+}
+.entry-header-menu a:hover {
+  background-color: #2996be;
+  text-decoration: none !important;
+}
+/* entry-content の中の書式 */
+.entry-content {
+  font-size: 95%;
+  line-height: 1.7;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+.entry-content p {
+  margin: 0 0 1em 0;
+}
+.entry-content img {
+  max-width: 100%;
+  border: 1px solid #dddddd;
+  max-width: 100%;
+  padding: 5px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  margin: 1.3em 0 0.8em 0;
+  padding: 0.2em 0.6em;
+  line-height: 1.5;
+  border-left: 5px solid #37A4CB;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.entry-content h1 {
+  font-size: 160%;
+}
+.entry-content h2 {
+  font-size: 150%;
+}
+.entry-content h3 {
+  font-size: 140%;
+}
+.entry-content h4 {
+  font-size: 130%;
+}
+.entry-content h5 {
+  font-size: 110%;
+}
+.entry-content h6 {
+  font-size: 100%;
+}
+.entry-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1em;
+}
+.entry-content table th,
+.entry-content table td {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+.entry-content table th {
+  background: #f5f5f5;
+}
+.entry-content blockquote {
+  border: 1px solid #dddddd;
+  margin: 0 0 10px;
+  padding: 20px;
+}
+
+blockquote p:first-child:before{
+    content:"“";
+    float: left;
+    font-weight: bold;
+    font-size: 1000%;
+    display:block;
+    height:30px;
+    color: #ddf3f6;
+    margin-top: -80px;
+}
+
+.entry-content blockquote p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.entry-content pre {
+  border: 1px solid #dddddd;
+  margin: 0 0 10px;
+  padding: 20px;
+  white-space: pre;
+}
+.entry-content pre > code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: 0;
+  background: transparent;
+  font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+}
+.entry-content code {
+  font-size: 90%;
+  margin: 0 2px;
+  padding: 0 5px;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+}
+.entry-content .hatena-asin-detail li {
+  line-height: 1.4;
+}
+/* entry-footer */
+.entry-footer {
+  margin-top: 10px;
+}
+.entry-footer-section {
+  font-size: 80%;
+  color: #999999;
+}
+.entry-footer-section a {
+  color: #999999;
+}
+.social-buttons,
+.entry-footer-html {
+  margin: 10px 0;
+}
+/* コメント */
+.comment-box ul {
+  list-style: none;
+  margin: 0 0 15px 0;
+  padding: 0;
+  font-size: 95%;
+  line-height: 1.7;
+}
+.comment-box li {
+  padding: 10px 0 10px 60px;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+}
+.comment-box li:first-child {
+  border-top: 1px solid #dddddd;
+}
+.comment-box .hatena-id-icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 50px !important;
+  height: 50px !important;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.comment-user-name {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+.comment-content {
+  font-size: 90%;
+  margin: 0 0 10px 0;
+  word-wrap: break-word;
+}
+.comment-content p {
+  margin: 0 0 10px 0;
+}
+.comment-metadata {
+  font-size: 80%;
+  color: #999999;
+  margin: 0;
+}
+.comment-metadata a {
+  color: #999999;
+}
+.leave-comment-title {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  line-height: 18px;
+  color: #454545;
+  background-color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+}
+.leave-comment-title:hover {
+  background-color: #f5f5f5;
+  text-decoration: none !important;
+}
+/* sidebar */
+#box2 {
+  font-size: 85%;
+  line-height: 1.5;
+}
+.hatena-module {
+  margin-bottom: 60px;
+}
+.hatena-module-title {
+  color: #37a4cb;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 120%;
+  line-height: 2;
+}
+.hatena-module-title a {
+  color: #37a4cb;
+  text-decoration: underline;
+}
+.hatena-module-title a:hover {
+  color: #2996be;
+}
+
+/* Profile module */
+.hatena-module-profile .profile-icon {
+  float: left;
+  margin: 0 10px 10px 0;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.hatena-module-profile .id {
+  display: block;
+  font-weight: bold;
+  font-size: 110%;
+  margin-bottom: 5px;
+}
+.hatena-module-profile .profile-description {
+  font-size: 90%;
+}
+.hatena-module-profile .profile-description p {
+  margin-top: 0;
+}
+.hatena-module-profile .hatena-module-title {
+ background: url(http://img.f.hatena.ne.jp/images/fotolife/s/satotaka99/20130506/20130506221639.png) no-repeat left center;
+ padding-left: 35px;
+}
+/* urllist module
+リンク・最新記事・最近のコメント・月別アーカイブ・カテゴリモジュールは .hatena-urllist という共通の class が振られます
+*/
+.hatena-urllist {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+.hatena-urllist li {
+  padding: 8px 0;
+  border-bottom: 1px solid #dddddd;
+  line-height: 1.5;
+}
+.hatena-urllist li a {
+  text-decoration: none;
+}
+/* Search module */
+.hatena-module-search-box .search-form {
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+.hatena-module-search-box .search-module-input {
+  padding: 5px;
+  color: #454545;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  height: 20px;
+  width: 90%;
+}
+.hatena-module-search-box .search-module-button {
+  width: 20px;
+  height: 20px;
+  background: #ffffff url(http://blog.hatena.ne.jp/images/theme/search.png) no-repeat right center;
+  border: none;
+  outline: none;
+  text-indent: -9999px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.hatena-module-search-box .search-module-button:hover {
+  -moz-opacity: 0.85;
+  -khtml-opacity: 0.85;
+  -webkit-opacity: 0.85;
+  opacity: 0.85;
+  filter: alpha(opacity=50);
+}
+/* Search */
+.hatena-module-search-box .hatena-module-title {
+ background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130506/20130506221650.png) no-repeat left center;
+ padding-left: 35px;
+}
+/* Links */
+.hatena-module-links .hatena-module-title {
+ background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130506/20130506221620.png) no-repeat left center;
+ padding-left: 35px;
+}
+/* 最新記事 */
+.hatena-module-recent-entries .hatena-module-title {
+ background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130506/20130506221628.png) no-repeat left center;
+ padding-left: 35px;
+}
+/* アーカイブ */
+.hatena-module-archive .hatena-module-title {
+ background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130506/20130506221614.png) no-repeat left center;
+ padding-left: 35px;
+}
+/* カテゴリ */
+.hatena-module-category .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130525/20130525135928.png) no-repeat scroll left center transparent;
+  padding-left: 35px;
+}
+/* コメント */
+.hatena-module-recent-comments .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130525/20130525133603.png) no-repeat scroll left center transparent;
+  padding-left: 35px;
+}
+/* グループ */
+.hatena-module-circles .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130525/20130525134428.png) no-repeat scroll left center transparent;
+  padding-left: 35px;
+}
+/* html */
+.hatena-module-html .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/s/satotaka99/20130525/20130525134510.png) no-repeat scroll left center transparent;
+  padding-left: 35px;
+}
+/* Pager */
+.pager a {
+  color: #1487BD;
+  text-decoration: none;
+}
+.pager a:hover {
+  text-decoration: underline;
+}
+/* Pager-add 140305 */
+.pager{
+  overflow: hidden;
+  font-size: 80%;
+}
+.pager .pager-prev,.pager .pager-next{
+  display: block;
+  margin: 1em 0;
+}
+.pager-arrow{
+  display: none;
+}
+.pager .pager-prev {
+  float: right;
+}
+.pager .pager-prev:before {
+  content: "次【";
+}
+.pager .pager-prev:after{
+  content: "】»";
+}
+
+.pager .pager-next {
+  float: left;
+}
+.pager .pager-next:before {
+  content: "« ひとつ前【";
+}
+.pager .pager-next:after{
+  content: "】";
+}
+
+/* Footer */
+#footer {
+  border-top:solid 12px #78c9e6;
+  background-color: #37a4cb;
+  padding: 30px 0;
+  text-align: center;
+  color: #ffffff;
+  line-height: 1.5;
+  font-size: 80%;
+}
+#footer p {
+  margin: 0;
+}
+#footer a {
+  color: #ffffff;
+}
+/* About ページ */
+.page-about dt {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 5px;
+}
+.page-about dd {
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+/* archive ページ add 140305 */
+.page-archive .archive-entries .archive-entry {
+  margin-bottom: 3em;
+}
+.archive-entries .date {
+  position: static;
+  height: 1.3em;
+  margin: 0;
+  background: none;
+  color: #393E40;
+}
+.archive-entries .date a {
+  color: #393E40;
+}
+.page-archive .archive-entries .entry-title {
+  font-size: 130%;
+  margin: 0 0 .5em;
+}
+.page-archive .archive-entries .categories {
+  margin: 0 0 1em;
+  border-bottom: 1px solid #393E40;
+  padding-bottom: 0.8em;
+}
+.page-archive .archive-entries .entry-description {
+  font-size: 100%;
+  margin: 0 0 1em;
+  line-height: 1.5em;
+}
+/* エディットエリア add 140305 */
+#top-editarea,#bottom-editarea {
+    margin: 0 auto;
+    width: 1000px;
+}
+/* import media queries */
+/* Media Queries - Retina Display */
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .hatena-module-search-box .search-module-button {
+    background: transparent url(http://blog.hatena.ne.jp/images/theme/search@2x.png) no-repeat right center;
+    background-size: 20px 20px;
+  }
+}
+/* Media Queries - Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #container {
+    width: 100%;
+  }
+  #blog-title {
+    margin: 37px 0 30px;
+    padding: 30px 0 40px;
+  }
+  #container #content {
+    padding-left: 30px;
+	width: 85%;
+  }
+  #main {
+	margin-left: 80px;
+    width: 85%;
+    float: none;
+  }
+  #box2 {
+	margin: 0 auto;
+    width: 95%;
+    float: none;
+  }
+  #box2-inner {
+    width: 100%;
+  }
+  .hatena-module {
+	margin: 0 auto 30px;
+    width: 85%;
+    float: none;
+  }
+  .entry-header-menu {
+    top: 10px;
+    right: 0px;
+  }
+}
+/* Media Queries - Small Tablet & Smartphone */
+@media (max-width: 767px) {
+  #globalheader-container {
+    position: static;
+  }
+  #container {
+    width: 100%;
+  }
+  #blog-title {    
+    margin: 0 0 30px;
+    padding: 30px 0 40px;
+  }
+  #container #content {
+    padding-left: 100px;
+	width: 85%;
+  }
+  #main {
+    width: 85%;
+    float: none;
+  }
+  #box2 {
+    width: 85%;
+    float: none;
+  }
+  .hatena-module {
+	margin: 0 auto 30px;
+    float: none;
+  }
+  .entry-header-menu {
+    top: 10px;
+    right: 0px;
+  }
+}
+/* Media Queries - Smartphone */
+@media (max-width: 480px) {
+  #container #content {
+    padding: 0;
+	width: 85%;
+  }
+  #main {
+    width: 100%;
+    float: none;
+  }
+  .date {
+    background: none repeat scroll 0 0 #393E40;
+    border-radius: 50% 50% 50% 50%;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 4.8em;
+    line-height: 1.2;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    top: -0.9em;
+    width: 4.8em;
+  }
+  #box2 {
+    float: none;
+    width: 100%;
+  }
+}
+/* </system> */
+
+/* <system section="background" selected="fff"> */
+body{background:#fff;}
+/* </system> */
+
+a {
+  color: #898159;
+}
+a:hover {
+  color: #333333;
+}
+a:visited {
+  color: #b2a77e;
+}
+a.keyword {
+  border-bottom: 1px solid #dedede;
+}
+#globalheader-container {
+  background-color: #b9ae90;
+  color: #fff;
+}
+#blog-title {
+  background-color: #dad2b2;
+  text-shadow: none;
+}
+#title a {
+  color: #91826a;
+}
+.header-image-enable #blog-title #blog-title-inner {
+    background-color: #dad2b2;
+}
+.categories a {
+  background-color: #dad2b2;
+}
+.entry-header-menu a {
+  background-color: #91826a;
+}
+.entry-header-menu a:hover {
+  background-color: #333333;
+}
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  border-left: 5px solid #dad2b2;
+}
+.hatena-module-title {
+  color: #91826a;
+}
+.hatena-module-title a {
+  color: #91826a;
+}
+.hatena-module-title a:hover {
+  color: #333333;
+}
+.hatena-module-profile .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184238.png) no-repeat left center;
+}
+.hatena-module-search-box .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184236_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-links .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184230_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-recent-entries .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184231_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-archive .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184232_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-category .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184233_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-recent-comments .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184234_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-circles .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184235_120.jpg?1387187330) no-repeat left center;
+}
+.hatena-module-html .hatena-module-title {
+  background: url(http://cdn-ak.f.st-hatena.com/images/fotolife/n/nagixx/20131216/20131216184237_120.jpg?1387187330) no-repeat left center;
+}
+#footer {
+  border-top:solid 12px #e8e0c5;
+  background-color: #dad2b2;
+  color: #91826a;
+}
+#footer a {
+  color: #91826a;
+}

@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html class=" js " lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="alternate" type="application/rss+xml" title="David Sheehan RSS" href="https://dashee87.github.io/feed.xml">
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Predicting Cryptocurrency Prices With Deep Learning - dashee87.github.io</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="dashee87.github.io">
+<meta property="og:title" content="Predicting Cryptocurrency Prices With Deep Learning">
+
+
+  <link rel="canonical" href="https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/">
+  <meta property="og:url" content="https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/">
+
+
+
+  <meta property="og:description" content="This post brings together cryptos and deep learning in a desperate attempt for Reddit popularity.">
+
+
+
+
+
+  
+
+  
+
+
+
+  <meta property="og:image" content="https://dashee87.github.io/images/lambo_moon_.jpg">
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-11-20T00:00:00+00:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "David Sheehan",
+      "url" : "https://dashee87.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://dashee87.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="dashee87.github.io Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/embed.js" async="" type="text/javascript"></script><script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/count.js" type="text/javascript" async=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body style="margin-bottom: 221px;" class="layout--single"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div style="display: none;" id="MathJax_Message"></div>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button count="0" class="hidden"><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://dashee87.github.io/">dashee87.github.io</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://dashee87.github.io/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://dashee87.github.io/about/">About</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <script id="" src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/MathJax.js"></script>
+
+
+<link rel="stylesheet" href="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/jquery.css">
+<script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/jquery.js"></script>
+<script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/jquery_003.js"></script>
+<script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/jquery_002.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+$.fancybox.defaults.arrows = false;
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://dashee87.github.io/images/lambo_moon_.jpg');">
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Predicting Cryptocurrency Prices With Deep Learning
+
+        
+      </h1>
+      
+        <p class="page__lead">This post brings together cryptos and deep learning in a desperate attempt for Reddit popularity.
+</p>
+      
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Not a Lambo, it’s actually a Cadillac. That might not even be Earth’s moon either.
+</span>
+  
+</div>
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope="" itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bio-photo.jpg" class="author__avatar" alt="David Sheehan">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">David Sheehan</h3>
+    <p class="author__bio">Data scientist interested in sports, politics and Simpsons references</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> London via Cork</li>
+      
+      
+      
+        <li><a href="mailto:davidfsheehan87@gmail.com"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><a href="https://github.com/dashee87"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Predicting Cryptocurrency Prices With Deep Learning">
+    <meta itemprop="description" content="This post brings together cryptos and deep learning in a desperate attempt for Reddit popularity.">
+    <meta itemprop="datePublished" content="November 20, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        <p>If you were to pick the three most ridiculous fads of 2017, 
+they would definitely be fidget spinners (are they still cool? Do kids 
+still use that word “cool”?), artificial intelligence and, yes, 
+cryptocurrencies. Joking aside, I’m actually impressed by the underlying
+ concept and I’m quite bullish on the long term prospects of this 
+disruptive technology. But enough about fidget spinners!!! I’m actually 
+not a hodler of any cryptos. So, while I may not have a ticket to the 
+moon, I can at least get on board the hype train by successfully 
+predicting the price of cryptos by harnessing deep learning, machine 
+learning and artificial intelligence (yes, all of them!).</p>
+
+<p>I thought this was a completely unique concept to combine deep 
+learning and cryptos (blog-wise at least), but in researching this post 
+(i.e. looking for code to copy+paste), I came across <a href="http://www.jakob-aungiers.com/articles/a/Multidimensional-LSTM-Networks-to-Predict-Bitcoin-Price">something quite similar</a>.
+ That post only touched on Bitcoin (the most famous crypto of them all),
+ but I’ll also discuss Ethereum (commonly known as ether, eth or 
+lambo-money). And since Ether is clearly superior to Bitcoin (<a href="https://ethereumprice.org/ground-breaking-metropolis-release-flying-radar/">have you not heard of Metropolis?</a>), this post will definitely be better than that other one.</p>
+
+<p>We’re going to employ a Long Short Term Memory (LSTM) model; it’s a 
+particular type of deep learning model that is well suited to time 
+series data (or any data with temporal/spatial/structural order e.g. 
+movies, sentences, etc.). If you wish to truly understand the underlying
+ theory (what kind of crypto enthusiast are you?), then I’d recommend <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">this blog</a> or <a href="http://blog.echen.me/2017/05/30/exploring-lstms/">this blog</a> or the <a href="http://www.bioinf.jku.at/publications/older/2604.pdf">original (white)paper</a>. As I’m shamelessly trying to appeal to a wider non-machine learning audience, I’ll keep the code to a minimum. There’s a <a href="https://github.com/dashee87/blogScripts/blob/master/Jupyter/2017-11-20-predicting-cryptocurrency-prices-with-deep-learning.ipynb">Jupyter (Python) notebook available here</a>, if you want to play around with the data or build your own models. Let’s get started!</p>
+
+<h3 id="data">Data</h3>
+
+<p>Before we build the model, we need to obtain some data for it. There’s a <a href="https://www.kaggle.com/mczielinski/bitcoin-historical-data">dataset on Kaggle</a> that details minute by minute Bitcoin prices (plus some other factors) for the last few years (featured on that <a href="http://www.jakob-aungiers.com/articles/a/Multidimensional-LSTM-Networks-to-Predict-Bitcoin-Price">other blog post</a>).
+ Over this timescale, noise could overwhelm the signal, so we’ll opt for
+ daily prices. The issue here is that we may have not sufficient data 
+(we’ll have hundreds of rows rather than thousands or millions). In deep
+ learning, no model can overcome a severe lack of data. I also don’t 
+want to rely on static files, as that’ll complicate the process of 
+updating the model in the future with new data. Instead, we’ll aim to 
+pull data from websites and APIs.</p>
+
+<p>As we’ll be combining multiple cryptos in one model, it’s probably a good idea to pull the data from one source. We’ll use <a href="https://coinmarketcap.com/">coinmarketcap.com</a>. For now, we’ll only consider Bitcoin and Ether, but it wouldn’t be hard to add the <a href="https://coinmarketcap.com/currencies/iota/">latest overhyped altcoin</a> using this approach. Before we import the data, we must load some python packages that will make our lives so much easier.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c"># get market info for bitcoin from the start of 2016 to the current day</span>
+<span class="n">bitcoin_market_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s">"https://coinmarketcap.com/currencies/bitcoin/historical-data/?start=20130428&amp;end="</span><span class="o">+</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">Y</span><span class="si">%</span><span class="s">m</span><span class="si">%</span><span class="s">d"</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c"># convert the date string to the correct date format</span>
+<span class="n">bitcoin_market_info</span> <span class="o">=</span> <span class="n">bitcoin_market_info</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">bitcoin_market_info</span><span class="p">[</span><span class="s">'Date'</span><span class="p">]))</span>
+<span class="c"># when Volume is equal to '-' convert it to 0</span>
+<span class="n">bitcoin_market_info</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bitcoin_market_info</span><span class="p">[</span><span class="s">'Volume'</span><span class="p">]</span><span class="o">==</span><span class="s">"-"</span><span class="p">,</span><span class="s">'Volume'</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+<span class="c"># convert to int</span>
+<span class="n">bitcoin_market_info</span><span class="p">[</span><span class="s">'Volume'</span><span class="p">]</span> <span class="o">=</span> <span class="n">bitcoin_market_info</span><span class="p">[</span><span class="s">'Volume'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'int64'</span><span class="p">)</span>
+<span class="c"># look at the first few rows</span>
+<span class="n">bitcoin_market_info</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Market Cap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2017-11-19</td>
+      <td>7766.03</td>
+      <td>8101.91</td>
+      <td>7694.10</td>
+      <td>8036.49</td>
+      <td>3149320000</td>
+      <td>129595000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2017-11-18</td>
+      <td>7697.21</td>
+      <td>7884.99</td>
+      <td>7463.44</td>
+      <td>7790.15</td>
+      <td>3667190000</td>
+      <td>128425000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2017-11-17</td>
+      <td>7853.57</td>
+      <td>8004.59</td>
+      <td>7561.09</td>
+      <td>7708.99</td>
+      <td>4651670000</td>
+      <td>131026000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2017-11-16</td>
+      <td>7323.24</td>
+      <td>7967.38</td>
+      <td>7176.58</td>
+      <td>7871.69</td>
+      <td>5123810000</td>
+      <td>122164000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2017-11-15</td>
+      <td>6634.76</td>
+      <td>7342.25</td>
+      <td>6634.76</td>
+      <td>7315.54</td>
+      <td>4200880000</td>
+      <td>110667000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>To explain what’s just happened, we’ve loaded some python packages and then imported the table that you see on <a href="https://coinmarketcap.com/currencies/bitcoin/historical-data/">this site</a>.
+ With a little bit of data cleaning, we arrive at the above table. We 
+also do the same thing for ether by simply replacing ‘bitcoin’ with 
+‘ethereum’ in the url (code omitted).</p>
+
+<p>To prove that the data is accurate, we can plot the price and volume of both cryptos over time.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_price.png" alt=""></p>
+
+</div>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/ether_price.png" alt=""></p>
+
+</div>
+
+<h3 id="training-test--random-walks">Training, Test &amp; Random Walks</h3>
+
+<p>We have some data, so now we need to build a model. In deep learning,
+ the data is typically split into training and test sets. The model is 
+built on the training set and subsequently evaluated on the unseen test 
+set. In time series models, we generally train on one period of time and
+ then test on another separate period. Rather arbitrarily, I’ll set the 
+cut-off date to June 1st 2017 (i.e. model will be trained on data before
+ that date and assessed on data after it).</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_ether_training_test.png" alt=""></p>
+
+</div>
+
+<p>You can see that the training period mostly consists of periods when 
+cryptos were relatively cheaper. As such, the training data may not be 
+representative of the test data, undermining the model’s ability to 
+generalise to unseen data (you could try to make your data stationary- 
+discussed <a href="https://dashee87.github.io/data%20science/general/A-Road-Incident-Model-Analysis/">here</a>).
+ But why let negative realities get in the way of baseless optimism? 
+Before we take our deep artificially intelligent machine learning model 
+to the moon, it’s worth discussing a simpler model. The most basic model
+ is to set tomorrow’s price equal to today’s price (which we’ll crudely 
+call a lag model). This is how we’d define such a model in mathematical 
+terms:</p>
+
+<span style="color: inherit;" class="MathJax_Preview"><span id="MJXp-Span-1" class="MJXp-math MJXp-display"><span id="MJXp-Span-2" class="MJXp-mtable"><span><span style="vertical-align: baseline;" id="MJXp-Span-3" class="MJXp-mtr"><span style="text-align: right;" id="MJXp-Span-4" class="MJXp-mtd"><span id="MJXp-Span-5" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-6" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-7" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-8" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-9" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-10" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-11" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-12" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-13" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-14" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-15" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-16" class="MJXp-mi MJXp-italic">t</span></span></span></span><span style="padding-left: 0em; text-align: left;" id="MJXp-Span-17" class="MJXp-mtd"><span id="MJXp-Span-18" class="MJXp-mi"></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-19" class="MJXp-mo">=</span><span id="MJXp-Span-20" class="MJXp-mi MJXp-italic">A</span><span id="MJXp-Span-21" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-22" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-23" class="MJXp-mi MJXp-italic">u</span><span id="MJXp-Span-24" class="MJXp-mi MJXp-italic">a</span><span id="MJXp-Span-25" class="MJXp-mi MJXp-italic">l</span><span id="MJXp-Span-26" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-27" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-28" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-29" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-30" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-31" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-32" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-33" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-34" class="MJXp-mo">−</span><span id="MJXp-Span-35" class="MJXp-mn">1</span></span></span></span></span></span></span></span></span><div class="MathJax_Display MathJax_Processing"><span style="font-size: 126%;" tabindex="0" id="MathJax-Element-1-Frame" class="MathJax"><nobr><span id="MathJax-Span-1" class="math"></span></nobr></span></div><script id="MathJax-Element-1" type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+PredPrice_{t} & = ActualPrice_{t-1}
+\end{align} %]]></script>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_ether_lag.png" alt=""></p>
+
+</div>
+
+<p>Extending this trivial lag model, <a href="https://www.tcd.ie/Economics/assets/pdf/SER/2007/Samuel_Dupernex.pdf">stock prices are commonly treated as random walks</a>, which can be defined in these mathematical terms:</p>
+
+<span style="color: inherit;" class="MathJax_Preview"><span id="MJXp-Span-36" class="MJXp-math MJXp-display"><span id="MJXp-Span-37" class="MJXp-mtable"><span><span style="vertical-align: baseline;" id="MJXp-Span-38" class="MJXp-mtr"><span style="text-align: right;" id="MJXp-Span-39" class="MJXp-mtd"><span id="MJXp-Span-40" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-41" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-42" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-43" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-44" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-45" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-46" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-47" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-48" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-49" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-50" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-51" class="MJXp-mi MJXp-italic">t</span></span></span></span><span style="padding-left: 0em; text-align: left;" id="MJXp-Span-52" class="MJXp-mtd"><span id="MJXp-Span-53" class="MJXp-mi"></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-54" class="MJXp-mo">=</span><span id="MJXp-Span-55" class="MJXp-mi MJXp-italic">A</span><span id="MJXp-Span-56" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-57" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-58" class="MJXp-mi MJXp-italic">u</span><span id="MJXp-Span-59" class="MJXp-mi MJXp-italic">a</span><span id="MJXp-Span-60" class="MJXp-mi MJXp-italic">l</span><span id="MJXp-Span-61" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-62" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-63" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-64" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-65" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-66" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-67" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-68" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-69" class="MJXp-mo">−</span><span id="MJXp-Span-70" class="MJXp-mn">1</span></span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-71" class="MJXp-mo">∗</span><span id="MJXp-Span-72" class="MJXp-mi MJXp-italic">ϵ</span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-73" class="MJXp-mo">,</span><span id="MJXp-Span-74" class="MJXp-mi MJXp-italic">ϵ</span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-75" class="MJXp-mo">∼</span><span id="MJXp-Span-76" class="MJXp-mi MJXp-italic">N</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-77" class="MJXp-mo">(</span><span id="MJXp-Span-78" class="MJXp-mi MJXp-italic">μ</span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-79" class="MJXp-mo">,</span><span id="MJXp-Span-80" class="MJXp-mi MJXp-italic">σ</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-81" class="MJXp-mo">)</span></span></span></span></span></span></span><div class="MathJax_Display MathJax_Processing"><span tabindex="0" id="MathJax-Element-2-Frame" class="MathJax"></span></div><script id="MathJax-Element-2" type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+PredPrice_{t} & = ActualPrice_{t-1} * \epsilon, \epsilon \sim N(\mu, \sigma)
+\end{align} %]]></script>
+
+<p>We’ll determine μ and σ from the training sets and apply the random walk model to the Bitcoin and Ethereum test sets.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_ether_random_walk.png" alt=""></p>
+
+</div>
+
+<p>Wow! Look at those prediction lines. Apart from a few kinks, it 
+broadly tracks the actual closing price for each coin. It even captures 
+the eth rises (and subsequent falls) in mid-June and late August. At 
+this stage, if I was to announce the launch of sheehanCoin, I’m sure 
+that ICO would stupidly over-subscribed. As pointed out on that other 
+blog, models that only make predictions one point into the future are 
+often misleadingly accurate, as errors aren’t carried over to subsequent
+ predictions. No matter how large the error, it’s essentially reset at 
+each time point, as the model is fed the true price. The Bitcoin random 
+walk is particularly deceptive, as the scale of the y-axis is quite 
+wide, making the prediction line appear quite smooth.</p>
+
+<p>Single point predictions are unfortunately quite common when evaluating time series models (e.g.<a href="https://medium.com/@binsumi/neural-networks-and-bitcoin-d452bfd7757e">here</a> and <a href="https://blog.statsbot.co/time-series-prediction-using-recurrent-neural-networks-lstms-807fa6ca7f">here</a>).
+ A better idea could be to measure its accuracy on multi-point 
+predictions. That way, errors from previous predictions aren’t reset but
+ rather are compounded by subsequent predictions. Thus, poor models are 
+penalised more heavily. In mathematical terms:</p>
+
+<span style="color: inherit;" class="MathJax_Preview"><span id="MJXp-Span-82" class="MJXp-math MJXp-display"><span id="MJXp-Span-83" class="MJXp-mtable"><span><span style="vertical-align: baseline;" id="MJXp-Span-84" class="MJXp-mtr"><span style="text-align: right;" id="MJXp-Span-85" class="MJXp-mtd"><span id="MJXp-Span-86" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-87" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-88" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-89" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-90" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-91" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-92" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-93" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-94" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-95" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-96" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-97" class="MJXp-mi MJXp-italic">t</span></span></span></span><span style="padding-left: 0em; text-align: left;" id="MJXp-Span-98" class="MJXp-mtd"><span id="MJXp-Span-99" class="MJXp-mi"></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-100" class="MJXp-mo">=</span><span id="MJXp-Span-101" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-102" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-103" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-104" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-105" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-106" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-107" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-108" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-109" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-110" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-111" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-112" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-113" class="MJXp-mo">−</span><span id="MJXp-Span-114" class="MJXp-mn">1</span></span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-115" class="MJXp-mo">∗</span><span id="MJXp-Span-116" class="MJXp-mi MJXp-italic">ϵ</span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-117" class="MJXp-mo">,</span><span id="MJXp-Span-118" class="MJXp-mi MJXp-italic">ϵ</span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-119" class="MJXp-mo">∼</span><span id="MJXp-Span-120" class="MJXp-mi MJXp-italic">N</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-121" class="MJXp-mo">(</span><span id="MJXp-Span-122" class="MJXp-mi MJXp-italic">μ</span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-123" class="MJXp-mo">,</span><span id="MJXp-Span-124" class="MJXp-mi MJXp-italic">σ</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-125" class="MJXp-mo">)</span><span id="MJXp-Span-126" class="MJXp-mtext">&nbsp;</span><span id="MJXp-Span-127" class="MJXp-mi">&amp;</span><span id="MJXp-Span-128" class="MJXp-mtext">&nbsp;</span><span id="MJXp-Span-129" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-130" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-131" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-132" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-133" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-134" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-135" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-136" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-137" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-138" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-139" class="MJXp-mn MJXp-script">0</span></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-140" class="MJXp-mo">=</span><span id="MJXp-Span-141" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-142" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-143" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-144" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-145" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-146" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-147" class="MJXp-mn MJXp-script">0</span></span></span></span></span></span></span></span><div class="MathJax_Display MathJax_Processing"><span tabindex="0" id="MathJax-Element-3-Frame" class="MathJax"></span></div><script id="MathJax-Element-3" type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+PredPrice_{t} & = PredPrice_{t-1} * \epsilon, \epsilon \sim N(\mu, \sigma)\ \&  \ PredPrice_0 = Price_0
+\end{align} %]]></script>
+
+<p>Let’s get our random walk model to predict the closing prices over the total test set.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_ether_long_random_walk.png" alt=""></p>
+
+</div>
+
+<p>The model predictions are extremely sensitive to the random seed. 
+I’ve selected one where the full interval random walk looks almost 
+decent for Ethereum. In the <a href="https://github.com/dashee87/blogScripts/blob/master/Jupyter/2017-11-20-predicting-cryptocurrency-prices-with-deep-learning.ipynb">accompanying Jupyter notebook</a>, you can interactively play around with the seed value below to see how badly it can perform.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/ether_random_walk_seeds.gif" alt=""></p>
+
+</div>
+
+<p>Notice how the single point random walk always looks quite accurate, 
+even though there’s no real substance behind it. Hopefully, you’ll be 
+more suspicious of any blog that claims to accurately predict prices. I 
+probably shouldn’t worry; it’s not like crypto fans to be seduced by <a href="https://uetoken.com/">slick marketing claims</a>.</p>
+
+<h2 id="long-short-term-memory-lstm">Long Short Term Memory (LSTM)</h2>
+
+<p>Like I said, if you’re interested in the theory behind LSTMs, then I’ll refer you to <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">this</a>, <a href="http://blog.echen.me/2017/05/30/exploring-lstms/">this</a> and <a href="http://www.bioinf.jku.at/publications/older/2604.pdf">this</a>.
+ Luckily, we don’t need to build the network from scratch (or even 
+understand it), there exists packages that include standard 
+implementations of various deep learning algorithms (e.g. <a href="https://www.tensorflow.org/get_started/get_started">TensorFlow</a>, <a href="https://keras.io/#keras-the-python-deep-learning-library">Keras</a>, <a href="http://pytorch.org/">PyTorch</a>,
+ etc.). I’ll opt for Keras, as I find it the most intuitive for 
+non-experts. If you’re not familiar with Keras, then check out my <a href="https://dashee87.github.io/data%20science/deep%20learning/python/another-keras-tutorial-for-neural-network-beginners/">previous tutorial</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>bt_Close</th>
+      <th>bt_Volume</th>
+      <th>bt_close_off_high</th>
+      <th>bt_volatility</th>
+      <th>eth_Close</th>
+      <th>eth_Volume</th>
+      <th>eth_close_off_high</th>
+      <th>eth_volatility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>688</th>
+      <td>2016-01-01</td>
+      <td>434.33</td>
+      <td>36278900</td>
+      <td>-0.560641</td>
+      <td>0.020292</td>
+      <td>0.948024</td>
+      <td>206062</td>
+      <td>-0.418477</td>
+      <td>0.025040</td>
+    </tr>
+    <tr>
+      <th>687</th>
+      <td>2016-01-02</td>
+      <td>433.44</td>
+      <td>30096600</td>
+      <td>0.250597</td>
+      <td>0.009641</td>
+      <td>0.937124</td>
+      <td>255504</td>
+      <td>0.965898</td>
+      <td>0.034913</td>
+    </tr>
+    <tr>
+      <th>686</th>
+      <td>2016-01-03</td>
+      <td>430.01</td>
+      <td>39633800</td>
+      <td>-0.173865</td>
+      <td>0.020827</td>
+      <td>0.971905</td>
+      <td>407632</td>
+      <td>-0.317885</td>
+      <td>0.060792</td>
+    </tr>
+    <tr>
+      <th>685</th>
+      <td>2016-01-04</td>
+      <td>433.09</td>
+      <td>38477500</td>
+      <td>-0.474265</td>
+      <td>0.012649</td>
+      <td>0.954480</td>
+      <td>346245</td>
+      <td>-0.057657</td>
+      <td>0.047943</td>
+    </tr>
+    <tr>
+      <th>684</th>
+      <td>2016-01-05</td>
+      <td>431.96</td>
+      <td>34522600</td>
+      <td>-0.013333</td>
+      <td>0.010391</td>
+      <td>0.950176</td>
+      <td>219833</td>
+      <td>0.697930</td>
+      <td>0.025236</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>I’ve created a new data frame called <code class="highlighter-rouge">model_data</code>. I’ve removed some of the previous columns (open price, daily highs and lows) and reformulated some new ones. <code class="highlighter-rouge">close_off_high</code>
+ represents the gap between the closing price and price high for that 
+day, where values of -1 and 1 mean the closing price was equal to the 
+daily low or daily high, respectively. The <code class="highlighter-rouge">volatility</code> columns are simply the difference between high and low price divided by the opening price. You may also notice that <code class="highlighter-rouge">model_data</code>
+ is arranged in order of earliest to latest. We don’t actually need the 
+date column anymore, as that information won’t be fed into the model.</p>
+
+<p>Our LSTM model will use previous data (both bitcoin and eth) to 
+predict the next day’s closing price of a specific coin. We must decide 
+how many previous days it will have access to. Again, it’s rather 
+arbitrary, but I’ll opt for 10 days, as it’s a nice round number. We 
+build little data frames consisting of 10 consecutive days of data 
+(called windows), so the first window will consist of the 0-9th rows of 
+the training set (Python is zero-indexed), the second will be the rows 
+1-10, etc.  Picking a small window size means we can feed more windows 
+into our model; the downside is that the model may not have sufficient 
+information to detect complex long term behaviours (if such things 
+exist).</p>
+
+<p>Deep learning models don’t like inputs that vary wildly. Looking at 
+those columns, some values range between -1 and 1, while others are on 
+the scale of millions. We need to normalise the data, so that our inputs
+ are somewhat consistent. Typically, you want values between -1 and 1. 
+The <code class="highlighter-rouge">off_high</code> and <code class="highlighter-rouge">volatility</code> columns are fine as they are. For the remaining columns, like that <a href="http://www.jakob-aungiers.com/articles/a/Multidimensional-LSTM-Networks-to-Predict-Bitcoin-Price">other blog post</a>, we’ll normalise the inputs to the first value in the window.</p>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table class="dataframe" border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bt_Close</th>
+      <th>bt_Volume</th>
+      <th>bt_close_off_high</th>
+      <th>bt_volatility</th>
+      <th>eth_Close</th>
+      <th>eth_Volume</th>
+      <th>eth_close_off_high</th>
+      <th>eth_volatility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>688</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.560641</td>
+      <td>0.020292</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.418477</td>
+      <td>0.025040</td>
+    </tr>
+    <tr>
+      <th>687</th>
+      <td>-0.002049</td>
+      <td>-0.170410</td>
+      <td>0.250597</td>
+      <td>0.009641</td>
+      <td>-0.011498</td>
+      <td>0.239937</td>
+      <td>0.965898</td>
+      <td>0.034913</td>
+    </tr>
+    <tr>
+      <th>686</th>
+      <td>-0.009946</td>
+      <td>0.092475</td>
+      <td>-0.173865</td>
+      <td>0.020827</td>
+      <td>0.025190</td>
+      <td>0.978201</td>
+      <td>-0.317885</td>
+      <td>0.060792</td>
+    </tr>
+    <tr>
+      <th>685</th>
+      <td>-0.002855</td>
+      <td>0.060603</td>
+      <td>-0.474265</td>
+      <td>0.012649</td>
+      <td>0.006810</td>
+      <td>0.680295</td>
+      <td>-0.057657</td>
+      <td>0.047943</td>
+    </tr>
+    <tr>
+      <th>684</th>
+      <td>-0.005457</td>
+      <td>-0.048411</td>
+      <td>-0.013333</td>
+      <td>0.010391</td>
+      <td>0.002270</td>
+      <td>0.066829</td>
+      <td>0.697930</td>
+      <td>0.025236</td>
+    </tr>
+    <tr>
+      <th>683</th>
+      <td>-0.012019</td>
+      <td>-0.061645</td>
+      <td>-0.003623</td>
+      <td>0.012782</td>
+      <td>0.002991</td>
+      <td>0.498534</td>
+      <td>-0.214540</td>
+      <td>0.026263</td>
+    </tr>
+    <tr>
+      <th>682</th>
+      <td>0.054613</td>
+      <td>1.413585</td>
+      <td>-0.951499</td>
+      <td>0.069045</td>
+      <td>-0.006349</td>
+      <td>2.142074</td>
+      <td>0.681644</td>
+      <td>0.040587</td>
+    </tr>
+    <tr>
+      <th>681</th>
+      <td>0.043515</td>
+      <td>0.570968</td>
+      <td>0.294196</td>
+      <td>0.032762</td>
+      <td>0.040890</td>
+      <td>1.647747</td>
+      <td>-0.806717</td>
+      <td>0.055274</td>
+    </tr>
+    <tr>
+      <th>680</th>
+      <td>0.030576</td>
+      <td>-0.110282</td>
+      <td>0.814194</td>
+      <td>0.017094</td>
+      <td>0.040937</td>
+      <td>0.098121</td>
+      <td>-0.411897</td>
+      <td>0.019021</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td>0.031451</td>
+      <td>-0.007801</td>
+      <td>-0.919598</td>
+      <td>0.017758</td>
+      <td>0.054014</td>
+      <td>0.896944</td>
+      <td>-0.938235</td>
+      <td>0.025266</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>This table represents an example of our LSTM model input (we’ll 
+actually have hundreds of similar tables). We’ve normalised some columns
+ so that their values are equal to 0 in the first time point, so we’re 
+aiming to predict changes in price relative to this timepoint. We’re now
+ ready to build the LSTM model. This is actually quite straightforward 
+with Keras, you simply stack componenets on top of each other (better 
+explained <a href="https://dashee87.github.io/data%20science/deep%20learning/python/another-keras-tutorial-for-neural-network-beginners/">here</a>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># import the relevant Keras modules</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dropout</span>
+
+<span class="k">def</span> <span class="nf">build_model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">activ_func</span> <span class="o">=</span> <span class="s">"linear"</span><span class="p">,</span>
+                <span class="n">dropout</span> <span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">"mae"</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s">"adam"</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">neurons</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">))</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">output_size</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="n">activ_func</span><span class="p">))</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</code></pre></div></div>
+
+<p>So, the <code class="highlighter-rouge">build_model</code> functions constructs an empty model unimaginatively called model (<code class="highlighter-rouge"><span class="k">model</span> <span class="p">=</span> <span class="n">Sequential</span></code>),
+ to which an LSTM layer is added. That layer has been shaped to fit our 
+inputs (n x m tables, where n and m represent the number of 
+timepoints/rows and columns, respectively). The function also includes 
+more generic neural network features, like <a href="https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/">dropout</a> and <a href="https://dashee87.github.io/data%20science/deep%20learning/visualising-activation-functions-in-neural-networks/">activation functions</a>.
+ Now, we just need to specify the number of neurons to place in the LSTM
+ layer (I’ve opted for 20 to keep runtime reasonable), as well as the 
+data on which the model will be trained.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># random seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">202</span><span class="p">)</span>
+<span class="c"># initialise model architecture</span>
+<span class="n">eth_model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">(</span><span class="n">LSTM_training_inputs</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">neurons</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c"># model output is next price normalised to 10th previous closing price</span>
+<span class="n">LSTM_training_outputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">training_set</span><span class="p">[</span><span class="s">'eth_Close'</span><span class="p">][</span><span class="n">window_len</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">training_set</span><span class="p">[</span><span class="s">'eth_Close'</span><span class="p">][:</span><span class="o">-</span><span class="n">window_len</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="c"># train model on data</span>
+<span class="c"># note: eth_history contains information on the training error per epoch</span>
+<span class="n">eth_history</span> <span class="o">=</span> <span class="n">eth_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">LSTM_training_inputs</span><span class="p">,</span> <span class="n">LSTM_training_outputs</span><span class="p">,</span> 
+                            <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c">#eth_preds = np.loadtxt('eth_preds.txt')</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Epoch 50/50
+6s - loss: 0.0625
+</code></pre></div></div>
+
+<p>We’ve just built an LSTM model to predict tomorrow’s Ethereum closing
+ price. Let’s see how well it performs. We start by examining its 
+performance on the training set (data before June 2017). That number 
+below the code represents the model’s mean absolute error (mae) on the 
+training set after the 50th training iteration (or epoch). Instead of 
+relative changes, we can view the model output as daily closing prices.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/ether_LSTM_training.png" alt=""></p>
+
+</div>
+
+<p>We shouldn’t be too surprised by its apparent accuracy here. The 
+model could access the source of its error and adjust itself 
+accordingly. In fact, it’s not hard to attain almost zero training 
+errors. We could just cram in hundreds of neurons and train for 
+thousands of epochs (a process known as overfitting, where you’re 
+essentially predicting noise- I included the <code class="highlighter-rouge">Dropout()</code> call in the <code class="highlighter-rouge">build_model</code>
+ function to mitigate this risk for our relatively small model). We 
+should be more interested in its performance on the test dataset, as 
+this represents completely new data for the model.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/ether_LSTM_test.png" alt=""></p>
+
+</div>
+
+<p>Caveats aside about the misleading nature of single point predictions, our LSTM model <em>seems</em>
+ to have performed well on the unseen test set. The most obvious flaw is
+ that it fails to detect the inevitable downturn when the eth price 
+suddenly shoots up (e.g mid-June and October). In fact, this is a 
+persistent failure; it’s just more apparent at these spikes. The 
+predicted price regularly seems equivalent to the actual price just 
+shifted one day later (e.g. the drop in mid-July). Furthermore, the 
+model seems to be systemically overestimating the future value of Ether 
+(join the club, right?), as the predicted line near always runs higher 
+than the actual line. I suspect this is because the training data 
+represents a period during which the price of Ether rose astronomically,
+ so it expects that trend to continue (don’t we all). We can also build a
+ similar LSTM model for Bitcoin- test set predictions are plotted below 
+(see <a href="https://github.com/dashee87/blogScripts/blob/master/Jupyter/2017-11-20-predicting-cryptocurrency-prices-with-deep-learning.ipynb">Jupyter notebook for full code</a>).</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_LSTM_test.png" alt=""></p>
+
+</div>
+
+<p>As I’ve stated earlier, single point predictions can be deceptive. 
+Looking more closely, you’ll notice that, again, the predicted values 
+regularly mirror the previous values (e.g. October). Our fancy deep 
+learning LSTM model has partially reproducted a <a href="https://dashee87.github.io/data%20science/general/A-Road-Incident-Model-Analysis/">autregressive (AR) model</a> of some order <code class="highlighter-rouge">p</code>, where future values are simply the weighted sum of the previous <code class="highlighter-rouge">p</code> values. We can define an AR model in these mathematical terms:</p>
+
+<span style="color: inherit;" class="MathJax_Preview"><span id="MJXp-Span-148" class="MJXp-math MJXp-display"><span id="MJXp-Span-149" class="MJXp-mtable"><span><span style="vertical-align: baseline;" id="MJXp-Span-150" class="MJXp-mtr"><span style="text-align: right;" id="MJXp-Span-151" class="MJXp-mtd"><span id="MJXp-Span-152" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-153" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-154" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-155" class="MJXp-mi MJXp-italic">d</span><span id="MJXp-Span-156" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-157" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-158" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-159" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-160" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-161" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-162" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-163" class="MJXp-mi MJXp-italic">t</span></span></span></span><span style="padding-left: 0em; text-align: left;" id="MJXp-Span-164" class="MJXp-mtd"><span id="MJXp-Span-165" class="MJXp-mi"></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-166" class="MJXp-mo">=</span><span id="MJXp-Span-167" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-168" class="MJXp-mi MJXp-italic">ϕ</span><span style="vertical-align: -0.4em;" id="MJXp-Span-169" class="MJXp-mn MJXp-script">0</span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-170" class="MJXp-mo">+</span><span id="MJXp-Span-171" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-172" class="MJXp-mi MJXp-italic">ϕ</span><span style="vertical-align: -0.4em;" id="MJXp-Span-173" class="MJXp-mn MJXp-script">1</span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-174" class="MJXp-mo">∗</span><span id="MJXp-Span-175" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-176" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-177" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-178" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-179" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-180" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-181" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-182" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-183" class="MJXp-mo">−</span><span id="MJXp-Span-184" class="MJXp-mn">1</span></span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-185" class="MJXp-mo">+</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-186" class="MJXp-mo">…</span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-187" class="MJXp-mo">+</span><span id="MJXp-Span-188" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-189" class="MJXp-mi MJXp-italic">ϕ</span><span style="vertical-align: -0.4em;" id="MJXp-Span-190" class="MJXp-mi MJXp-italic MJXp-script">p</span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-191" class="MJXp-mo">∗</span><span id="MJXp-Span-192" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-193" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-194" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-195" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-196" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-197" class="MJXp-mi MJXp-italic">e</span><span style="vertical-align: -0.4em;" id="MJXp-Span-198" class="MJXp-mrow MJXp-script"><span id="MJXp-Span-199" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-200" class="MJXp-mo">−</span><span id="MJXp-Span-201" class="MJXp-mi MJXp-italic">p</span></span></span><span style="margin-left: 0.267em; margin-right: 0.267em;" id="MJXp-Span-202" class="MJXp-mo">+</span><span id="MJXp-Span-203" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-204" class="MJXp-mi MJXp-italic">ϵ</span><span style="vertical-align: -0.4em;" id="MJXp-Span-205" class="MJXp-mi MJXp-italic MJXp-script">t</span></span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-206" class="MJXp-mo">,</span><span id="MJXp-Span-207" class="MJXp-mtext">&nbsp;</span><span id="MJXp-Span-208" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-209" class="MJXp-mi MJXp-italic">ϵ</span><span style="vertical-align: -0.4em;" id="MJXp-Span-210" class="MJXp-mi MJXp-italic MJXp-script">t</span></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-211" class="MJXp-mo">∼</span><span id="MJXp-Span-212" class="MJXp-mi MJXp-italic">N</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-213" class="MJXp-mo">(</span><span id="MJXp-Span-214" class="MJXp-mn">0</span><span style="margin-left: 0em; margin-right: 0.222em;" id="MJXp-Span-215" class="MJXp-mo">,</span><span id="MJXp-Span-216" class="MJXp-mi MJXp-italic">σ</span><span style="margin-left: 0em; margin-right: 0em;" id="MJXp-Span-217" class="MJXp-mo">)</span><span id="MJXp-Span-218" class="MJXp-mtext">&nbsp;</span></span></span></span></span></span></span><div class="MathJax_Display MathJax_Processing"><span tabindex="0" id="MathJax-Element-4-Frame" class="MathJax"></span></div><script id="MathJax-Element-4" type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+PredPrice_{t} & = \phi_0 + \phi_1*Price_{t-1} + \ldots + \phi_p*Price_{t-p} + \epsilon_t, \ \epsilon_t \sim N(0, \sigma)\
+\end{align} %]]></script>
+
+<p>The good news is that AR models are commonly employed in time series tasks (e.g. <a href="https://upcommons.upc.edu/bitstream/handle/2099/3572/04marcek.pdf">stock market prices</a>),
+ so the LSTM model appears to have landed on a sensible solution. The 
+bad news is that it’s a waste of the LSTM capabilities, we could have a 
+built a much simpler AR model in much less time and probably achieved 
+similar results (though the title of this post would have been much less
+ clickbaity). <a href="https://pdfs.semanticscholar.org/696c/2fa5697f58914921ff37d69ced44ddea143f.pdf">More complex does not automatically equal more accurate</a>.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/bitcoin_ether_LSTM_multi.png" alt=""></p>
+
+</div>
+
+<p>The predictions are visibly less impressive than their single point 
+counterparts. Nevertheless, I’m pleased that the model returned somewhat
+ nuanced behaviours (e.g. the second line on the eth graph); it didn’t 
+simply forecast prices to move uniformly in one direction. So there are 
+some grounds for optimism.</p>
+
+<p>Moving back to the single point predictions, our deep machine 
+artificial neural model looks okay, but so did that boring random walk 
+model. Like the random walk model, LSTM models can be sensitive to the 
+choice of random seed (the model weights are initially randomly 
+assigned). So, if we want to compare the two models, we’ll run each one 
+multiple (say, 25) times to get an estimate for the model error. The 
+error will be calculated as the absolute difference between the actual 
+and predicted closing prices changes in the test set.</p>
+
+<div style="text-align:center">
+
+  <p><img src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/LSTM_v_random_walk.png" alt=""></p>
+
+</div>
+
+<p>Maybe AI is worth the hype after all! Those graphs show the error on 
+the test set after 25 different initialisations of each model. The LSTM 
+model returns an average error of about 0.04 and 0.05 on the bitcoin and
+ eth prices, respectively, crushing the corresponding random walk 
+models.</p>
+
+<p>Aiming to beat random walks is a pretty low bar. It would be more 
+interesting to compare the LSTM model against more appropriate time 
+series models (weighted average, autoregression, <a href="https://dashee87.github.io/data%20science/general/A-Road-Incident-Model-Analysis/">ARIMA</a> or Facebook’s <a href="https://github.com/facebook/prophet">Prophet algorithm</a>).
+ On the other hand, I’m sure it wouldn’t be hard to improve our LSTM 
+model (gratuitously adding more layers and/or neurons, changing the 
+batch size, learning rate, etc.). That said, hopefully you’ve detected 
+my scepticism when it comes to applying deep learning to predict changes
+ in crypto prices. That’s because we’re overlooking the best framework 
+of all: human intelligence. Clearly, the perfect model* for predicting 
+cryptos is:</p>
+
+<span style="color: inherit;" class="MathJax_Preview"><span id="MJXp-Span-219" class="MJXp-math MJXp-display"><span id="MJXp-Span-220" class="MJXp-mtable"><span><span style="vertical-align: baseline;" id="MJXp-Span-221" class="MJXp-mtr"><span style="text-align: right;" id="MJXp-Span-222" class="MJXp-mtd"></span><span style="padding-left: 0em; text-align: left;" id="MJXp-Span-223" class="MJXp-mtd"><span id="MJXp-Span-224" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-225" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-226" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-227" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-228" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-229" class="MJXp-mi MJXp-italic">e</span><span style="height: 1.86em; vertical-align: -0.64em;" class="MJXp-script-box"><span class=" MJXp-script"><span><span style="margin-bottom: -0.25em;"><span id="MJXp-Span-232" class="MJXp-mrow"><span id="MJXp-Span-233" class="MJXp-mi MJXp-italic">C</span><span id="MJXp-Span-234" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-235" class="MJXp-mi MJXp-italic">y</span><span id="MJXp-Span-236" class="MJXp-mi MJXp-italic">p</span><span id="MJXp-Span-237" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-238" class="MJXp-mi MJXp-italic">o</span></span></span></span></span><span class=" MJXp-script"><span><span style="margin-top: -0.85em;"><span id="MJXp-Span-230" class="MJXp-mrow"><span id="MJXp-Span-231" class="MJXp-mi MJXp-italic">t</span></span></span></span></span></span></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-239" class="MJXp-mo">&gt;</span><span id="MJXp-Span-240" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-241" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-242" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-243" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-244" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-245" class="MJXp-mi MJXp-italic">e</span><span style="height: 1.86em; vertical-align: -0.64em;" class="MJXp-script-box"><span class=" MJXp-script"><span><span style="margin-bottom: -0.25em;"><span id="MJXp-Span-250" class="MJXp-mrow"><span id="MJXp-Span-251" class="MJXp-mi MJXp-italic">C</span><span id="MJXp-Span-252" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-253" class="MJXp-mi MJXp-italic">y</span><span id="MJXp-Span-254" class="MJXp-mi MJXp-italic">p</span><span id="MJXp-Span-255" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-256" class="MJXp-mi MJXp-italic">o</span></span></span></span></span><span class=" MJXp-script"><span><span style="margin-top: -0.85em;"><span id="MJXp-Span-246" class="MJXp-mrow"><span id="MJXp-Span-247" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-248" class="MJXp-mo">−</span><span id="MJXp-Span-249" class="MJXp-mn">1</span></span></span></span></span></span></span><span style="width: 0.167em; height: 0em;" id="MJXp-Span-257" class="MJXp-mspace"></span><span id="MJXp-Span-258" class="MJXp-mi">∀</span><span id="MJXp-Span-259" class="MJXp-mtext">&nbsp;</span><span id="MJXp-Span-260" class="MJXp-mi MJXp-italic">C</span><span id="MJXp-Span-261" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-262" class="MJXp-mi MJXp-italic">y</span><span id="MJXp-Span-263" class="MJXp-mi MJXp-italic">p</span><span id="MJXp-Span-264" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-265" class="MJXp-mi MJXp-italic">o</span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-266" class="MJXp-mo">≠</span><span id="MJXp-Span-267" class="MJXp-mi MJXp-italic">O</span><span id="MJXp-Span-268" class="MJXp-mi MJXp-italic">m</span><span id="MJXp-Span-269" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-270" class="MJXp-mi MJXp-italic">s</span><span id="MJXp-Span-271" class="MJXp-mi MJXp-italic">e</span><span id="MJXp-Span-272" class="MJXp-mi MJXp-italic">G</span><span id="MJXp-Span-273" class="MJXp-mi MJXp-italic">o</span><span id="MJXp-Span-274" class="MJXp-mrow"><span id="MJXp-Span-275" class="MJXp-mtext">,&nbsp;</span></span></span></span><span style="vertical-align: baseline;" id="MJXp-Span-276" class="MJXp-mtr"><span style="padding-top: 0.3em; text-align: right;" id="MJXp-Span-277" class="MJXp-mtd"></span><span style="padding-left: 0em; padding-top: 0.3em; text-align: left;" id="MJXp-Span-278" class="MJXp-mtd"><span id="MJXp-Span-279" class="MJXp-mrow"><span id="MJXp-Span-280" class="MJXp-mtext">&nbsp;where&nbsp;</span></span><span id="MJXp-Span-281" class="MJXp-mi MJXp-italic">P</span><span id="MJXp-Span-282" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-283" class="MJXp-mi MJXp-italic">i</span><span id="MJXp-Span-284" class="MJXp-mi MJXp-italic">c</span><span id="MJXp-Span-285" class="MJXp-msubsup"><span style="margin-right: 0.05em;" id="MJXp-Span-286" class="MJXp-mi MJXp-italic">e</span><span style="height: 1.86em; vertical-align: -0.64em;" class="MJXp-script-box"><span class=" MJXp-script"><span><span style="margin-bottom: -0.25em;"><span id="MJXp-Span-289" class="MJXp-mrow"><span id="MJXp-Span-290" class="MJXp-mi MJXp-italic">C</span><span id="MJXp-Span-291" class="MJXp-mi MJXp-italic">r</span><span id="MJXp-Span-292" class="MJXp-mi MJXp-italic">y</span><span id="MJXp-Span-293" class="MJXp-mi MJXp-italic">p</span><span id="MJXp-Span-294" class="MJXp-mi MJXp-italic">t</span><span id="MJXp-Span-295" class="MJXp-mi MJXp-italic">o</span></span></span></span></span><span class=" MJXp-script"><span><span style="margin-top: -0.85em;"><span id="MJXp-Span-287" class="MJXp-mrow"><span id="MJXp-Span-288" class="MJXp-mi MJXp-italic">t</span></span></span></span></span></span></span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-296" class="MJXp-mo">→</span><span id="MJXp-Span-297" class="MJXp-mi MJXp-italic">m</span><span id="MJXp-Span-298" class="MJXp-mi MJXp-italic">o</span><span id="MJXp-Span-299" class="MJXp-mi MJXp-italic">o</span><span id="MJXp-Span-300" class="MJXp-mi MJXp-italic">n</span><span id="MJXp-Span-301" class="MJXp-mrow"><span id="MJXp-Span-302" class="MJXp-mtext">, as&nbsp;</span></span><span id="MJXp-Span-303" class="MJXp-mi MJXp-italic">t</span><span style="margin-left: 0.333em; margin-right: 0.333em;" id="MJXp-Span-304" class="MJXp-mo">→</span><span id="MJXp-Span-305" class="MJXp-mi">∞</span></span></span></span></span></span></span><div class="MathJax_Display MathJax_Processing"><span tabindex="0" id="MathJax-Element-5-Frame" class="MathJax"></span></div><script id="MathJax-Element-5" type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+& Price^{Crypto}_{t} > Price^{Crypto}_{t-1} \,  \forall \ Crypto \neq OmiseGo \textrm{, }  \\
+& \textrm{  where } Price^{Crypto}_{t} \to moon \textrm{, as } t \to    \infty           
+\end{align} %]]></script>
+
+<p>* This blog does not constitute financial advice and should not be 
+taken as such. While cryptocurrency investments will definitely go up in
+ value forever, they may also go down.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>We’ve collected some crypto data and fed it into a supercool deeply 
+intelligent machine learning LSTM model. Unfortunately, its predictions 
+were not that different from just spitting out the previous value. How 
+can we make the model learn more sophisticated behaviours?</p>
+
+<ul>
+  <li>
+    <p><strong>Change Loss Function</strong>: MAE doesn’t really 
+encourage risk taking. For example, under mean squared error (MSE), the 
+LSTM model would be forced to place more importance on detecting 
+spikes/troughs. <a href="http://www.faculty.ucr.edu/%7Etaelee/paper/lossfunctions.pdf">More bespoke trading focused loss functions</a> could also move the model towards less conservative behaviours.</p>
+  </li>
+  <li>
+    <p><strong>Penalise conservative AR-type models</strong>: This would incentivise the deep learning algorithm to explore more risky/interesting models. Easier said than done!</p>
+  </li>
+  <li>
+    <p><strong>Get more and/or better data</strong>: If past prices 
+alone are sufficient to decently forecast future prices, we need to 
+include other features that provide comparable predictive power. That 
+way, the LSTM model wouldn’t be so reliant on past prices, potentially 
+unlocking more complex behaviours. This is probably the best and hardest
+ solution.</p>
+  </li>
+</ul>
+
+<p>If that’s the positive spin, then the negative reality is that it’s 
+entirely possible that there is no detectable pattern to changes in 
+crypto prices; that no model (however deep) can separate the signal from
+ the noise (similar to the merits of using <a href="https://www.scientificamerican.com/article/can-artificial-intelligence-predict-earthquakes/">deep learning to predict earthquakes</a>). And any pattern that does appear <a href="http://site.iugaza.edu.ps/wdaya/files/2013/03/A-Random-Walk-Down-Wall-Street.pdf">can disappear as quickly</a> (see <a href="https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/results_merge.click2">efficient market hypothesis</a>).
+ Just think how different Bitcoin in 2016 is to craze-riding Bitcoin of 
+late 2017. Any model built on 2016 data would surely struggle to 
+replicate these unprecedented movements. All of this suggests you might 
+as well save yourself some time and stick to autoregression (unless 
+you’re writing a blog, of course).</p>
+
+<p>But I’m sure they’ll eventually find some use cases for deep 
+learning. In the meantime, you can build your own LSTM model by 
+downloading the Python code <a href="https://github.com/dashee87/blogScripts/blob/master/Jupyter/2017-11-20-predicting-cryptocurrency-prices-with-deep-learning.ipynb">here</a>. Thanks for reading!</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://dashee87.github.io/tags/#cryptos" class="page__taxonomy-item" rel="tag">cryptos</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://dashee87.github.io/tags/#deep-learning" class="page__taxonomy-item" rel="tag">deep learning</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://dashee87.github.io/tags/#keras" class="page__taxonomy-item" rel="tag">keras</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://dashee87.github.io/tags/#lstm" class="page__taxonomy-item" rel="tag">lstm</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://dashee87.github.io/tags/#machine-learning" class="page__taxonomy-item" rel="tag">machine learning</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://dashee87.github.io/categories/#deep-learning" class="page__taxonomy-item" rel="tag">deep learning</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://dashee87.github.io/categories/#python" class="page__taxonomy-item" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-11-20T00:00:00+00:00">November 20, 2017</time></p>
+        
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dashee87.github.io/deep%20learning/python/predicting-cryptocurrency-prices-with-deep-learning/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="https://dashee87.github.io/data%20science/deep%20learning/visualising-activation-functions-in-neural-networks/" class="pagination--pager" title="Visualising Activation Functions in Neural Networks
+">Previous</a>
+    
+    
+      <a href="https://dashee87.github.io/data%20science/python/charting-the-rise-of-song-collaborations-with-scrapy-and-pandas/" class="pagination--pager" title="Charting the Rise of Song Collaborations with Scrapy and Pandas
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      
+
+<div class="page__comments">
+  
+  
+    <h4 class="page__comments-title">Leave a Comment</h4>
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://dashee87.github.io/data%20science/python/analysing-the-factors-that-influence-cryptocurrency-prices-with-cryptory/" rel="permalink">Analysing the Factors that Influence Cryptocurrency Prices with Cryptory
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  15 minute read
+	
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Announcing my new Python package with a look at the forces involved in cryptocurrency prices
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://dashee87.github.io/data%20science/python/home-advantage-in-football-leagues-around-the-world/" rel="permalink">Home Advantage in Football Leagues Around the World
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  10 minute read
+	
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This post 
+investigates the universally known but poorly understood home advantage 
+and how it varies in football leagues around the world
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://dashee87.github.io/data%20science/r/charting-the-rise-of-song-collaborations/" rel="permalink">Charting the Rise of Song Collaborations
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  9 minute read
+	
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Taking a break from deep learning, this post explores the recent surge in song collaborations in the pop charts
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://dashee87.github.io/data%20science/python/charting-the-rise-of-song-collaborations-with-scrapy-and-pandas/" rel="permalink">Charting the Rise of Song Collaborations with Scrapy and Pandas
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  9 minute read
+	
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Taking a break from deep learning, this post explores the recent surge in song collaborations in the pop charts
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/dashee87"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="https://dashee87.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2018 David Sheehan. Powered by <a href="http://jekyllrb.com/" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="Predicting%20Cryptocurrency%20Prices%20With%20Deep%20Learning%20-%20dashee87.github.io_files/main.js"></script>
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'dashee87';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+  
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Size4,sans-serif;" id="MathJax_Font_Test"></div></div></body></html>
